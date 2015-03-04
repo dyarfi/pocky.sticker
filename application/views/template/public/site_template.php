@@ -24,7 +24,16 @@
 </script>
 </head>
 <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
-	
+<div id="fb-root"></div>
+<script src="https://connect.facebook.net/en_US/all.js"></script>
+<script>
+	FB.init({
+	appId : '1539327999688781',
+	status : false, // check login status
+	cookie : true, // enable cookies to allow the server to access the session
+	xfbml : true // parse XFBML
+	});
+</script>	
     <div id="wrapper">
 
 	<?php $this->load->view('template/public/header'); ?>

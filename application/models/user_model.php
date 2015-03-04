@@ -19,7 +19,7 @@ class User_model extends CI_Model {
     public function auth($username, $password) {
         $this->db->where('username', $username);
         $this->db->where('password', $password);
-        return $this->db->get('user')->row();
+        return $this->db->get('users')->row();
     }
 
     public function reg_participant($part) {

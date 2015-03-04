@@ -49,8 +49,11 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
+//$db['default']['username'] = 'root';
 $db['default']['username'] = 'root';
+//$db['default']['password'] = '';
 $db['default']['password'] = '';
+//$db['default']['database'] = 'dentsu_digital';
 $db['default']['database'] = 'dentsu_digital';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = 'tbl_';

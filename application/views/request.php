@@ -3,7 +3,7 @@
 <script>
     window.fbAsyncInit = function() {
         FB.init({
-            appId: '<?php echo $this->config->item('appId') ?>', // App ID from the app dashboard
+            appId: '1539327999688781<?php //echo $this->config->item('appId') ?>', // App ID from the app dashboard
             status: true, // Check Facebook Login status
             cookie: false                                  // Look for social plugins on the page
         });

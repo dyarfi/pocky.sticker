@@ -20,8 +20,8 @@ class Home extends CI_Controller {
         
         $facebook = new Facebook();        
 		$fb_id = $facebook->getUser();
-
-        if ($fb_id) {            
+		
+		if ($fb_id) {            
             $user_fb = $facebook->api('/me?fields=name,picture,email');
 
             // Check database insert if empty
