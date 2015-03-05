@@ -25,7 +25,7 @@ class Gallery_model extends CI_Model {
 
         $this->db->limit($limit, $start);
         
-		$Q = $this->db->get('user_images');
+		$Q = $this->db->get('participant_images');
         
         if ($Q->num_rows() > 0){
 			$data = $Q->result_object();
@@ -53,7 +53,7 @@ class Gallery_model extends CI_Model {
 
         $this->db->limit($limit, $start);        
 
-		$Q = $this->db->get('user_images');
+		$Q = $this->db->get('participant_images');
 		if ($Q->num_rows() > 0){
 			$data = $Q->result_object();
 		}
@@ -68,14 +68,14 @@ class Gallery_model extends CI_Model {
             $this->db->like('name', $search);            
         }
         $this->db->where('status', 1);
-        $this->db->from('user_images');
+        $this->db->from('participant_images');
         return $this->db->count_all_results();
     }
 
     public function get_count_user_images ($part_id=0) {
         $this->db->where('part_id',$part_id);
         $this->db->where('status', 1);
-        $this->db->from('user_images');
+        $this->db->from('participant_images');
         return $this->db->count_all_results();
     }
 	
@@ -83,7 +83,7 @@ class Gallery_model extends CI_Model {
         $data = array();
         $this->db->where('id',$image_id);
         //$this->db->where('part_id',$part_id);        
-        $Q = $this->db->get('user_images');
+        $Q = $this->db->get('participant_images');
         if ($Q->num_rows() > 0){
             foreach ($Q->result_object() as $row)
             $data = $row;
@@ -93,7 +93,7 @@ class Gallery_model extends CI_Model {
     }
 
     public function insert_image($image) {
-        $this->db->insert('user_images', $image);
+        $this->db->insert('participant_images', $image);
         return $this->db->insert_id();
     }
 
@@ -117,7 +117,7 @@ class Gallery_model extends CI_Model {
         $score['count']     = $this->check_score($image_id);
         $score['modified']  = time();
         $this->db->where('id', $image_id);
-        return $this->db->update('user_images', $score);            
+        return $this->db->update('participant_images', $score);            
     }
 
     public function check_score($image_id) {
@@ -152,7 +152,7 @@ class Gallery_model extends CI_Model {
     public function total_image_submitted($part_id) {
         $this->db->where('part_id', $part_id);
         $this->db->select('count(1) as total');
-        return $this->db->get('user_images')->row()->total;
+        return $this->db->get('participant_images')->row()->total;
     }   
 
 }

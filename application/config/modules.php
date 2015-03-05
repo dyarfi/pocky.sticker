@@ -186,10 +186,11 @@ $config['modulelist'] = array(
 	)*/
     // Participant Module
     'Participant' => array(// Career Models list
-		'models'		=> array('participant/Participants'),
+		'models'		=> array('participant/Participants','participant/Gallery'),
 		// Participant module menus
 		'module_menu'		=> array(
-						'participant/index'	=> 'Careers'
+						'participant/index' => 'Participant',
+						'gallery/index'	    => 'Gallery'
 						),
 		// Participant module functions
 		'module_function'	=> array(
@@ -200,7 +201,16 @@ $config['modulelist'] = array(
 						'participant/index/delete'  => 'Delete Participant',
 						'participant/index/change'  => 'Change Participant Status',
 						'participant/index/export'  => 'Export Participant',
-						'participant/index/print'   => 'Print Participant')
+						'participant/index/print'   => 'Print Participant',
+						// Gallery functions
+						'gallery/index/add'	=> 'Add Gallery',
+						'gallery/index/view'    => 'View Gallery',
+						'gallery/index/edit'    => 'Edit Gallery',
+						'gallery/index/delete'  => 'Delete Gallery',
+						'gallery/index/change'  => 'Change Gallery Status',
+						'gallery/index/export'  => 'Export Gallery',
+						'gallery/index/print'   => 'Print Gallery',
+					    )
 	),
     // Gallery Module
     'Gallery' => array(),

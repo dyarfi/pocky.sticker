@@ -65,15 +65,13 @@ $route[$admin.'/setting/(:any)']	= 'admin/setting/$1';
 $route[$admin.'/serverlog/(:any)']	= 'admin/serverlog/$1';
 /***** Administrator module menu mandatory [end] *****/
 
-$route[$admin.'/partipant/(:any)']	= 'partipant/$1';
-$route[$admin.'/gallery/(:any)']	= 'gallery/$1';
-//$route[$admin.'/applicant/(:any)']	= 'partipant/applicant/$1';
-//$route[$admin.'/employee/(:any)']	= 'partipant/employee/$1';
+// Participant and Gallery
+$route[$admin.'/participant/(:any)']	= 'participant/$1';
+$route[$admin.'/gallery/(:any)']	= 'participant/gallery/$1';
 
+// Page and Page Menu
 $route[$admin.'/page/(:any)']		= 'page/$1';
 $route[$admin.'/pagemenu/(:any)']	= 'page/pagemenu/$1';
-
-//$route[$admin.'/(:any)'] = '$1';
 
 /*** Admin Related Routes - end - **/
 

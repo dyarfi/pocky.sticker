@@ -1,7 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Participant extends Admin_Controller {
-    
+class Gallery extends Admin_Controller {
+
     public function __construct() {
             parent::__construct();
 
@@ -21,9 +21,9 @@ class Participant extends Admin_Controller {
 	    // Set our Grocery CRUD
             $crud = new grocery_CRUD();
             // Set tables
-            $crud->set_table('tbl_participants');
+            $crud->set_table('tbl_participant_images');
             // Set CRUD subject
-            $crud->set_subject('Participant');                            
+            $crud->set_subject('Gallery');                            
             // Set table relation
             //$crud->set_relation('menu_id','tbl_page_menus','name');
             // Set column
@@ -48,10 +48,10 @@ class Participant extends Admin_Controller {
 	    //$crud->required_fields('subject','name','text','status'); 
             // Set upload field
             // $crud->set_field_upload('file_name','uploads/pages');
-	    $crud->unset_add();
+            $crud->unset_add();
 	    $crud->unset_edit();
 	    $crud->unset_delete();
-            $this->load($crud, 'participant');
+	    $this->load($crud, 'gallery');
         } catch (Exception $e) {
             show_error($e->getMessage() . ' --- ' . $e->getTraceAsString());
         }
@@ -72,16 +72,16 @@ class Participant extends Admin_Controller {
     }
     
     public function _callback_total_image($value, $row) {
-        $total = $this->user_model->total_image_submitted($row->participant_id);
-        return $total;
+        //$total = $this->user_model->total_image_submitted($row->participant_id);
+        //return $total;
     }
     
     private function load($crud, $nav) {
         $output = $crud->render();
         $output->nav = $nav;
         if ($crud->getState() == 'list') {
-            // Set Participant Title 
-            $output->page_title = 'Participant Listings';
+            // Set Gallery Title 
+            $output->page_title = 'Gallery Listings';
             // Set Main Template
             $output->main       = 'template/admin/metronix';
             // Set Primary Template

@@ -1,10 +1,10 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-// Model Class Object for Participants
-class Participants Extends CI_Model {
+// Model Class Object for Gallery
+class Gallery Extends CI_Model {
     
 	// Table name for this model
-	public $table = 'participants';
+	public $table = 'participant_images';
 	
 	public function __construct(){
 	    // Call the Model constructor
@@ -28,21 +28,20 @@ class Participants Extends CI_Model {
 			    . '`id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY, '
 			    . '`part_id` INT(11) UNSIGNED NULL, '
 			    . '`name` VARCHAR(255) NULL, '
-			    . '`address` VARCHAR(512) NULL, '
-			    . '`email` VARCHAR(255) NULL, '
-			    . '`phone_number` VARCHAR(255) NULL, '
-			    . '`twitter` VARCHAR(255) NULL, '
-			    . '`fb_id` VARCHAR(255) NULL, '
-			    . '`fb_pic_url` VARCHAR(255) NULL, '
-			    . '`join_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, '
-			    . 'INDEX (`part_id`, `name`) '
+			    . '`title` VARCHAR(255) NULL, '
+			    . '`file_name` TEXT NULL, '
+			    . '`count` INT(11) NULL , '	
+			    . '`status` ENUM( \'publish\', \'unpublish\', \'deleted\' ) NULL DEFAULT \'publish\', '
+			    . '`added` INT(11) NULL, '
+			    . '`modified` INT(11) NULL, '
+			    . 'INDEX (`part_id`, `name`, `status`) '
 			    . ') ENGINE=MYISAM';
 
 	    $this->db->query($sql);
-		
+
 	    if(!$this->db->query('SELECT * FROM `'.$this->table.'` LIMIT 0 , 1;'))
 		    $insert_data	= TRUE;
-		
+
 	    if ($insert_data) {
 		$sql	= '';
 		$this->db->query($sql);
@@ -61,7 +60,7 @@ class Participants Extends CI_Model {
 	    return $data;
 	}
 	
-	public function getParticipant($id = null){
+	public function getImage($id = null){
 	    if(!empty($id)){
 		$data = array();
 		$options = array('id' => $id);
@@ -75,36 +74,34 @@ class Participants Extends CI_Model {
 	    }
 	}	
 	
-	public function getAllParticipant($admin=null){
+	public function getAllImage($admin=null){
 	    $data = array();
 	    $this->db->order_by('added');
 	    $Q = $this->db->get($this->table);
-		    if ($Q->num_rows() > 0){
-			    //foreach ($Q->result_object() as $row){
-				    //$data[] = $row;
-			    //}
-			    $data = $Q->result_object();
-		    }
+	    if ($Q->num_rows() > 0){
+		//foreach ($Q->result_object() as $row){
+			//$data[] = $row;
+		//}
+		$data = $Q->result_object();
+	    }
 	    $Q->free_result();
 	    return $data;
 	}	
 	
-	public function setParticipant($object=null){
-		
-	    // Set Participant data
-	    $data = array(			
-		    'part_id'	=> $object['part_id'],
-		    'name'		=> $object['name'],
-		    'address'	=> $object['address'],
-		    'email'		=> $object['email'],
-		    'phone_number'	=> $object['phone_number'],
-		    'twitter'	=> $object['twitter'],
-		    'fb_id'		=> $object['fb_id'],
-		    'fb_pic_url'	=> $object['fb_pic_url'],
-		    'join_date'	=> $object['join_date']
+	public function setImage($object=null){
+
+	    // Set Image data
+	    $data = array(	
+		    'part_id'   => $object['part_id'],
+		    'name'	=> $object['name'],
+		    'title'	=> $object['title'],
+		    'count'	=> $object['count'],
+		    'status'    => $object['status'],
+		    'added'	=> time(),	
+		    'modified'  => $object['status']
 	    );
 
-	    // Insert Participant data
+	    // Insert Image data
 	    $this->db->insert($this->table, $data);
 
 	    // Return last insert id primary
@@ -115,13 +112,13 @@ class Participants Extends CI_Model {
 		
 	}	
 	
-	// Delete page
-	public function deleteParticipant($id) {
+	// Delete Participant
+	public function deleteImage($id) {
 		
-	    // Check page id
+	    // Check Participant id
 	    $this->db->where('id', $id);
 
-	    // Delete page form database
+	    // Delete Participant form database
 	    return $this->db->delete($this->table);		
 	}	
 }
