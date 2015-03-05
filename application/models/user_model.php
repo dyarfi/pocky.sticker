@@ -23,7 +23,7 @@ class User_model extends CI_Model {
     }
 
     public function reg_participant($part) {
-        $this->db->insert('participant', $part);
+        $this->db->insert('participants', $part);
         return $this->db->insert_id();
     }
 
@@ -81,14 +81,14 @@ class User_model extends CI_Model {
     function get_participant($user_id) {
         $this->db->select('*');
         $this->db->where('part_id', $user_id);
-        return $this->db->get('participant')->row();
+        return $this->db->get('participants')->row();
     }
 	
 	public function get_user ($id = null) {
 		if(!empty($id)){
 			$data = array();
 			$options = array('part_id' => $id);
-			$Q = $this->db->get_where('participant',$options,1);
+			$Q = $this->db->get_where('participants',$options,1);
 			if ($Q->num_rows() > 0){
 				foreach ($Q->result_object() as $row)
 				$data = $row;
@@ -100,12 +100,12 @@ class User_model extends CI_Model {
 
     public function check_fb_user($fb_id) {
         $this->db->where('fb_id', $fb_id);
-        return $this->db->get('participant')->row();
+        return $this->db->get('participants')->row();
     }
 
     public function check_fb_user_data($fb_id) {
         $this->db->where('fb_id', $fb_id);
-        $Q = $this->db->get('participant');
+        $Q = $this->db->get('participants');
         if ($Q->num_rows() > 0){
             foreach ($Q->result_object() as $row)
             $data = $row;

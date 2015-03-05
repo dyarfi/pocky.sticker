@@ -135,6 +135,7 @@ $config['modulelist'] = array(
 						'pagemenu/index/print'	=> 'Print Page Menu',
 					    ),
 	),
+	/*
 	// Career module
 	'Career' => array (
 		// Career Models list
@@ -182,7 +183,27 @@ $config['modulelist'] = array(
 						'employee/index/export' => 'Export Employee',
 						'employee/index/print'	=> 'Print Employee'
 						),
-	)
+	)*/
+    // Participant Module
+    'Participant' => array(// Career Models list
+		'models'		=> array('participant/Participants'),
+		// Participant module menus
+		'module_menu'		=> array(
+						'participant/index'	=> 'Careers'
+						),
+		// Participant module functions
+		'module_function'	=> array(
+						// Participant functions
+						'participant/index/add'	    => 'Add Participant',
+						'participant/index/view'    => 'View Participant',
+						'participant/index/edit'    => 'Edit Participant',
+						'participant/index/delete'  => 'Delete Participant',
+						'participant/index/change'  => 'Change Participant Status',
+						'participant/index/export'  => 'Export Participant',
+						'participant/index/print'   => 'Print Participant')
+	),
+    // Gallery Module
+    'Gallery' => array(),
 );
 
 

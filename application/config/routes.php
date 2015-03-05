@@ -66,7 +66,7 @@ $route[$admin.'/serverlog/(:any)']	= 'admin/serverlog/$1';
 /***** Administrator module menu mandatory [end] *****/
 
 $route[$admin.'/partipant/(:any)']	= 'partipant/$1';
-//$route[$admin.'/division/(:any)']	= 'partipant/division/$1';
+$route[$admin.'/gallery/(:any)']	= 'gallery/$1';
 //$route[$admin.'/applicant/(:any)']	= 'partipant/applicant/$1';
 //$route[$admin.'/employee/(:any)']	= 'partipant/employee/$1';
 
