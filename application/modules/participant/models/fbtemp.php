@@ -33,7 +33,7 @@ class Fbtemp Extends CI_Model {
 			    . '`fb_pic` VARCHAR(512) NULL, '
 			    . '`added` INT(11) NULL, '
 			    . '`modified` INT(11) NULL, '
-			    . 'INDEX (`user_id`, `fb_id`, `fb_pic`) '
+			    . 'INDEX (`fb_id`) '
 			    . ') ENGINE=MYISAM';
 
 	    $this->db->query($sql);
