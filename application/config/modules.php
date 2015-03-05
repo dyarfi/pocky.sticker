@@ -186,7 +186,7 @@ $config['modulelist'] = array(
 	)*/
     // Participant Module
     'Participant' => array(// Career Models list
-		'models'		=> array('participant/Participants','participant/Gallery'),
+		'models'		=> array('participant/Participants','participant/Gallery','participant/Fbtemp'),
 		// Participant module menus
 		'module_menu'		=> array(
 						'participant/index' => 'Participant',
