@@ -27,7 +27,7 @@ class Fbtemp Extends CI_Model {
 	    $sql	= 'CREATE TABLE IF NOT EXISTS `'.$this->table.'` ('
 			    . '`id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY, '
 			    . '`user_id` INT(11) UNSIGNED NULL, '
-			    . '`fb_id` INT(11) UNSIGNED NULL, '
+			    . '`fb_id` VARCHAR(255) NULL, '
 			    . '`fb_name` VARCHAR(255) NULL, '
 			    . '`fb_email` VARCHAR(255) NULL, '
 			    . '`fb_pic` VARCHAR(512) NULL, '

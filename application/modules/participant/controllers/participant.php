@@ -44,6 +44,7 @@ class Participant extends Admin_Controller {
 	    // This callback escapes the default auto column output of the field name at the add form
 	    $crud->callback_column('added',array($this,'_callback_time'));
 	    $crud->callback_column('modified',array($this,'_callback_time'));  
+	    $crud->callback_column('fb_pic_url',array($this,'callback_pic'));
 	    // Sets the required fields of add and edit fields
 	    //$crud->required_fields('subject','name','text','status'); 
             // Set upload field
@@ -74,6 +75,13 @@ class Participant extends Admin_Controller {
     public function _callback_total_image($value, $row) {
         $total = $this->user_model->total_image_submitted($row->participant_id);
         return $total;
+    }
+    
+    public function callback_pic($value = '', $primary_key = null){
+	//print_r($primary_key->fb_id);
+	//exit;
+        return '<a href="'.$value.'" class="image-thumbnail"><img src="'.$value.'"></a>';
+	//. '<img src="//graph.facebook.com/'.$primary_key->fb_id.'/picture?type=normal"></a>';
     }
     
     private function load($crud, $nav) {
