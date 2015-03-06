@@ -166,6 +166,42 @@ class Users Extends CI_Model {
 	    }
 	}
 	
+	// Get all users Login stats by login date
+	public function getLoginStats($start_date, $end_date) {
+	    
+	   /*
+	    * 
+	    * SELECT SUM( id ) total_visits, FROM_UNIXTIME( last_login ) last_login
+FROM tbl_users
+WHERE FROM_UNIXTIME( last_login ) >= '2013-03-06 15:37:18'
+AND FROM_UNIXTIME( last_login ) <= '2015-03-06 15:37:18'
+GROUP BY FROM_UNIXTIME( last_login )
+ORDER BY FROM_UNIXTIME( last_login ) DESC
+LIMIT 0 , 30
+	    */
+	    
+	    $sql = 'SELECT SUM(id) total_visits, FROM_UNIXTIME(last_login) last_login
+FROM ' . $this->table . '
+WHERE FROM_UNIXTIME(last_login) >= \''.date('Y-m-d h:i:s',strtotime("-3 year", time())).'\'
+AND FROM_UNIXTIME(last_login) <= \''.date('Y-m-d h:i:s').'\'
+GROUP BY FROM_UNIXTIME(last_login) ORDER BY FROM_UNIXTIME(last_login) DESC';
+	    
+	    $query = $this->db->query($sql);
+	    print_r(date('Y-m-d h:i:s'));
+	    print_r($this->db->last_query());
+	    print_r($query->result_object());
+	    //$result = '';
+	  
+	    /*
+	    $data = array();
+	    foreach ($this->getAllUser() as $last_login) {
+		$data[] = date('Y-m-d',$last_login->last_login);
+	    }
+	    print_r($data);
+	     * 
+	     */
+	}
+	
 	public function login($object=null){		
 	    if(!empty($object)){
 		$data = array();
