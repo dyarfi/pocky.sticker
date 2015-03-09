@@ -13,11 +13,42 @@ class Dashboard extends Admin_Controller {
 
 	}
 	public function index() {
+            
+            //print_r($this->Users->getLoginStats());
+            //exit;
+            
+            // Check if the request via AJAX
+            if ($this->input->is_ajax_request()) {
+                $this->stat_login();
+                return false;
+            }
+            
 	    $data['title']	= "Dashboard Home";
 	    $data['main']	= 'admin/dashboard';
 	    $data['tusers']	= $this->Users->getCount(1);
+	    
+	    // Set class name to view
+	    $data['class_name'] = $this->_class_name;
+	    
+	    // Set module with URL request 
+            $data['module_title'] = $this->module;
 
-	    /*
+            // Set admin title page with module menu
+            $data['page_title'] = $this->module_menu;
+
+	    //$this->load->view('template/dashboard');
+	    $this->load->view('template/admin/admin_template', $this->load->vars($data));
+		
+	}
+        
+        public function stat_login() {
+            
+            // Check if the request via AJAX
+            if (!$this->input->is_ajax_request()) {
+                exit('No direct script access allowed');		
+            }
+            
+            /*
 	    var visitors = [
                 ['01/2013', 500],
                 ['02/2013', 1500],
@@ -34,20 +65,22 @@ class Dashboard extends Admin_Controller {
 	     */
 	    
 	    
-	    $stats = $this->Users->getLoginStats('','');
-	    
-	    
-	    // Set class name to view
-	    $data['class_name'] = $this->_class_name;
-	    
-	    // Set module with URL request 
-            $data['module_title'] = $this->module;
+	    $stats = $this->Users->getLoginStats();
+            if(!empty($stats)) {
+                    
+                $temp = array();
+                foreach ($stats as $val) {
+                    $temp[] = array($val->last_login,$val->total_login);
+                }
+                $result['result'] = $temp;
 
-            // Set admin title page with module menu
-            $data['page_title'] = $this->module_menu;
+            }
 
-	    //$this->load->view('template/dashboard');
-	    $this->load->view('template/admin/admin_template', $this->load->vars($data));
-		
-	}
+            // Return data esult
+            $data['json'] = $result;
+
+            // Load data into view		
+            $this->load->view('json', $this->load->vars($data));
+	    
+        }
 }
