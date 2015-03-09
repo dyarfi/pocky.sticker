@@ -37,56 +37,38 @@
 		<!-- BEGIN DASHBOARD STATS -->
 		<div class="row">
 		    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-			    <div class="dashboard-stat blue">
-				<div class="visual">
-				    <i class="fa fa-comments"></i>
-				</div>
-				<div class="details">
-				    <div class="number">
-					     <!--?=$this->vote_model->count_allvote()?-->
-				    </div>
-				    <div class="desc">
-					     Total Vote
-				    </div>
-				</div>
-				<a class="more" href="<?=base_url()?>__admin_vote/all">
-					 View more <i class="m-icon-swapright m-icon-white"></i>
-				</a>
-			    </div>
-		    </div>
-		    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			<div class="dashboard-stat green">
-			    <div class="visual">
-				    <i class="fa fa-group"></i>
-			    </div>
+			    <div class="visual"><i class="fa fa-group"></i></div>
 			    <div class="details">
-				<div class="number">
-					 <?=$tusers;?>
-				</div>
-				<div class="desc">
-					 Total User
-				</div>
+				<div class="number"><?=$tusers;?></div>
+				<div class="desc">Total User</div>
 			    </div>
 			    <a class="more" href="<?=base_url(ADMIN.'user/index');?>">
-				     View more <i class="m-icon-swapright m-icon-white"></i>
+				View more <i class="m-icon-swapright m-icon-white"></i>
 			    </a>
 			</div>
 		    </div>
 		    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			<div class="dashboard-stat yellow">
-			    <div class="visual">
-				    <i class="fa fa-lock"></i>
-			    </div>
+			    <div class="visual"><i class="fa fa-user"></i></div>
 			    <div class="details">
-				<div class="number">
-				    <?=$tusers;?>
-				</div>
-				<div class="desc">
-				    User Login
-				</div>
+				<div class="number"><?=$tparticipant;?></div>
+				<div class="desc">Total Participant</div>
 			    </div>
-			    <a class="more" href="<?=base_url(ADMIN.'user/index');?>">
-				     View more <i class="m-icon-swapright m-icon-white"></i>
+			    <a class="more" href="<?=base_url(ADMIN.'participant/index');?>">
+				View more <i class="m-icon-swapright m-icon-white"></i>
+			    </a>
+			</div>
+		    </div>
+		    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+			<div class="dashboard-stat blue">
+			    <div class="visual"><i class="fa fa-camera"></i></div>
+			    <div class="details">
+				<div class="number"><?=$timages;?></div>
+				<div class="desc">Total Image</div>
+			    </div>
+			    <a class="more" href="<?=base_url(ADMIN.'gallery/index');?>">
+				View more <i class="m-icon-swapright m-icon-white"></i>
 			    </a>
 			</div>
 		    </div>
@@ -109,16 +91,15 @@
 			    <div class="portlet-body">
 				<div id="login_statistics_loading">
 					<img src="<?php echo base_url();?>assets/admin/img/loading.gif" alt="loading"/>
-				    </div>
-				    <div id="login_statistics_content" class="display-none">
-					<div id="login_statistics" class="chart">
-					</div>
-				    </div>
+				</div>
+				<div id="login_statistics_content" class="display-none">
+				    <div id="login_statistics" class="chart"></div>
 				</div>
 			    </div>
+			</div>
 		      </div>	
 		
-		    <div class="col-md-12 col-sm-12">
+		    <div class="col-md-12 col-sm-12 hidden">
 			<div class="portlet box blue">
 			    <div class="portlet-title">
 				<div class="caption">
@@ -139,7 +120,6 @@
 						    <div class="cont-col2">
 							<div class="desc">
 							    You have 4 pending tasks.
-
 							</div>
 						    </div>
 						</div>

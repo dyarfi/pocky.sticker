@@ -53,7 +53,10 @@ class Gallery Extends CI_Model {
 	
 	public function getCount($status = null){
 	    $data = array();
-	    $options = array('status' => $status);
+	    $options = array(); 
+	    if ($status) {
+		$options = array('status' => $status);
+	    }
 	    $this->db->where($options,1);
 	    $this->db->from($this->table);
 	    $data = $this->db->count_all_results();
