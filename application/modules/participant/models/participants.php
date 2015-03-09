@@ -34,6 +34,7 @@ class Participants Extends CI_Model {
 			. '`twitter` VARCHAR(255) NULL, '
 			. '`fb_id` VARCHAR(255) NULL, '
 			. '`fb_pic_url` VARCHAR(512) NULL, '
+			. '`file_name` VARCHAR(512) NULL, '
 			. '`join_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, '
 			. 'INDEX (`part_id`, `name`) '
 			. ') ENGINE=MYISAM';

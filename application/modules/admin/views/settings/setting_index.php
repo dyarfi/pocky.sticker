@@ -171,6 +171,33 @@
 		    </div>
 		</div>
 	    </div>
+		
+	    <div class="row">
+		<div class="col-md-12">
+		    <h3>Maintenance Mode</h3>
+		    <?php echo form_open($action, array('class'=>'form-inline','id'=>'maintenance-form'), $hidden);?>
+			<div class="form-group">
+			    <div class="radio-list">
+				<div class="radio-inline">
+				    <label class="col-md-12" for="">Yes
+					<div class="checkboxes">
+					    <span><?php echo form_checkbox('maintenance', $value, $checked, $extra);?></span>
+					</div>
+				    </label>
+				</div>
+				<div class="radio-inline">
+				    <label class="col-md-12" for="">No
+					<div class="checkboxes">
+					    <span><?php echo form_checkbox('maintenance', $value, $checked, $extra);?></span>
+					</div>
+				    </label>
+				</div>
+			    </div>
+			</div>
+		    <?php echo form_close();?>
+		</div>
+	    </div>
+		
 	    <!-- END PAGE CONTENT-->
 	</div>
 </div>
