@@ -15,8 +15,6 @@ class Admin_Controller extends CI_Controller {
 		
 	public function __construct() {
 		parent::__construct();	
-		// Load Administrator Helper
-		$this->load->helper('Acl');
 		
 		// Load Session library
 		$this->load->library('session');
@@ -29,7 +27,7 @@ class Admin_Controller extends CI_Controller {
 		
 		// Set user data lists from login session		
 		$this->user			= Acl::user();
-		
+
 		// Load user module and function lists
 		$this->module_list		= json_decode($this->session->userdata('module_list'),TRUE);
 		$this->module_function_list	= json_decode($this->session->userdata('module_function_list'),TRUE);		
