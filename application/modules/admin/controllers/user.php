@@ -8,8 +8,8 @@ class User extends Admin_Controller {
     public function __construct() {
             parent::__construct();
 
-	    // Set class name
-	    $this->_class_name = $this->controller;
+			// Set class name
+			$this->_class_name = $this->controller;
 		    
             // Load user related model
             $this->load->model('Users');
@@ -23,8 +23,8 @@ class User extends Admin_Controller {
             // Set default statuses
             $data['statuses'] = $this->configs['status'];
 
-	    // Set class name to view
-	    $data['class_name'] = $this->_class_name;
+			// Set class name to view
+			$data['class_name'] = $this->_class_name;
 
             // Get users data
             $rows = $this->Users->getAllUser();
@@ -32,7 +32,7 @@ class User extends Admin_Controller {
             $temp_rows = array();
             
             if($rows) {
-		$i = 0;
+			$i = 0;
                 foreach($rows as $row){		
                     $temp_rows[$i]->id = $row->id;
                     $temp_rows[$i]->username = $row->username;
@@ -48,7 +48,7 @@ class User extends Admin_Controller {
 
             if (@$temp_rows) $data['rows'] = $temp_rows;
 
-	    // User profiles
+			// User profiles
             $data['user_profiles'] = $this->UserProfiles->getUserProfile(Acl::user()->id);
 	    
             // Set main template
@@ -388,7 +388,7 @@ class User extends Admin_Controller {
 
             // Check if the request via AJAX
             if (!$this->input->is_ajax_request()) {
-                    exit('No direct script access allowed');		
+				exit('No direct script access allowed');		
             }	
 
             // Define initialize result
@@ -601,70 +601,79 @@ class User extends Admin_Controller {
 
     public function forgot_password() {
 
-	// Check if the request via AJAX
-	if (!$this->input->is_ajax_request()) {
-		exit('No direct script access allowed');		
-	}
+		// Check if the request via AJAX
+		if (!$this->input->is_ajax_request()) {
+			exit('No direct script access allowed');		
+		}
 
-	// Define initialize result
-	$result['result'] = '';
+		// Define initialize result
+		$result['result'] = '';
 
-	// Get User Data
-	$user = $this->Users->getUserByEmail($this->input->post('email'));
+		// Get User Data
+		$user = $this->Users->getUserByEmail($this->input->post('email'));
 
-	if (!empty($user) && $user->status == 1) {
+		if (!empty($user) && $user->status == 1) {
 
-		$password = $this->Users->setPassword($user);
+			$password = $this->Users->setPassword($user);
 
-		$result['result']['code'] = 1;
-		$result['result']['text'] = 'Your new password: <b>'. $password .'</b>';			
+			$result['result']['code'] = 1;
+			$result['result']['text'] = 'Your new password: <b>'. $password .'</b>';			
 
-		$this->load->library('email');
+			$this->load->library('email');
 
-		$this->email->from('noreply');
-		$this->email->to($user->email);
-		$this->email->subject('Your new password');
-		$this->email->message('Hey <b>'.$user->username.'</b>, this is your new password: <b>'.$password.'</b>');
+			$this->email->from('noreply');
+			$this->email->to($user->email);
+			$this->email->subject('Your new password');
+			$this->email->message('Hey <b>'.$user->username.'</b>, this is your new password: <b>'.$password.'</b>');
 
-		$this->email->send();
+			$this->email->send();
 
-	} else if (!empty($user) && $user->status != 1) { 
+		} else if (!empty($user) && $user->status != 1) { 
 
-		// Account is not Active
-		$result['result']['code'] = 2;
-		$result['result']['text'] = 'Your account is not active';			
+			// Account is not Active
+			$result['result']['code'] = 2;
+			$result['result']['text'] = 'Your account is not active';			
 
-	} else {
+		} else {
 
-		// Account is not existed
-		$result['result']['code'] = 0;
-		$result['result']['text'] = 'Email or User not found';			
+			// Account is not existed
+			$result['result']['code'] = 0;
+			$result['result']['text'] = 'Email or User not found';			
 
-	}
+		}
 
-	$data['json'] = $result;				
-	$this->load->view('json', $this->load->vars($data));				
+		$data['json'] = $result;				
+		$this->load->view('json', $this->load->vars($data));				
 
     }
-
-    
+	
+	// Action for export to xls item status
+	public function export($xls=null){
+		
+		$this->load->helper('csv');
+		
+		$filename = "export-" . date("Y-m-d_H:i:s");
+		
+		return to_excel((array) $this->Users->getAllUser(), $filename);
+	}
+	
     // Action for update item status
     public function change() {	
-	if ($this->input->post('check') !='') {
-	    $rows	= $this->input->post('check');
-	    foreach ($rows as $row) {
-		// Set id for load and change status
-		$this->Users->setStatus($row,$this->input->post('select_action'));
-		$this->UserProfiles->setStatus($row,$this->input->post('select_action'));
-	    }
-	    // Set message
-	    $this->session->set_flashdata('message','Status changed!');
-	    redirect(ADMIN.$this->_class_name.'/index');
-	} else {	
-	    // Set message
-	    $this->session->set_flashdata('message','Data not Available');
-	    redirect(ADMIN.$this->_class_name.'/index');			
-	}
+		if ($this->input->post('check') !='') {
+			$rows	= $this->input->post('check');
+			foreach ($rows as $row) {
+			// Set id for load and change status
+			$this->Users->setStatus($row,$this->input->post('select_action'));
+			$this->UserProfiles->setStatus($row,$this->input->post('select_action'));
+			}
+			// Set message
+			$this->session->set_flashdata('message','Status changed!');
+			redirect(ADMIN.$this->_class_name.'/index');
+		} else {	
+			// Set message
+			$this->session->set_flashdata('message','Data not Available');
+			redirect(ADMIN.$this->_class_name.'/index');			
+		}
     }
 	
     public function search() { }

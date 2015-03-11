@@ -152,7 +152,7 @@ class Settings Extends CI_Model {
 		
 	}
 	
-        public function updateSetting($object=null){
+	public function updateSetting($object=null){
 		
 		// Set Setting data
 		$data = array(			
@@ -164,7 +164,7 @@ class Settings Extends CI_Model {
                             );
 		
 		// Update Setting data             
-                $this->db->where('id', $object['id']);      
+		$this->db->where('id', $object['id']);      
 
 		// Return last insert id primary
 		$update = $this->db->update($this->table, $data);					

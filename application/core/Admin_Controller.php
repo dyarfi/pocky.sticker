@@ -106,10 +106,14 @@ class Admin_Controller extends CI_Controller {
 					&& $action != 'order'
 					// For Bypassing admin-panel download method in all classes
 					&& $action != 'download'
+					// For Bypassing maintenance @setting controller provides
+					&& $action != 'maintenance'
+					// For Bypassing export data @controller provides
+					&& $action != 'export'
 					// For Bypassing authentication controller in @admin-panel/authentication
 					&& $controller != 'authenticate'
 					// For Bypassing redirect in each @controller provides
-					&& $controller != 'baseadmin') {
+					&& $controller != 'admin') {
 				
 				if ($this->input->is_ajax_request()) {
 					// Send permission message to client

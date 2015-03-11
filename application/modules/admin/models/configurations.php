@@ -45,4 +45,78 @@ class Configurations Extends CI_Model {
 	    return $this->db->table_exists($this->table);
 	}
 
+	public function getConfig($parameter = null){
+		if(!empty($parameter)){
+			$data = array();
+			$options = array('parameter' => $parameter);
+			$Q = $this->db->get_where($this->table,$options,1);
+			if ($Q->num_rows() > 0){
+				foreach ($Q->result_object() as $row)
+				$data = $row;
+			}
+			$Q->free_result();
+			return $data;
+		}
+	}
+	
+	public function getAllConfig(){
+		$data = array();
+		$Q = $this->db->get($this->table);
+			if ($Q->num_rows() > 0){
+				//foreach ($Q->result_object() as $row){
+					//$data[] = $row;
+				//}
+				$data = $Q->result_object();
+			}
+		$Q->free_result();
+		return $data;
+	}
+	
+	public function setConfig($object=null){
+		
+		// Set Configuration data
+		$data = array(			
+					'parameter' => $object['parameter'],
+					'value' => $object['value']
+				);
+		
+		// Insert Configuration data
+		$this->db->insert($this->table, $data);
+		
+		// Return last insert id primary
+		$insert_id = $this->db->insert_id();					
+			
+		// Return last insert id primary
+		return $insert_id;
+		
+	}
+	
+	public function updateConfig($object=null){
+		
+		// Set Configuration data
+		$data = array(			
+						'parameter' => $object['parameter'],
+						'value' => $object['value']
+					);
+		
+		// Update Configuration data             
+		$this->db->where('parameter', $object['parameter']);      
+
+		// Return last insert id primary
+		$update = $this->db->update($this->table, $data);					
+			
+		// Return last insert id primary
+		return $update;
+		
+	}
+	
+	public function deleteConfig($parameter=null) {
+		
+		// Check Configuration id
+		$this->db->where('parameter', $parameter);
+		
+		// Delete Configuration form database
+		return $this->db->delete($this->table);
+		
+	}	
 }

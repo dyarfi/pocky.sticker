@@ -42,8 +42,8 @@ class Users Extends CI_Model {
 		    $this->db->query($sql);
 		}
 		
-                if(!$this->db->query('SELECT * FROM `'.$this->table.'` LIMIT 0, 1;'))
-                        $insert_data	= TRUE;
+		if(!$this->db->query('SELECT * FROM `'.$this->table.'` LIMIT 0, 1;'))
+				$insert_data	= TRUE;
 		
 		if ($insert_data) {
 			$sql	= 'INSERT INTO `'.$this->table.'` '

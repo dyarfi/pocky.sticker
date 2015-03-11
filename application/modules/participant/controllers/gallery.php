@@ -18,7 +18,7 @@ class Gallery extends Admin_Controller {
 	
     public function index() {
         try {
-	    // Set our Grocery CRUD
+			// Set our Grocery CRUD
             $crud = new grocery_CRUD();
             // Set tables
             $crud->set_table('tbl_participant_images');

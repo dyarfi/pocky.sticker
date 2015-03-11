@@ -13,11 +13,12 @@ class Setting extends Admin_Controller {
 
 		// Load settings model
 		$this->load->model('Settings');
-
+		
+		// Load settings model
+		$this->load->model('Configurations');
 	}
 	
-	public function index()
-	{
+	public function index() {
 		
 		// Set data rows
 		$data['rows']	= $this->Settings->getAllSetting();
@@ -40,11 +41,14 @@ class Setting extends Admin_Controller {
 		// Set default system
 		$data['is_system'] = $this->configs['is_system'];
 		
+		// Set default system
+		$data['maintenance'] = $this->Configurations->getConfig('maintenance');
+		
 		// Load admin template
 		$this->load->view('template/admin/admin_template', $this->load->vars($data));
 	}
         
-        public function edit($id=0){
+	public function edit($id=0) {
 				
 		// Check if param is given or not and check from database
 		if (empty($id) || !$this->Settings->getSetting($id)) {
@@ -62,7 +66,7 @@ class Setting extends Admin_Controller {
 		
 		$errors	= $fields;
 		
-                $this->form_validation->set_rules('parameter', 'Parameter', 'trim|required|xss_clean');
+		$this->form_validation->set_rules('parameter', 'Parameter', 'trim|required|xss_clean');
 		$this->form_validation->set_rules('alias', 'Alias','trim|required|xss_clean');
 		$this->form_validation->set_rules('value', 'Value','trim|required');				
 		$this->form_validation->set_rules('status', 'Status','required');
@@ -142,7 +146,7 @@ class Setting extends Admin_Controller {
 		
 	}
         
-        public function add() {
+	public function add() {
 		
 		//Default data setup
 		$fields	= array(
@@ -221,77 +225,113 @@ class Setting extends Admin_Controller {
 				
 	}
         
-        public function view($id=null){
+	public function view($id=null) {
             
-            // Check if data is found and redirect if false
-            if (empty($id) && (int) count($id) == 0) {
-                    $this->session->set_flashdata('message',"Error submission.");
-                    redirect(ADMIN. $this->controller . '/index');
-            }
+		// Check if data is found and redirect if false
+		if (empty($id) && (int) count($id) == 0) {
+				$this->session->set_flashdata('message',"Error submission.");
+				redirect(ADMIN. $this->controller . '/index');
+		}
 
-            // Check if Setting data ID is found and redirect if false
-            $user = $this->Settings->getSetting($id);
-            if (!count($user)){
-                    $this->session->set_flashdata('message',"Data not found.");			
-                    redirect(ADMIN. $this->controller . '/index');
-            }
+		// Check if Setting data ID is found and redirect if false
+		$user = $this->Settings->getSetting($id);
+		if (!count($user)){
+				$this->session->set_flashdata('message',"Data not found.");			
+				redirect(ADMIN. $this->controller . '/index');
+		}
 
-            // Set Param
-	    $data['param']	= $id;
+		// Set Param
+		$data['param']	= $id;
 
-            // Listing data
-            $data['listing']    = $this->Settings->getSetting($id);		
+		// Listing data
+		$data['listing']    = $this->Settings->getSetting($id);		
 
-            // Main template
-            $data['main']	= 'settings/setting_view';
+		// Main template
+		$data['main']	= 'settings/setting_view';
 
-            // Set default statuses
-            $data['statuses'] = $this->configs['status'];
+		// Set default statuses
+		$data['statuses'] = $this->configs['status'];
 
-            // Set class name to view
-	    $data['class_name'] = $this->_class_name;
+		// Set class name to view
+		$data['class_name'] = $this->_class_name;
 
-            // Set module with URL request 
-            $data['module_title'] = $this->module;
+		// Set module with URL request 
+		$data['module_title'] = $this->module;
 
-            // Set admin title page with module menu
-            $data['page_title'] = $this->module_menu;
+		// Set admin title page with module menu
+		$data['page_title'] = $this->module_menu;
 
-            // Load admin template
-            $this->load->view('template/admin/admin_template',$this->load->vars($data));
+		// Load admin template
+		$this->load->view('template/admin/admin_template',$this->load->vars($data));
     }
     
-    public function delete($id){
+    public function delete($id) {
 
-            // Delete user data
-            $this->Settings->deleteSetting($id);
+		// Delete user data
+		$this->Settings->deleteSetting($id);
 
-            // Set flash message
-            $this->session->set_flashdata('message','Setting deleted');
+		// Set flash message
+		$this->session->set_flashdata('message','Setting deleted');
 
-            // Redirect after delete
-            redirect(ADMIN. $this->controller . '/index');
+		// Redirect after delete
+		redirect(ADMIN. $this->controller . '/index');
 
     }
     
+	// Action for export to xls item status
+	public function export($xls=null){
+		
+		$this->load->helper('csv');
+		
+		$filename = "export-" . date("Y-m-d_H:i:s");
+		
+		return to_excel((array) $this->Settings->getAllSetting(), $filename);
+	}
+	
     // Action for update item status
     public function change() {	
-	if ($this->input->post('check') !='') {
-	    $rows	= $this->input->post('check');
-	    foreach ($rows as $row) {
-		// Set id for load and change status
-		$this->Settings->setStatus($row,$this->input->post('select_action'));
-	    }
-	    // Set message
-	    $this->session->set_flashdata('message','Status changed!');
-	    redirect(ADMIN.$this->_class_name.'/index');
-	} else {	
-	    // Set message
-	    $this->session->set_flashdata('message','Data not Available');
-	    redirect(ADMIN.$this->_class_name.'/index');			
-	}
+		if ($this->input->post('check') !='') {
+			$rows	= $this->input->post('check');
+			foreach ($rows as $row) {
+			// Set id for load and change status
+				$this->Settings->setStatus($row,$this->input->post('select_action'));
+			}
+			// Set message
+			$this->session->set_flashdata('message','Status changed!');
+			redirect(ADMIN.$this->_class_name.'/index');
+		} else {	
+			// Set message
+			$this->session->set_flashdata('message','Data not Available');
+			redirect(ADMIN.$this->_class_name.'/index');			
+		}
     }
     
+	// Ajax action for maintenance mode
+	public function maintenance() {
+		
+		// Check if the request via AJAX
+		if (!$this->input->is_ajax_request()) {
+			exit('No direct script access allowed');		
+		}	
+		
+		$posts = array(
+					'parameter'	=> 'maintenance',
+					'value'		=> $this->input->post('mode')
+				);
+
+		// Set data to add to database
+		$result = $this->Configurations->updateConfig($posts);
+
+		// Set message
+		$this->session->set_flashdata('message','Setting updated');
+		
+		// Return data esult
+		$data['json'] = $result;
+
+		// Load data into view		
+		$this->load->view('json', $this->load->vars($data));
+		
+	}
 }
 
 /* End of file setting.php */
