@@ -259,6 +259,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <script src="<?=admin_theme()?>assets/admin/scripts/custom/form-user.js" type="text/javascript"></script>
 <script src="<?=admin_theme()?>assets/admin/scripts/custom/form-module.js" type="text/javascript"></script>
 <script src="<?=admin_theme()?>assets/admin/scripts/custom/form-status.js" type="text/javascript"></script>
+<script src="<?=admin_theme()?>assets/admin/scripts/custom/form-setting.js" type="text/javascript"></script>
 <!-- END USER AJAX JAVASCRIPTS -->
     
 <script>
@@ -284,6 +285,7 @@ jQuery(document).ready(function() {
     FormStatus.init();
     FormUser.init();
     FormModule.init();
+    FormSetting.init();
    
 <?php if ($this->session->flashdata('message')) { ?>
 	bootbox.alert('<h3><?php echo $this->session->flashdata('message');?></h3>');
