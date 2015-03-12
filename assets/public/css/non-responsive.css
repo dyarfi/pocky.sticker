@@ -1,0 +1,288 @@
+/* Template-specific stuff
+ *
+ * Customizations just for the template; these are not necessary for anything
+ * with disabling the responsiveness.
+ */
+
+/* Account for fixed navbar */
+/* Load Font */
+@font-face {
+  font-family: 'pocky';
+  src: url('../fonts/komikax.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+}
+/* End Load*/
+
+body {
+  padding-top: 50px;
+}
+
+body,
+.navbar-fixed-top,
+.navbar-fixed-bottom {
+  min-width: 760px;
+}
+
+/* Don't let the lead text change font-size. */
+.lead {
+  font-size: 16px;
+}
+
+/* Finesse the page header spacing */
+.page-header {
+  margin-bottom: 30px;
+}
+.page-header .lead {
+  margin-bottom: 10px;
+}
+
+
+/* Non-responsive overrides
+ *
+ * Utilitze the following CSS to disable the responsive-ness of the container,
+ * grid system, and navbar.
+ */
+
+/* Reset the container */
+.container {
+  width: 760px;
+  max-width: none !important;
+}
+
+.content{
+  background: transparent url('../img/bg-main.jpg') top center no-repeat;
+  height: 1306px;
+}
+
+/* Demonstrate the grids */
+.col-xs-6 {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: #eee;
+  background-color: rgba(86,61,124,.15);
+  border: 1px solid #ddd;
+  border: 1px solid rgba(86,61,124,.2);
+}
+
+.container .navbar-header,
+.container .navbar-collapse {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+/* Always float the navbar header */
+.navbar-header {
+  float: left;
+}
+
+/* Undo the collapsing navbar */
+.navbar-collapse {
+  display: block !important;
+  height: auto !important;
+  padding-bottom: 0;
+  overflow: visible !important;
+  visibility: visible !important;
+}
+
+.navbar-toggle {
+  display: none;
+}
+.navbar-collapse {
+  border-top: 0;
+}
+
+.navbar-brand {
+  margin-left: -15px;
+}
+
+/* Always apply the floated nav */
+.navbar-nav {
+  float: left;
+  margin: 0;
+}
+.navbar-nav > li {
+  float: left;
+}
+.navbar-nav > li > a {
+  padding: 15px;
+}
+
+
+/* Redeclare since we override the float above */
+.navbar-nav.navbar-right {
+  float: right;
+}
+
+/* Undo custom dropdowns */
+.navbar .navbar-nav .open .dropdown-menu {
+  position: absolute;
+  float: left;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, .15);
+  border-width: 0 1px 1px;
+  border-radius: 0 0 4px 4px;
+  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+          box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+}
+.navbar-default .navbar-nav .open .dropdown-menu > li > a {
+  color: #333;
+}
+.navbar .navbar-nav .open .dropdown-menu > li > a:hover,
+.navbar .navbar-nav .open .dropdown-menu > li > a:focus,
+.navbar .navbar-nav .open .dropdown-menu > .active > a,
+.navbar .navbar-nav .open .dropdown-menu > .active > a:hover,
+.navbar .navbar-nav .open .dropdown-menu > .active > a:focus {
+  color: #fff !important;
+  background-color: #428bca !important;
+}
+.navbar .navbar-nav .open .dropdown-menu > .disabled > a,
+.navbar .navbar-nav .open .dropdown-menu > .disabled > a:hover,
+.navbar .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+  color: #999 !important;
+  background-color: transparent !important;
+}
+
+/* Undo form expansion */
+.navbar-form {
+  float: left;
+  width: auto;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-right: 0;
+  margin-left: 0;
+  border: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+/* Copy-pasted from forms.less since we mixin the .form-inline styles. */
+.navbar-form .form-group {
+  display: inline-block;
+  margin-bottom: 0;
+  vertical-align: middle;
+}
+
+.navbar-form .form-control {
+  display: inline-block;
+  width: auto;
+  vertical-align: middle;
+}
+
+.navbar-form .form-control-static {
+  display: inline-block;
+}
+
+.navbar-form .input-group {
+  display: inline-table;
+  vertical-align: middle;
+}
+
+.navbar-form .input-group .input-group-addon,
+.navbar-form .input-group .input-group-btn,
+.navbar-form .input-group .form-control {
+  width: auto;
+}
+
+.navbar-form .input-group > .form-control {
+  width: 100%;
+}
+
+.navbar-form .control-label {
+  margin-bottom: 0;
+  vertical-align: middle;
+}
+
+.navbar-form .radio,
+.navbar-form .checkbox {
+  display: inline-block;
+  margin-top: 0;
+  margin-bottom: 0;
+  vertical-align: middle;
+}
+
+.navbar-form .radio label,
+.navbar-form .checkbox label {
+  padding-left: 0;
+}
+
+.navbar-form .radio input[type="radio"],
+.navbar-form .checkbox input[type="checkbox"] {
+  position: relative;
+  margin-left: 0;
+}
+
+.navbar-form .has-feedback .form-control-feedback {
+  top: 0;
+}
+img.ctr-img{display: block; margin: auto;}
+.content-img{margin-top: 165px;height: 1020px;}
+.klik {margin: 14px auto 13px;}
+
+.navbar-default{
+  background: #b9e3dc;
+  border-color: #8ad5cb;
+  -webkit-box-shadow: 0px 2px 10px 0px rgba(138,213,203,1);
+  -moz-box-shadow: 0px 2px 10px 0px rgba(138,213,203,1);
+  box-shadow: 0px 2px 10px 0px rgba(138,213,203,1);
+  font-family: 'pocky';
+}
+.navbar-default .navbar-nav>li>a{color: #078d77;}
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover,
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover
+{
+  color: #078d77;
+  background: #8ad5cb;
+}
+.navbar-nav, .navbar-nav > li{float: none;}
+.navmain{
+    text-align:center;
+}
+.navmain li{
+    display:inline-block;
+    width: 20%;
+}
+.navmain a{
+    display:inline-block;
+    padding:10px;
+}
+.klik{
+  background: #fdbe07;
+  border: solid 3px #fff;
+  width: 35%;
+  text-align: center;
+  padding: 5px 20px;
+}
+
+.klik a{color: #fff; font-size: 22px;}
+.klik a:hover{color: #000;}
+.registration{
+  width: 80%;
+  margin-left: 10%;
+}
+.form-horizontal .control-label{
+  text-align: left;
+  color: #3e4597;
+  background: transparent url('../img/bg-label-form.png') left center no-repeat;
+  height: 46px;
+  padding-top: 10px;
+}
+legend{
+  display:block;
+  width:100%;
+  padding:0;
+  margin-top: 40px;
+  margin-bottom:20px;
+  font-size:16px;
+  line-height:inherit;
+  color:#3e4597;
+  border: none;
+  text-align: center;
+}
+.form-group {color:#3e4597; font-weight: bold;}
+.font-pocky{font-family: 'pocky';}
+button{background: transparent; border: none;}
+.tagline{
+  text-align: center;
+  color: #ff8000;
+  font-size: 14px;
+}
