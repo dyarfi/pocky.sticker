@@ -4,26 +4,22 @@
 <head>
 <meta charset="utf-8">
 <title><?php echo $page_title; ?></title>
-
 <!-- Bootstrap Core CSS -->
 <link href="<?php echo base_url();?>assets/public/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-
-<!--link href="<?php echo base_url();?>assets/public/js/rs-plugin/css/settings.css" media="screen" rel="stylesheet"-->
-
+<link href="<?php echo base_url();?>assets/public/css/non-responsive.css" media="screen" rel="stylesheet">
 <link href="<?php echo base_url();?>assets/public/css/fancybox/jquery.fancybox.css" rel="stylesheet" type="text/css">
-	
 <!-- Fonts -->
 <link href="<?php echo base_url();?>assets/public/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="<?php echo base_url();?>assets/public/css/animate.css" rel="stylesheet" />
+<link href="<?php echo base_url();?>assets/public/css/animate.css" rel="stylesheet" />
 <!-- Squad theme CSS -->
-<link href="<?php echo base_url();?>assets/public/css/style.css" rel="stylesheet">
 <link href="<?php echo base_url();?>assets/public/color/default.css" rel="stylesheet">
-	
+<link href="<?php echo base_url();?>assets/public/css/style.css" rel="stylesheet">
 <script type="text/javascript">
 	var base_URL = '<?php echo base_url();?>';
 </script>
 </head>
-<body id="page-top" data-spy="scroll" data-target=".navbar-custom">
+<body id="page-top" data-spy="scroll" data-target=".navbar">
+	
 <div id="fb-root"></div>
 <script src="https://connect.facebook.net/en_US/all.js"></script>
 <script>
@@ -34,38 +30,30 @@
 	xfbml : true // parse XFBML
 	});
 </script>	
-    <div id="wrapper">
 
-	<?php $this->load->view('template/public/header'); ?>
+<?php $this->load->view('template/public/header'); ?>
 
-	<div id="navigation">
-		<?php $this->load->view('template/public/navigation'); ?>
+<div id="navigation">
+	<?php $this->load->view('template/public/navigation'); ?>
+</div>
+
+<div class="container content">
+	<div class="messageFlash">
+		<?php $this->load->view('flashdata'); ?>
 	</div>
-
-	<div id="main">
-		<div class="messageFlash">
-			<?php $this->load->view('flashdata'); ?>
-		</div>
-		<div class="content">
-			<?php $this->load->view($main); ?>
-		</div>
+	<div class="content">
+		<?php $this->load->view($main); ?>
 	</div>
+</div>
 
-    <?php $this->load->view('template/public/footer'); ?>
-
-    </div>    
+<?php $this->load->view('template/public/footer'); ?>
 	
 <!-- Core JavaScript Files -->
 <script src="<?php echo base_url();?>assets/public/js/jquery.min.js"></script>
-<script src="<?php echo base_url();?>assets/public/js/jquery.fancybox.pack.js"></script>
-
 <script src="<?php echo base_url();?>assets/public/js/bootstrap.min.js"></script>
+<script src="<?php echo base_url();?>assets/public/js/jquery.fancybox.pack.js"></script>
+<script src="<?php echo base_url();?>assets/public/js/ie10-viewport-bug-workaround.js"></script>
 <script src="<?php echo base_url();?>assets/public/js/jquery.easing.min.js"></script>	
-<script src="<?php echo base_url();?>assets/public/js/jquery.scrollTo.js"></script>
-<script src="<?php echo base_url();?>assets/public/js/wow.min.js"></script>
-
-<script src="<?php echo base_url();?>assets/public/js/jquery.vide.min.js"></script>
-<script src="<?php echo base_url();?>assets/public/js/parallax.min.js"></script>
 <script type="text/javascript" src="<?=base_url();?>assets/public/js/imagesloaded.pkgd.min.js"></script>
 	
 <!-- Custom Theme JavaScript -->

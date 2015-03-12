@@ -11,7 +11,7 @@
 			</a>
 		    </div>
 		</div>
-		<p>&copy;Copyright 2014 - Dentsu Digital Division. All rights reserved.</p>
+		<!--p>&copy;Copyright 2014 - Dentsu Digital Division. All rights reserved.</p-->
 	    </div>
 	</div>	
     </div>
