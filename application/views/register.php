@@ -7,7 +7,7 @@
 <div class="content-img">
 	<div class="row">
 	  <div class="registration">
-		<?=form_open_multipart(base_url('home/register'),array('id'=>'register'));?>
+		<?=form_open_multipart(base_url('home/register'),array('id'=>'register','class'=>'form-horizontal'));?>
 		  <fieldset>
 
 			<!-- Form Name -->

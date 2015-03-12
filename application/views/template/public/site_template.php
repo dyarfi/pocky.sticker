@@ -41,7 +41,7 @@
 	<div class="messageFlash">
 		<?php $this->load->view('flashdata'); ?>
 	</div>
-	<div class="content">
+	<div class="">
 		<?php $this->load->view($main); ?>
 	</div>
 </div>
