@@ -49,11 +49,11 @@ $config['modulelist'] = array(
 					'admin/UserProfiles',
 					'admin/UserHistories',
 					'admin/ModulePermissions',
-                                        'admin/UserGroupPermissions',
-                                        'admin/Languages',
+					'admin/UserGroupPermissions',
+                    'admin/Languages',
 					'admin/Settings',
 					'admin/ServerLogs',
-                                        'admin/Sessions'
+                    'admin/Sessions'
 					),
 		// Admin module menus
 		'module_menu'	=> array(
@@ -65,7 +65,7 @@ $config['modulelist'] = array(
 					'usergroup/index'   => 'User Groups',
 					// Language index
 					'language/index'     => 'Languages',
-                                        // Setting index
+					// Setting index
 					'setting/index'     => 'Settings',
 					// Server Log index
 					'serverlog/index'   => 'Server Logs'
@@ -134,6 +134,53 @@ $config['modulelist'] = array(
 						'pagemenu/index/change'	=> 'Change Page Menu Status',
 						'pagemenu/index/export'	=> 'Export Page Menu',
 						'pagemenu/index/print'	=> 'Print Page Menu',
+					    ),
+	),
+	// Region module
+	'Region' => array (
+		// Region Models list
+		'models'		=> array('region/Province','region/SubDistrict','region/UrbanDistrict','region/District'),
+		// Region module menus
+		'module_menu'	=> array(
+							'province/index'		=> 'Province',
+							'urbandistrict/index'	=> 'Urban District',
+							'subdistrict/index'		=> 'Sub District',
+							'district/index'		=> 'District',
+							),
+		// Region module functions
+		'module_function'	=> array(
+						// Province functions
+						'province/index/add'	=> 'Add Province',							
+						'province/index/view'	=> 'View Province',
+						'province/index/edit'	=> 'Edit Province',
+						'province/index/delete'	=> 'Delete Province',
+						'province/index/change'	=> 'Change Province Status',
+						'province/index/export'	=> 'Export Province',
+						'province/index/print'	=> 'Print Province',
+						// Urban District functions
+						'urbandistrict/index/add'	=> 'Add Urban District',
+						'urbandistrict/index/view'	=> 'View Urban District',
+						'urbandistrict/index/edit'	=> 'Edit Urban District',
+						'urbandistrict/index/delete'	=> 'Delete Urban District',
+						'urbandistrict/index/change'	=> 'Change Urban District Status',
+						'urbandistrict/index/export'	=> 'Export Urban District',
+						'urbandistrict/index/print'	=> 'Print Urban District',
+						// Sub District functions
+						'subdistrict/index/add'	=> 'Add Sub District',
+						'subdistrict/index/view'	=> 'View Sub District',
+						'subdistrict/index/edit'	=> 'Edit Sub District',
+						'subdistrict/index/delete'	=> 'Delete Sub District',
+						'subdistrict/index/change'	=> 'Change Sub District Status',
+						'subdistrict/index/export'	=> 'Export Sub District',
+						'subdistrict/index/print'	=> 'Print Sub District',
+						// District functions
+						'district/index/add'	=> 'Add District',
+						'district/index/view'	=> 'View District',
+						'district/index/edit'	=> 'Edit District',
+						'district/index/delete'	=> 'Delete District',
+						'district/index/change'	=> 'Change District Status',
+						'district/index/export'	=> 'Export District',
+						'district/index/print'	=> 'Print District',
 					    ),
 	),
 	/*

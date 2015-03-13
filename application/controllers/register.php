@@ -8,11 +8,17 @@ class register extends CI_Controller {
 		// Load user related model in admin module
 		//$this->load->model('admin/Users');
 		//$this->load->model('admin/UserProfiles');
+		
+		
+		// Load models
+		$this->load->models('region/Province');
+		$this->load->models('region/Subdistrict');
+		$this->load->models('region/UrbanDistrict');
+		$this->load->models('region/District');
 					
 	}
 	
 	public function index() {
-		
 		
 		// Default data setup
 		$fields	= array(
@@ -100,6 +106,10 @@ class register extends CI_Controller {
 		
 		// Load admin template
 		$this->load->view('template/public/site_template', $this->load->vars($data));
+		
+	}
+	
+	public function get_area ($param=null,$id=null) {
 		
 	}
 }

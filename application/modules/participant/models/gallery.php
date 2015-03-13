@@ -4,7 +4,7 @@
 class Gallery Extends CI_Model {
     
 	// Table name for this model
-	public $table = 'participant_images';
+	protected $table = 'participant_images';
 	
 	public function __construct(){
 	    // Call the Model constructor

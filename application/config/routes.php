@@ -55,7 +55,7 @@ $route[$admin]				= "admin/authenticate";
 $route[$admin.'/authenticate']		= "admin/authenticate/index";
 $route[$admin.'/authenticate/(:any)']	= "admin/authenticate/$1";
 
-/***** Administrator module menu mandatory [start] *****/
+/***** Administrator module menu mandatory Routes [start] *****/
 $route[$admin.'/dashboard/(:any)']	= 'admin/dashboard/$1';
 $route[$admin.'/user/(:any)']		= 'admin/user/$1';
 $route[$admin.'/usergroup/(:any)']	= 'admin/usergroup/$1';
@@ -65,13 +65,19 @@ $route[$admin.'/setting/(:any)']	= 'admin/setting/$1';
 $route[$admin.'/serverlog/(:any)']	= 'admin/serverlog/$1';
 /***** Administrator module menu mandatory [end] *****/
 
-// Participant and Gallery
+// Participant and Gallery Routes
 $route[$admin.'/participant/(:any)']	= 'participant/$1';
 $route[$admin.'/gallery/(:any)']	= 'participant/gallery/$1';
 
-// Page and Page Menu
+// Page and Page Menu Routes
 $route[$admin.'/page/(:any)']		= 'page/$1';
 $route[$admin.'/pagemenu/(:any)']	= 'page/pagemenu/$1';
+
+// Region routes
+$route[$admin.'/province/(:any)']		= 'region/province/$1';
+$route[$admin.'/subdistrict/(:any)']	= 'region/subdistrict/$1';
+$route[$admin.'/urbandistrict/(:any)']	= 'region/urbandistrict/$1';
+$route[$admin.'/district/(:any)']		= 'region/district/$1';
 
 /*** Admin Related Routes - end - **/
 

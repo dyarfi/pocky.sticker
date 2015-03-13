@@ -4,7 +4,7 @@
 class Fbtemp Extends CI_Model {
     
 	// Table name for this model
-	public $table = 'fb_temp';
+	protected $table = 'fb_temp';
 	
 	public function __construct(){
 	    // Call the Model constructor
