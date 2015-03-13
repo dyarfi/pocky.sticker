@@ -139,7 +139,7 @@ $config['modulelist'] = array(
 	// Region module
 	'Region' => array (
 		// Region Models list
-		'models'		=> array('region/Province','region/SubDistrict','region/UrbanDistrict','region/District'),
+		'models'		=> array('region/Provinces','region/SubDistricts','region/UrbanDistricts','region/Districts'),
 		// Region module menus
 		'module_menu'	=> array(
 							'province/index'		=> 'Province',
@@ -183,55 +183,6 @@ $config['modulelist'] = array(
 						'district/index/print'	=> 'Print District',
 					    ),
 	),
-	/*
-	// Career module
-	'Career' => array (
-		// Career Models list
-		'models'		=> array('career/Careers','career/Divisions','career/Applicants'),
-		// Career module menus
-		'module_menu'		=> array(
-						'career/index'		=> 'Careers',
-						'division/index'	=> 'Divisions',
-						'applicant/index'	=> 'Applicants',
-						'employee/index'	=> 'Employees'
-						),
-		// Career module functions
-		'module_function'	=> array(
-						// Career functions
-						'career/index/add'	=> 'Add Career',
-						'career/index/view'	=> 'View Career',
-						'career/index/edit'	=> 'Edit Career',
-						'career/index/delete'	=> 'Delete Career',
-						'career/index/change'	=> 'Change Career Status',
-						'career/index/export'	=> 'Export Career',
-						'career/index/print'	=> 'Print Career',
-						// Division functions
-						'division/index/add'	=> 'Add Division',
-						'division/index/view'	=> 'View Division',
-						'division/index/edit'	=> 'Edit Division',
-						'division/index/delete'	=> 'Delete Division',
-						'division/index/change'	=> 'Change Division Status',
-						'division/index/export' => 'Export Division',
-						'division/index/print'	=> 'Print Division',
-						// Applicant functions
-						'applicant/index/add'	 => 'Add Applicant',
-						'applicant/index/view'	 => 'View Applicant',			
-						'applicant/index/edit'	 => 'Edit Applicant',			
-						'applicant/index/delete' => 'Delete Applicant',
-						'applicant/index/change' => 'Change Applicant',
-						'applicant/index/export' => 'Export Applicant',
-						'applicant/index/print'	 => 'Print Applicant',
-						// Employee functions
-						'employee/index/add'	=> 'Add Employee',
-						'employee/index/view'	=> 'View Employee',			
-						'employee/index/edit'	=> 'Edit Employee',			
-						'employee/index/delete' => 'Delete Employee',
-						'employee/set'		=> 'Set to Employee',
-						'employee/index/change' => 'Change Employee',
-						'employee/index/export' => 'Export Employee',
-						'employee/index/print'	=> 'Print Employee'
-						),
-	)*/
     // Participant Module
     'Participant' => array(// Career Models list
 		'models'		=> array('participant/Participants','participant/Gallery','participant/Fbtemp'),
@@ -259,9 +210,7 @@ $config['modulelist'] = array(
 						'gallery/index/export'  => 'Export Gallery',
 						'gallery/index/print'   => 'Print Gallery',
 					    )
-	),
-    // Gallery Module
-    'Gallery' => array(),
+	)
 );
 
 

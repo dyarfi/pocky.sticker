@@ -11,10 +11,10 @@ class register extends CI_Controller {
 		
 		
 		// Load models
-		$this->load->models('region/Province');
-		$this->load->models('region/Subdistrict');
-		$this->load->models('region/UrbanDistrict');
-		$this->load->models('region/District');
+		$this->load->model('region/Provinces');
+		$this->load->model('region/Subdistricts');
+		$this->load->model('region/Urbandistricts');
+		$this->load->model('region/Districts');
 					
 	}
 	
@@ -98,6 +98,15 @@ class register extends CI_Controller {
 			exit;
 		}
 		
+		// Set main template Data
+		$data['provinces'] = $this->Provinces->getAllProvince();
+
+		// Set main template Data
+		$data['urbandistricts'] = $this->Urbandistricts->getAllUrbanDistrict();
+		
+		// Set main template Data
+		$data['subdistricts'] = $this->Subdistricts->getAllSubDistrict();
+		
 		// Set main template
 		$data['main'] = 'register';
 				
@@ -109,7 +118,26 @@ class register extends CI_Controller {
 		
 	}
 	
-	public function get_area ($param=null,$id=null) {
+	public function get_area ($param=null) {
+		
+		$ids = $this->input->post('id');
+		
+		if($param == 'province') {
+			$result = $this->Urbandistricts->getByProvince(base64_decode($ids));
+		} else if($param == 'urbandistrict') {
+			$result = $this->Subdistricts->getByUrban(base64_decode($ids));
+		} else if($param == 'subdistrict') {
+			$result = $this->District->getByProvince(base64_decode($ids));
+		}
+		
+		print_r($result);
+		exit;
+		
+		// Return data esult
+		$data['json'] = $result;
+
+		// Load data into view		
+		$this->load->view('json', $this->load->vars($data));	
 		
 	}
 }

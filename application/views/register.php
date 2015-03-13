@@ -1,4 +1,7 @@
-<?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed'); 
+
+
+?>
 <script type="text/javascript">
     window.onload = function() {
         FB.Canvas.setSize({ width: 810, height: 752 });
@@ -48,17 +51,31 @@
 			<div class="form-group">
 			  <div class="col-sm-4" for="textinput"></div>
 			  <div class="col-sm-4">
-				<input type="text" placeholder="Kecamatan" class="form-control">
+				<select name="province" class="form-control" id="province" onChange="getRegion($(this),'province');">
+					<option>-- PROPINSI --</option>
+					<?php foreach ($provinces as $province){ ?>
+					  <option value="<?php echo base64_encode($province->id);?>"><?php echo $province->name;?></option>
+					<?php } ?>
+				</select>
 			  </div>
 			  <div class="col-sm-4">
-				<input type="text" placeholder="Kabupaten/Kota" class="form-control">
+				<select name="urbandistrict" class="form-control" id="urbandistrict" onChange="getRegion($(this),'urbandistrict');">
+					<option>-- KABUPATEN --</option>
+					<?php foreach ($urbandistricts as $urban){ ?>
+					  <option value="<?php echo base64_encode($urban->id);?>"><?php echo $urban->name;?></option>
+					<?php } ?>
+				</select>
 			  </div>
 			</div>
-
 			<div class="form-group">
 			  <div class="col-sm-4" for="textinput"></div>
 			  <div class="col-sm-4">
-				<input type="text" placeholder="Provinsi" class="form-control">
+				<select name="subdistrict" class="form-control" id="subdistrict" onChange="getRegion($(this),'subdistrict');">
+					<option>-- KECAMATAN --</option>
+					<?php foreach ($subdistricts as $sub){ ?>
+					  <option value="<?php echo base64_encode($sub->id);?>"><?php echo $sub->name;?></option>
+					<?php } ?>
+				</select>
 			  </div>
 
 			  <div class="col-sm-4">

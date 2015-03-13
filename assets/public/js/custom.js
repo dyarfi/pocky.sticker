@@ -84,4 +84,86 @@
 //            'poster': base_URL + 'assets/public/media/Gatwick_Airport_1Videvo_1'
 //    });
 	
+	/*
+	$('#provinces').change(function(e) {
+		e.preventDefault();
+		var url = base_url + 'register/get_area';
+		$.ajax({
+			type: "POST",
+			url: url,
+			data: 'file=true',
+			cache: true,
+			async: true,
+			success: function(msg){
+				$('.reload_captcha').empty().html(msg);
+				// Need random for browser recache
+				img		= $('.reload_captcha').find('.captcha');
+				src		= img.attr('src');
+				ran		= img.fadeOut(10).fadeIn(220).attr('src', src + '?=' + Math.random());
+			},
+			complete: function(msg) {},
+			error: function(msg) {}
+		});
+		return false;	
+	});
+	*/
 })(jQuery);
+
+function getRegion(dataSel,dataUrl) {
+	// Set ajax post handler
+	var ids = dataSel.val();
+	var url = base_URL + 'register/get_area/' + dataUrl;
+	
+	//return false;
+	$.ajax({
+		type: "POST",
+		url: url,
+		data: { 
+			id : ids
+		},
+		//cache: true,
+		//async: true,
+		timeout: 8000,
+		dataType: "JSON",
+		success: function(message) {
+			// Parse JSON result
+			//var data   = jQuery.parseJSON(message);
+			if (message.models !== '') {
+				$('#car_model').empty();
+				$('<option value="0" name="model_id"/>').html('--- Model ---').appendTo('#car_model');
+				if (message.areas !== undefined) {
+					$.each(message.areas, function (index, model) {	
+						if (model !=='') {							
+							$('<option value="'+model.id+'" name="model_id"/>')
+							.html(model.name)
+							.appendTo('#car_model');
+						} 
+					});
+				} else {
+						$('<option value="" name="model_id"/>')
+						.html('No Model Available')
+						.appendTo('#car_model');
+				};
+				//$("select").uniform();
+				//cuSelRefresh('.select_styled');
+			}
+
+			// Empty loader
+			//$('#result_callback').empty();
+
+			// Empty loader image
+			//$('#loader').html('');
+
+		},
+		complete: function(message) { 
+
+		},
+		error: function(x,message,t) { 
+			if(message==="timeout") {
+				//alert("got timeout");
+			} else {
+				//alert(message);
+			}	
+		}
+	});
+}
