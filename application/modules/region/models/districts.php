@@ -10,9 +10,10 @@ class Districts extends CI_Model {
 		parent::__construct();
 
 		$this->_model_vars	= array('id'			=> 0,
-									'name'			=> '',
-									'added'			=> 0,
-									'modified'		=> 0);
+                                                'sub_urban_id'          => 0,
+                                                'name'			=> '',
+                                                'added'			=> 0,
+                                                'modified'		=> 0);
 
 		$this->db = $this->load->database('default', true);
 		
@@ -23,7 +24,7 @@ class Districts extends CI_Model {
 	public function install () {
 		$sql	= 'CREATE TABLE IF NOT EXISTS `'.$this->table.'` ('
 				. '`id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY, '
-				. '`sub_district_id` INT(11) NULL, '
+				. '`sub_urban_id` INT(11) NULL, '
 				. '`name` VARCHAR(255) NULL, '	
 				. '`added` INT(11) NULL, '
 				. '`modified` INT(11) NULL, '
@@ -56,11 +57,26 @@ class Districts extends CI_Model {
 			$Q->free_result();
 			return $data;
 		}
-	}	
-	
+	}
+        
+        public function getBySubUrban () {
+            if(!empty($id)){
+                    $data = array();
+                    $options = array('sub_urban_id' => $id);
+                    $Q = $this->db->get_where($this->table,$options);
+                    if ($Q->num_rows() > 0){
+                            //foreach ($Q->result_object() as $row)
+                            //$data = $row;
+                            $data = $Q->result_object();
+                    }
+                    $Q->free_result();
+                    return $data;
+            }	
+        }
+        
 	public function getAllDistrict($admin=null){
 		$data = array();
-		$this->db->order_by('added');
+		$this->db->order_by('name','asc');
 		$Q = $this->db->get($this->table);
 			if ($Q->num_rows() > 0){
 				//foreach ($Q->result_object() as $row){
@@ -76,10 +92,10 @@ class Districts extends CI_Model {
 		
 		// Set Province data
 		$data = array(			
-			'name'			=> $object['name'],
-			'sub_district_id' => $object['sub_district_id'],
-			'added'			=> time(),	
-			'modified'		=> $object['status']
+			'name'          => $object['name'],
+			'sub_urban_id'  => $object['sub_urban_id'],
+			'added'         => time(),	
+			'modified'      => $object['status']
 		);
 		
 		// Insert Province data

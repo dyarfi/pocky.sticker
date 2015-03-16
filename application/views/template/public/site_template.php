@@ -1,6 +1,10 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
 <!DOCTYPE html>
-<html lang="en">
+<!--[if lt IE 7 ]> <html class="no-js ie6 oldie" lang="en"> <![endif]--> 
+<!--[if IE 7 ]>    <html class="no-js ie7 oldie" lang="en"> <![endif]--> 
+<!--[if IE 8 ]>    <html class="no-js ie8 oldie" lang="en"> <![endif]--> 
+<!--[if IE 9 ]>    <html class="no-js ie9" lang="en"> <![endif]--> 
+<!--[if (gte IE 10)|!(IE)]><!--> <html class="no-js" lang="en"> <!--<![endif]--> 
 <head>
 <meta charset="utf-8">
 <title><?php echo $page_title; ?></title>
@@ -14,6 +18,12 @@
 <!-- Squad theme CSS -->
 <link href="<?php echo base_url();?>assets/public/color/default.css" rel="stylesheet">
 <link href="<?php echo base_url();?>assets/public/css/style.css" rel="stylesheet">
+
+<!--[if IE]>
+  <script src="<?=base_url();?>assets/public/js/html5shiv.js"></script>
+  <script src="<?=base_url();?>assets/public/js/respond.min.js"></script>
+<![endif]-->
+
 <script type="text/javascript">
 	var base_URL = '<?php echo base_url();?>';
 </script>
@@ -50,6 +60,8 @@
 	
 <!-- Core JavaScript Files -->
 <script src="<?php echo base_url();?>assets/public/js/jquery.min.js"></script>
+<script type="text/javascript" src="<?=base_url();?>assets/public/js/modernizr.js"></script>
+<script type="text/javascript" src="<?=base_url();?>assets/public/js/selectivizr.min.js"></script>
 <script src="<?php echo base_url();?>assets/public/js/bootstrap.min.js"></script>
 <script src="<?php echo base_url();?>assets/public/js/jquery.fancybox.pack.js"></script>
 <script src="<?php echo base_url();?>assets/public/js/ie10-viewport-bug-workaround.js"></script>

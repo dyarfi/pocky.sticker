@@ -139,12 +139,12 @@ $config['modulelist'] = array(
 	// Region module
 	'Region' => array (
 		// Region Models list
-		'models'		=> array('region/Provinces','region/SubDistricts','region/UrbanDistricts','region/Districts'),
+		'models'		=> array('region/Provinces','region/SubUrbans','region/UrbanDistricts','region/Districts'),
 		// Region module menus
 		'module_menu'	=> array(
 							'province/index'		=> 'Province',
 							'urbandistrict/index'	=> 'Urban District',
-							'subdistrict/index'		=> 'Sub District',
+							'suburban/index'		=> 'Sub Urban',
 							'district/index'		=> 'District',
 							),
 		// Region module functions
@@ -166,13 +166,13 @@ $config['modulelist'] = array(
 						'urbandistrict/index/export'	=> 'Export Urban District',
 						'urbandistrict/index/print'	=> 'Print Urban District',
 						// Sub District functions
-						'subdistrict/index/add'	=> 'Add Sub District',
-						'subdistrict/index/view'	=> 'View Sub District',
-						'subdistrict/index/edit'	=> 'Edit Sub District',
-						'subdistrict/index/delete'	=> 'Delete Sub District',
-						'subdistrict/index/change'	=> 'Change Sub District Status',
-						'subdistrict/index/export'	=> 'Export Sub District',
-						'subdistrict/index/print'	=> 'Print Sub District',
+						'suburban/index/add'	=> 'Add Sub Urban',
+						'suburban/index/view'	=> 'View Sub Urban',
+						'suburban/index/edit'	=> 'Edit Sub Urban',
+						'suburban/index/delete'	=> 'Delete Sub Urban',
+						'suburban/index/change'	=> 'Change Sub Urban Status',
+						'suburban/index/export'	=> 'Export Sub Urban',
+						'suburban/index/print'	=> 'Print Sub Urban',
 						// District functions
 						'district/index/add'	=> 'Add District',
 						'district/index/view'	=> 'View District',

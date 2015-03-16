@@ -360,6 +360,8 @@ $config['proxy_ips'] = '';
 $config['developer_name']	= 'Dentsu Digital Division'; 
 $config['developer_url']	= 'http://dentsudigitaldivision.com/';
 
+// Enum for gender
+$config['gender']               = array('Wanita','Pria');
 
 $config['modules_locations'] = array(
         APPPATH.'modules/' => '../modules/'

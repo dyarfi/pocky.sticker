@@ -22,13 +22,13 @@ class District extends Admin_Controller {
             // Set CRUD subject
             $crud->set_subject('District');                            
             // Set table relation
-            $crud->set_relation('sub_district_id','tbl_sub_districts','name');
+            $crud->set_relation('sub_urban_id','tbl_sub_urbans','name');
             // Set column
-            $crud->columns('name','sub_district_id');			
+            $crud->columns('name','sub_urban_id');			
 			// The fields that user will see on add and edit form
 			//$crud->fields('subject','name','menu_id','synopsis','text','publish_date','unpublish_date','status','added','modified');
 			// Set column display 
-			$crud->display_as('sub_district_id','Sub District');
+			$crud->display_as('sub_urban_id','Sub Urban');
 			// Set column display 
 			$crud->display_as('name','District');
 			// Changes the default field type
@@ -48,9 +48,9 @@ class District extends Admin_Controller {
 			//$crud->required_fields('subject','name','text','status'); 
             // Set upload field
             // $crud->set_field_upload('file_name','uploads/pages');
-			//$crud->unset_add();
-			//$crud->unset_edit();
-			//$crud->unset_delete();
+            $crud->unset_add();
+            $crud->unset_edit();
+            $crud->unset_delete();
             $this->load($crud, 'district');
         } catch (Exception $e) {
             show_error($e->getMessage() . ' --- ' . $e->getTraceAsString());

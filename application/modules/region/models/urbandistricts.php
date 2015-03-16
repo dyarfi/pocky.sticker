@@ -9,13 +9,12 @@ class UrbanDistricts extends CI_Model {
 	public function __construct () {
 		parent::__construct();
 
-		$this->_model_vars	= array('id'				=> 0,
-									'province_id'		=> 0,
-									'name'				=> '',			
-									'subject'			=> '',
-									'status'			=> '',
-									'added'				=> 0,
-									'modified'			=> 0);
+		$this->_model_vars	= array('id'			=> 0,
+                                                'province_id'		=> 0,
+                                                'name'			=> '',			
+                                                'status'		=> '',
+                                                'added'			=> 0,
+                                                'modified'		=> 0);
 
 		$this->db = $this->load->database('default', true);
 		
@@ -78,7 +77,7 @@ class UrbanDistricts extends CI_Model {
 	
 	public function getAllUrbanDistrict($admin=null){
 		$data = array();
-		$this->db->order_by('added');
+		$this->db->order_by('name','asc');
 		$Q = $this->db->get($this->table);
 			if ($Q->num_rows() > 0){
 				//foreach ($Q->result_object() as $row){

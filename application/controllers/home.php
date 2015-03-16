@@ -8,9 +8,19 @@ class Home extends CI_Controller {
 	// Load facebook and headers
 	$this->load->library('facebook');
 	$this->load->model('user_model');
+    
 	$this->config->set_item('show_header', true);
 	header('Access-Control-Allow-Origin: *');
 
+    // Load config
+    $this->load->config('config',true);
+
+    // Load models
+    $this->load->model('region/Provinces');
+    $this->load->model('region/Suburbans');
+    $this->load->model('region/Urbandistricts');
+    $this->load->model('region/Districts');
+        
 	// Load Setting data
 	//$this->load->model('setting/Settings');
 
@@ -79,25 +89,25 @@ class Home extends CI_Controller {
         $data['page_title'] = 'Home';
 
         // Set main template
-	$data['main'] = 'home';
+        $data['main'] = 'home';
 
         // Load admin template
-	$this->load->view('template/public/site_template', $this->load->vars($data));
+        $this->load->view('template/public/site_template', $this->load->vars($data));
 		
     }
 	
     // User registration
     public function register () {
-
-	$facebook = new Facebook();
+        /*
+        $facebook = new Facebook();
 
         $fb_id = $facebook->getUser();
 		
         $user_fb_data 	= $this->user_model->get_temp($fb_id);
 
-	$user_data 		= $this->session->userdata('user_id');
+        $user_data 		= $this->session->userdata('user_id');
 
-	$fb_user = $this->user_model->check_fb_user($fb_id);
+        $fb_user = $this->user_model->check_fb_user($fb_id);
 
         if ($user_data) {
             $user_id = $this->user_model->decode($user_data);
@@ -106,27 +116,43 @@ class Home extends CI_Controller {
                 die();
             }
         }
-
+        */
+        
         // Default data setup
-	    $fields	= array(
-			    'name'			=> '',
-			    'address'		=> '',
-			    'email'			=> '',
-			    'checkbox_data'	=> '',
-			    'checkbox_rules'=> '',				
-			    'phone'			=> '',	
-			    'twitter'		=> '');
+        $fields	= array(
+                        'name'          => '',
+                        'gender'        => '',
+                        'age'           => '',
+                        'address'       => '',
+                        'province'      => '',
+                        'urbandistrict' => '',
+                        'suburban'      => '',
+                        'zipcode'       => '',
+                        'phone'         => '',
+                        'oshi_favorite' => '',
+                        'id_number'     => '');
 
-	    $errors	= $fields;
+        $errors	= $fields;
 
-	    $this->form_validation->set_rules('name', 'Nama', 'trim|required|max_length[55]|xss_clean');
-	    $this->form_validation->set_rules('address', 'Alamat','trim|required');
-	    $this->form_validation->set_rules('checkbox_data', 'Syarat dan Ketentuan','trim|required');		
-	    $this->form_validation->set_rules('checkbox_rules', 'Data adalah benar','trim|required');		
-	    $this->form_validation->set_rules('email', 'Email','trim|valid_email|required|max_length[55]|xss_clean');
-	    $this->form_validation->set_rules('phone', 'No. Telp','trim|required|is_natural|xss_clean|max_length[45]');
-	    $this->form_validation->set_rules('twitter', 'Twitter','trim|xss_clean|max_length[55]');						
-	    // Check if post is requested
+        $this->form_validation->set_rules('name', 'Nama', 'trim|required|min_length[5]|max_length[28]|xss_clean');
+        $this->form_validation->set_rules('gender', 'Jenis Kelamin','trim|required');		
+        $this->form_validation->set_rules('age', 'Umur','trim|required|is_numeric');
+        $this->form_validation->set_rules('phone', 'No. Telp','trim|is_numeric|xss_clean|max_length[25]');
+        $this->form_validation->set_rules('address', 'Alamat','trim|required|xss_clean|max_length[25]');                
+        $this->form_validation->set_rules('province', 'Propinsi','trim|required');	
+        $this->form_validation->set_rules('urbandistrict', 'Kabupaten','trim|required');	
+        $this->form_validation->set_rules('suburban', 'Kecamatan','trim|required');	
+        $this->form_validation->set_rules('zipcode', 'Kode Pos','trim|required|is_numeric');	
+        $this->form_validation->set_rules('oshi_favorite', 'Oshi Favorite','trim|required');	
+        $this->form_validation->set_rules('id_number', 'No. Kartu Identitas','trim|required');	
+		
+        // Set gender data
+        $data['genders']    = config_item('gender');
+
+        // Set main template Data for province
+        $data['provinces'] = $this->Provinces->getAllProvince();
+            
+            // Check if post is requested
 	    if ($_SERVER['REQUEST_METHOD'] == 'POST') {			
 
 		    // Validation form checks
@@ -154,6 +180,20 @@ class Home extends CI_Controller {
 			// Post Fields
 			$data['fields']		= (object) $fields;
 
+            // Logic Register via Ajax Request
+            if ($this->input->is_ajax_request()) {
+
+                $result['fields'] = $fields;
+                $result['errors'] = $errors;
+
+                echo json_encode($result,2);
+                // Set main template
+                $data['main']	 = 'json';
+                
+                $this->load->view('json', $this->load->vars($data));
+
+                exit;
+            }
 			// Set site template
 			$this->load->view('template/public/site_template', $this->load->vars($data));
 
@@ -161,22 +201,22 @@ class Home extends CI_Controller {
 		    else
 		    {
 
-			$part = array();
-			$part['name'] = $this->input->get_post('name', true);
-			$part['fb_id'] = $this->input->get_post('fb_id', true);
-			$part['fb_pic_url'] = $this->input->get_post('picture_url', true);
-			$part['address'] = $this->input->get_post('address', true);
-			$part['email'] = $this->input->get_post('email', true);
-			$part['phone_number'] = $this->input->get_post('phone', true);
-			$part['twitter'] = $this->input->get_post('twitter', true);
-			$this->load->model('user_model');
-			$user_id = $this->user_model->reg_participant($part);
+                $part = array();
+                $part['name'] = $this->input->get_post('name', true);
+                $part['fb_id'] = $this->input->get_post('fb_id', true);
+                $part['fb_pic_url'] = $this->input->get_post('picture_url', true);
+                $part['address'] = $this->input->get_post('address', true);
+                $part['email'] = $this->input->get_post('email', true);
+                $part['phone_number'] = $this->input->get_post('phone', true);
+                $part['twitter'] = $this->input->get_post('twitter', true);
+                $this->load->model('user_model');
+                $user_id = $this->user_model->reg_participant($part);
 
-			$this->config->set_item('user_id', $user_id);
+                $this->config->set_item('user_id', $user_id);
 
-			$user_id  = $this->session->set_userdata('user_id', $this->user_model->encode($user_id));
+                $user_id  = $this->session->set_userdata('user_id', $this->user_model->encode($user_id));
 
-			redirect(base_url('upload'));
+                redirect(base_url('upload'));
 
 		    }
 
@@ -193,17 +233,6 @@ class Home extends CI_Controller {
 
 		    // Set site template	
 		    $this->load->view('template/public/site_template', $this->load->vars($data));
-	    }		
-
-	    // Logic Register via Ajax Request
-	    if ($this->input->is_ajax_request()) {
-
-		    $result['fields'] = $fields;
-		    $result['errors'] = $errors;
-
-		    echo json_encode($result,2);
-
-		    exit;
 	    }
 
 	}
@@ -256,6 +285,36 @@ class Home extends CI_Controller {
 	    // Load admin template
 	    $this->load->view('template/public/site_template', $this->load->vars($data));
     }
+    
+    public function get_area ($param=null) {
+		
+		$ids = $this->input->post('id');
+		
+		if($param == 'province') {
+            
+            $result['result'] = $this->Urbandistricts->getByProvince($ids);
+            $result['bindto'] = 'urbandistrict';
+            $result['label'] = 'KABUPATEN';
+            
+		} else if($param == 'urbandistrict') {
+            
+            $result['result'] = $this->Suburbans->getByUrban($ids);
+            $result['bindto'] = 'suburban';
+            $result['label'] = 'KECAMATAN';
+            
+		} else if($param == 'suburban') {
+            
+            $result['result'] = $this->Districts->getBySubUrban($ids);
+            
+		}
+				
+		// Return data esult
+		$data['json'] = $result;
+
+		// Load data into view		
+		$this->load->view('json', $this->load->vars($data));	
+		
+	}
 }
 
 /* End of file home.php */

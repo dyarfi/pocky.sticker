@@ -74,10 +74,10 @@ $route[$admin.'/page/(:any)']		= 'page/$1';
 $route[$admin.'/pagemenu/(:any)']	= 'page/pagemenu/$1';
 
 // Region routes
-$route[$admin.'/province/(:any)']		= 'region/province/$1';
-$route[$admin.'/subdistrict/(:any)']	= 'region/subdistrict/$1';
+$route[$admin.'/province/(:any)']	= 'region/province/$1';
+$route[$admin.'/suburban/(:any)']	= 'region/suburban/$1';
 $route[$admin.'/urbandistrict/(:any)']	= 'region/urbandistrict/$1';
-$route[$admin.'/district/(:any)']		= 'region/district/$1';
+$route[$admin.'/district/(:any)']	= 'region/district/$1';
 
 /*** Admin Related Routes - end - **/
 

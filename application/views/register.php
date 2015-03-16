@@ -10,7 +10,7 @@
 <div class="content-img">
 	<div class="row">
 	  <div class="registration">
-		<?=form_open_multipart(base_url('home/register'),array('id'=>'register','class'=>'form-horizontal'));?>
+		<?php echo form_open_multipart(base_url('home/register'),array('id'=>'register','class'=>'form-horizontal'));?>
 		  <fieldset>
 
 			<!-- Form Name -->
@@ -21,7 +21,8 @@
 			  <label class="col-sm-4 control-label" for="textinput">Nama&ast;</label>
 			  <div class="col-sm-8">
 				<input type="text" class="form-control" placeholder="Nama" value="<?php echo set_value('name', @$user_fb->fb_name) ?>" name="name" required>
-			  </div>
+                <small><?php echo $errors['name'];?></small>
+              </div>
 			</div>
 
 			<!-- Text input-->
@@ -29,14 +30,21 @@
 			  <label class="col-sm-4 control-label" for="textinput">Usia&ast;</label>
 			  <div class="col-sm-8">
 				<input type="text" class="form-control" placeholder="Usia" value="<?php echo set_value('age', @$user_fb->age) ?>" name="age" required>
-			  </div>
+                <small><?php echo $errors['age'];?></small>
+              </div>
 			</div>
 
 			<!-- Text input-->
 			<div class="form-group">
 			  <label class="col-sm-4 control-label" for="textinput">Jenis Kelamin&ast;</label>
 			  <div class="col-sm-8">
-				<input type="text" placeholder="Jenis Kelamin" class="form-control">
+                    <select name="gender" id="gender" class="form-control" required>
+                        <option value=""></option>
+                        <?php foreach ($genders as $gender) { ?>
+                            <option value="<?php echo $gender;?>" <?php echo $gender == $fields->gender ? 'selected' :'';?>><?php echo $gender;?></option>
+                        <?php } ?>
+                    </select>
+                    <small><?php echo $errors['gender'];?></small>
 			  </div>
 			</div>
 
@@ -44,66 +52,71 @@
 			<div class="form-group">
 			  <label class="col-sm-4 control-label" for="textinput">Alamat Lengkap&ast;</label>
 			  <div class="col-sm-8">
-				<input type="text" class="form-control" placeholder="Alamat" value="<?php echo set_value('address', @$user_fb->address) ?>" name="address" required>
-			  </div>
+                    <textarea type="text" class="form-control" placeholder="Alamat" name="address" required><?php echo set_value('address', @$user_fb->address) ?></textarea>
+                    <small><?php echo $errors['address'];?></small>
+              </div>
 			</div>
 
 			<div class="form-group">
 			  <div class="col-sm-4" for="textinput"></div>
 			  <div class="col-sm-4">
-				<select name="province" class="form-control" id="province" onChange="getRegion($(this),'province');">
-					<option>-- PROPINSI --</option>
-					<?php foreach ($provinces as $province){ ?>
-					  <option value="<?php echo base64_encode($province->id);?>"><?php echo $province->name;?></option>
-					<?php } ?>
-				</select>
+                    <input type="hidden" value="<?php echo $field->province;?>">
+                    <select name="province" class="form-control" id="province" onChange="getRegion($(this),'province');" required>
+                        <option value="0">-- PROPINSI --</option>
+                        <?php foreach ($provinces as $province){ ?>
+                          <option value="<?php echo $province->id;?>" name="province"><?php echo $province->name;?></option>
+                        <?php } ?>
+                    </select>
+                    <small><?php echo $errors['province'];?></small>
 			  </div>
 			  <div class="col-sm-4">
-				<select name="urbandistrict" class="form-control" id="urbandistrict" onChange="getRegion($(this),'urbandistrict');">
-					<option>-- KABUPATEN --</option>
-					<?php foreach ($urbandistricts as $urban){ ?>
-					  <option value="<?php echo base64_encode($urban->id);?>"><?php echo $urban->name;?></option>
-					<?php } ?>
-				</select>
+                    <input type="hidden" value="<?php echo $field->urbandistrict;?>">
+                    <select name="urbandistrict" class="form-control" id="urbandistrict" onChange="getRegion($(this),'urbandistrict');">
+                        <option value="0">-- KABUPATEN --</option>
+                    </select>
+                    <small><?php echo $errors['urbandistrict'];?></small>
 			  </div>
 			</div>
 			<div class="form-group">
 			  <div class="col-sm-4" for="textinput"></div>
 			  <div class="col-sm-4">
-				<select name="subdistrict" class="form-control" id="subdistrict" onChange="getRegion($(this),'subdistrict');">
-					<option>-- KECAMATAN --</option>
-					<?php foreach ($subdistricts as $sub){ ?>
-					  <option value="<?php echo base64_encode($sub->id);?>"><?php echo $sub->name;?></option>
-					<?php } ?>
-				</select>
+                    <input type="hidden" value="<?php echo $field->suburban;?>">
+                    <select name="suburban" class="form-control" id="suburban" onChange="getRegion($(this),'suburban');" required>
+                        <option value="0">-- KECAMATAN --</option>
+                    </select>
+                    <small><?php echo $errors['suburban'];?></small>
 			  </div>
 
 			  <div class="col-sm-4">
-				<input type="text" placeholder="Kode Pos" class="form-control">
+                  <input type="text" name="zipcode" placeholder="Kode Pos" class="form-control" value="<?php echo $fields->zipcode;?>">
+                  <small><?php echo $errors['zipcode'];?></small>
 			  </div>
 			</div>
 			<!-- Text input-->
 			<div class="form-group">
 			  <label class="col-sm-4 control-label" for="textinput">No Hp.&ast;</label>
 			  <div class="col-sm-8">
-				<input type="text" class="form-control" placeholder="No. Telp" value="<?php echo set_value('phone', @$user_fb->phone) ?>" name="phone">
-			  </div>
+                    <input type="text" name="phone" class="form-control" placeholder="No. Telp" value="<?php echo set_value('phone', @$user_fb->phone) ?>" name="phone" required>
+                    <small><?php echo $errors['phone'];?></small>
+              </div>
 			</div>
 
 			<!-- Text input-->
 			<div class="form-group">
 			  <label class="col-sm-4 control-label" for="textinput">No Kartu Identitas&ast;</label>
 			  <div class="col-sm-8">
-				<input type="text" placeholder="KTP/SIM/KARTU PELAJAR" class="form-control">
-			  </div>
+                    <input type="text" name="id_number" placeholder="KTP/SIM/KARTU PELAJAR" value="<?php echo $fields->id_number;?>" class="form-control" required>
+                    <small><?php echo $errors['id_number'];?></small>
+              </div>
 			</div>
 
 			<!-- Text input-->
 			<div class="form-group">
 			  <label class="col-sm-4 control-label" for="textinput">Nama Oshi Favorit&ast;</label>
 			  <div class="col-sm-8">
-				<input type="text" placeholder="Country" class="form-control">
-			  </div>
+                    <input type="text" name="oshi_favorite" placeholder="Oshi Favorit" value="<?php echo $fields->oshi_favorite;?>" class="form-control">
+                    <small><?php echo $errors['oshi_favorite'];?></small>
+              </div>
 			</div>
 
 			<!-- Text input-->

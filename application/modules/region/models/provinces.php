@@ -10,9 +10,9 @@ class Provinces extends CI_Model {
 		parent::__construct();
 
 		$this->_model_vars	= array('id'			=> 0,
-									'name'			=> '',
-									'added'			=> 0,
-									'modified'		=> 0);
+                                                'name'			=> '',
+                                                'added'			=> 0,
+                                                'modified'		=> 0);
 
 		$this->db = $this->load->database('default', true);
 		
@@ -60,7 +60,7 @@ class Provinces extends CI_Model {
 	
 	public function getAllProvince($admin=null){
 		$data = array();
-		$this->db->order_by('added');
+		$this->db->order_by('name','asc');
 		$Q = $this->db->get($this->table);
 			if ($Q->num_rows() > 0){
 				//foreach ($Q->result_object() as $row){
