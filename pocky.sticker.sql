@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.8.1
+-- version 4.1.12
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Mar 16, 2015 at 10:35 AM
--- Server version: 5.5.40
--- PHP Version: 5.4.38
+-- Host: 127.0.0.1
+-- Generation Time: Mar 16, 2015 at 11:49 AM
+-- Server version: 5.6.16
+-- PHP Version: 5.5.11
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `tbl_ci_sessions` (
   `user_data` text NOT NULL,
   PRIMARY KEY (`session_id`),
   KEY `last_activity_idx` (`last_activity`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tbl_ci_sessions`
@@ -63,7 +63,7 @@ CREATE TABLE IF NOT EXISTS `tbl_ci_sessions` (
 
 INSERT INTO `tbl_ci_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activity`, `user_data`) VALUES
 ('173137347ce3e3a168947369e79d759d', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.7; rv:15.0) Gecko/20100101 Firefox/15.0.1', 1426475718, 'a:2:{s:9:"user_data";s:0:"";s:8:"curr_url";s:27:"home/get_area/urbandistrict";}'),
-('8b15061401e18194f115e1c885223c68', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.7; rv:15.0) Gecko/20100101 Firefox/15.0.1', 1426448364, 'a:3:{s:9:"user_data";s:0:"";s:8:"curr_url";s:6:"upload";s:7:"user_id";s:118:"Smx5WnMxZi9LRjVBSnZRR0psNGx4VkZIRFZRcE54N3hqejk4R0NTZGR0UytsQWlPVlo1NE1CT3ZqL2QvMVdRK0M0R29TNEJ2blJSTnE2S2t5bkFuL1E9PQ";}');
+('f90391a46020a3016dfc7ff4ad85a6b0', '::1', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:36.0) Gecko/20100101 Firefox/36.0', 1426480914, 'a:7:{s:9:"user_data";s:0:"";s:8:"curr_url";s:6:"upload";s:8:"prev_url";b:0;s:11:"module_list";s:634:"{"Admin":{"dashboard{{slash}}/index":"Dashboard Panel","user{{slash}}/index":"Users","usergroup{{slash}}/index":"User Groups","language{{slash}}/index":"Languages","setting{{slash}}/index":"Settings","serverlog{{slash}}/index":"Server Logs"},"Module":{"modulelist{{slash}}/index":"Modules"},"Page":{"page{{slash}}/index":"Pages","pagemenu{{slash}}/index":"Page Menus"},"Participant":{"participant{{slash}}/index":"Participant","gallery{{slash}}/index":"Gallery"},"Region":{"province{{slash}}/index":"Province","urbandistrict{{slash}}/index":"Urban District","suburban{{slash}}/index":"Sub Urban","district{{slash}}/index":"District"}}";s:20:"module_function_list";s:5239:"{"Admin":{"dashboard{{slash}}/index":"Dashboard Panel","user{{slash}}/index":"Users","usergroup{{slash}}/index":"User Groups","language{{slash}}/index":"Languages","setting{{slash}}/index":"Settings","serverlog{{slash}}/index":"Server Logs","dashboard{{slash}}/add":"Add New Dashboard","dashboard{{slash}}/view":"View Dashboard","dashboard{{slash}}/edit":"Edit Dashboard","dashboard{{slash}}/delete":"Delete Dashboard","dashboard{{slash}}/change":"Change Dashboard Status","user{{slash}}/add":"Add User","user{{slash}}/view":"View User","user{{slash}}/edit":"Edit User","user{{slash}}/delete":"Delete User","user{{slash}}/change":"Change User Status","usergroup{{slash}}/add":"Add User Group","usergroup{{slash}}/view":"View User Group","usergroup{{slash}}/edit":"Edit User Group","usergroup{{slash}}/delete":"Delete User Group","usergroup{{slash}}/change":"Change User Group Status","language{{slash}}/add":"Add Language","language{{slash}}/view":"View Language","language{{slash}}/edit":"Edit Language","language{{slash}}/delete":"Delete Language","language{{slash}}/change":"Change Language Status","setting{{slash}}/add":"Add Setting","setting{{slash}}/view":"View Setting","setting{{slash}}/edit":"Edit Setting","setting{{slash}}/delete":"Delete Setting","setting{{slash}}/change":"Change Setting Status","serverlog{{slash}}/view":"View Server Log","serverlog{{slash}}/edit":"Edit Server Log","serverlog{{slash}}/delete":"Delete Server Log","serverlog{{slash}}/trash":"Trash Server Log"},"Module":{"modulelist{{slash}}/edit":"Edit Module"},"Page":{"page{{slash}}/index":"Pages","pagemenu{{slash}}/index":"Page Menus","page{{slash}}/index{{slash}}/add":"Add Page","page{{slash}}/index{{slash}}/view":"View Page","page{{slash}}/index{{slash}}/edit":"Edit Page","page{{slash}}/index{{slash}}/delete":"Delete Page","page{{slash}}/index{{slash}}/change":"Change Page Status","page{{slash}}/index{{slash}}/export":"Export Page","page{{slash}}/index{{slash}}/print":"Print Page","pagemenu{{slash}}/index{{slash}}/add":"Add Page Menu","pagemenu{{slash}}/index{{slash}}/view":"View Page Menu","pagemenu{{slash}}/index{{slash}}/edit":"Edit Page Menu","pagemenu{{slash}}/index{{slash}}/delete":"Delete Page Menu","pagemenu{{slash}}/index{{slash}}/change":"Change Page Menu Status","pagemenu{{slash}}/index{{slash}}/export":"Export Page Menu","pagemenu{{slash}}/index{{slash}}/print":"Print Page Menu"},"Participant":{"participant{{slash}}/index":"Participant","gallery{{slash}}/index":"Gallery","participant{{slash}}/index{{slash}}/add":"Add Participant","participant{{slash}}/index{{slash}}/view":"View Participant","participant{{slash}}/index{{slash}}/edit":"Edit Participant","participant{{slash}}/index{{slash}}/delete":"Delete Participant","participant{{slash}}/index{{slash}}/change":"Change Participant Status","participant{{slash}}/index{{slash}}/export":"Export Participant","participant{{slash}}/index{{slash}}/print":"Print Participant","gallery{{slash}}/index{{slash}}/add":"Add Gallery","gallery{{slash}}/index{{slash}}/view":"View Gallery","gallery{{slash}}/index{{slash}}/edit":"Edit Gallery","gallery{{slash}}/index{{slash}}/delete":"Delete Gallery","gallery{{slash}}/index{{slash}}/change":"Change Gallery Status","gallery{{slash}}/index{{slash}}/export":"Export Gallery","gallery{{slash}}/index{{slash}}/print":"Print Gallery"},"Region":{"province{{slash}}/index":"Province","urbandistrict{{slash}}/index":"Urban District","suburban{{slash}}/index":"Sub Urban","district{{slash}}/index":"District","province{{slash}}/index{{slash}}/add":"Add Province","province{{slash}}/index{{slash}}/view":"View Province","province{{slash}}/index{{slash}}/edit":"Edit Province","province{{slash}}/index{{slash}}/delete":"Delete Province","province{{slash}}/index{{slash}}/change":"Change Province Status","province{{slash}}/index{{slash}}/export":"Export Province","province{{slash}}/index{{slash}}/print":"Print Province","urbandistrict{{slash}}/index{{slash}}/add":"Add Urban District","urbandistrict{{slash}}/index{{slash}}/view":"View Urban District","urbandistrict{{slash}}/index{{slash}}/edit":"Edit Urban District","urbandistrict{{slash}}/index{{slash}}/delete":"Delete Urban District","urbandistrict{{slash}}/index{{slash}}/change":"Change Urban District Status","urbandistrict{{slash}}/index{{slash}}/export":"Export Urban District","urbandistrict{{slash}}/index{{slash}}/print":"Print Urban District","suburban{{slash}}/index{{slash}}/add":"Add Sub Urban","suburban{{slash}}/index{{slash}}/view":"View Sub Urban","suburban{{slash}}/index{{slash}}/edit":"Edit Sub Urban","suburban{{slash}}/index{{slash}}/delete":"Delete Sub Urban","suburban{{slash}}/index{{slash}}/change":"Change Sub Urban Status","suburban{{slash}}/index{{slash}}/export":"Export Sub Urban","suburban{{slash}}/index{{slash}}/print":"Print Sub Urban","district{{slash}}/index{{slash}}/add":"Add District","district{{slash}}/index{{slash}}/view":"View District","district{{slash}}/index{{slash}}/edit":"Edit District","district{{slash}}/index{{slash}}/delete":"Delete District","district{{slash}}/index{{slash}}/change":"Change District Status","district{{slash}}/index{{slash}}/export":"Export District","district{{slash}}/index{{slash}}/print":"Print District"}}";s:12:"user_session";O:8:"stdClass":9:{s:2:"id";s:1:"1";s:8:"username";s:5:"admin";s:5:"email";s:15:"admin@admin.com";s:8:"password";s:8:"********";s:8:"group_id";s:1:"1";s:6:"status";s:1:"1";s:10:"last_login";s:10:"1426407719";s:9:"logged_in";b:1;s:4:"name";s:21:"Administrator Website";}s:7:"user_id";s:118:"eHVWeUR1SGNIb2hCdWozdGc5QlRTT1VJdzdZNEtZNnNDNEJkM3MwM25Wek95cHQxeFFNTFNXeVFpQ1hmK2dnZWtGOXgyWkZ6cDhjb3dLdFVlWEcra2c9PQ";}');
 
 -- --------------------------------------------------------
 
@@ -26046,7 +26046,7 @@ CREATE TABLE IF NOT EXISTS `tbl_participants` (
   `completed` tinyint(1) NOT NULL,
   `join_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`part_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=56 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=74 ;
 
 --
 -- Dumping data for table `tbl_participants`
@@ -26107,7 +26107,25 @@ INSERT INTO `tbl_participants` (`part_id`, `id_number`, `name`, `gender`, `age`,
 (52, '', 'xcvxcvx', '', 0, '121', '0', '12', '', '0', '0', '0', NULL, 0, '2015-03-15 19:39:43'),
 (53, '', 'zxczxc', '', 0, '121', '0', '12', '', '0', '0', '0', NULL, 0, '2015-03-15 19:52:35'),
 (54, '', 'zxczxc', '', 0, '121', '0', '12', '', '0', '0', '0', NULL, 0, '2015-03-15 19:52:58'),
-(55, '', 'zxczxc', '', 0, '121', '0', '12', '', '0', '0', '0', NULL, 0, '2015-03-15 19:53:27');
+(55, '', 'zxczxc', '', 0, '121', '0', '12', '', '0', '0', '0', NULL, 0, '2015-03-15 19:53:27'),
+(56, '', 'Dutch', '', 0, '2525', '0', '2313123123', '', '0', '0', '0', NULL, 0, '2015-03-16 03:55:06'),
+(57, '', 'Dutch', '', 0, '2525', '0', '2313123123', '', '0', '0', '0', NULL, 0, '2015-03-16 03:55:08'),
+(58, '', 'Dutch', '', 0, '2525', '0', '2313123123', '', '0', '0', '0', NULL, 0, '2015-03-16 03:55:12'),
+(59, '', 'Dutch', '', 0, 'Test', '0', '23213', '', '0', '0', '0', NULL, 0, '2015-03-16 03:58:49'),
+(60, '', 'Dutch', '', 0, 'Test', '0', '23213', '', '0', '0', '0', NULL, 0, '2015-03-16 03:59:12'),
+(61, '', 'Dutch', '', 0, 'asdasd', '0', '2313123123', '', '0', '0', '0', NULL, 0, '2015-03-16 04:12:26'),
+(62, '', 'Dutch', '', 0, 'asdasd', '0', '2313123123', '', '0', '0', '0', NULL, 0, '2015-03-16 04:14:14'),
+(63, '', 'Dutch', '', 0, 'asdasd', '0', '23213', '', '0', '0', '0', NULL, 0, '2015-03-16 04:14:36'),
+(64, '', 'Dutch', '', 0, 'Test', '0', '2313123123', '', '0', '0', '0', NULL, 0, '2015-03-16 04:18:09'),
+(65, '', 'Dutch', '', 0, 'TEas', '0', '2313123123', '', '0', '0', '0', NULL, 0, '2015-03-16 04:20:08'),
+(66, '', 'Dutch', '', 0, 'TEst', '0', '2313123123', '', '0', '0', '0', NULL, 0, '2015-03-16 04:21:03'),
+(67, '', 'Dutch', '', 0, 'closeBtn  : false,', '0', '2313123123', '', '0', '0', '0', NULL, 0, '2015-03-16 04:22:26'),
+(68, '', 'Dutch', '', 0, 'Test', '0', '2313123123', '', '0', '0', '0', NULL, 0, '2015-03-16 04:23:56'),
+(69, '', 'Dutch', '', 0, 'Test', '0', '2313123123', '', '0', '0', '0', NULL, 0, '2015-03-16 04:28:51'),
+(70, '', 'Dutch', '', 0, 'Test', '0', '234234', '', '0', '0', '0', NULL, 0, '2015-03-16 04:29:45'),
+(71, '', 'Dutch', '', 0, 'Test', '0', '2313123123', '', '0', '0', '0', NULL, 0, '2015-03-16 04:32:11'),
+(72, '', 'Dutch', '', 0, 'Test', '0', '2313123123', '', '0', '0', '0', NULL, 0, '2015-03-16 04:42:03'),
+(73, '', 'Dutch', '', 0, 'Test', '0', '2313123123', '', '0', '0', '0', NULL, 0, '2015-03-16 04:43:35');
 
 -- --------------------------------------------------------
 
@@ -33760,7 +33778,7 @@ CREATE TABLE IF NOT EXISTS `tbl_users` (
 --
 
 INSERT INTO `tbl_users` (`id`, `username`, `email`, `password`, `group_id`, `last_login`, `logged_in`, `status`, `session_id`, `added`, `modified`) VALUES
-(1, 'admin', 'admin@admin.com', 'dd94709528bb1c83d08f3088d4043f4742891f4f', 1, 1426407719, 1, 1, '4ce281a4a05227a6cae3635f3e39a407', 0, 0),
+(1, 'admin', 'admin@admin.com', 'dd94709528bb1c83d08f3088d4043f4742891f4f', 1, 1426407719, 1, 1, 'a246cc90b032dbd0a52457861a0012a1', 0, 0),
 (2, 'joni', 'admin1@admin.com', '8b60e3e54b9f8fe6ec8a5c56c8ecb1595c948c92', 2, 1425630918, 0, 1, '', 0, 1424687676),
 (3, 'qc9080', 'asdf@asdf.com', 'fb00378895cf135de3b135f385c0012f3823e4fb', 116, 1417001008, 0, 1, '', 1425031512, 1424689343),
 (29, 'dyarfi', 'dyarfi20@gmail.com', '647dc5d75f6ce3c6a859eb3b91fa6ccaab05b245', 116, 0, 0, 1, '', 1417065898, 0),

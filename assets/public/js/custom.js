@@ -88,7 +88,10 @@
         e.preventDefault();
         //var post = $(this).serializeArray();
         //console.log(post.name);
-        var url = base_URL + 'home/register/';
+        var url = base_URL + 'home/register/';		
+		$.fancybox.open('<div class="text-center"><img width="40" height="40" src="'+base_URL+'assets/public/img/spinner.gif"/><h3>Sedang Mengirim</h3></div>', {closeClick:false,closeBtn:false,autoSize:false,fitToView:false,maxWidth:320,maxHeight:320}
+		);
+
         $.ajax({
             type: "POST",
             url: url,
@@ -98,31 +101,12 @@
             timeout: 8000,
             dataType: "JSON",
             success: function(json) {
+				
                 // Check returned data from Parse JSON result
                 if (json.result !== '' && json.result !== null) {
-                    $('#'+json.bindto).empty();
-                    $('<option value="0" name="'+json.bindto+'"/>').html('-- '+json.label+' --').appendTo('#'+json.bindto);
-                    if (json.result !== undefined) {
-                        $.each(json.result, function (index, area) {	
-                            if (area !=='') {							
-                                $('<option value="'+area.id+'" name="'+json.bindto+'"/>')
-                                .html(area.name)
-                                .appendTo('#'+json.bindto);
-                            } 
-                        });
-                    } else {
-                        $('<option value="" name="'+json.bindto+'"/>')
-                        .html('Tidak ada area tersedia')
-                        .appendTo('#'+json.bindto);
-                    };
-                    // Cheking if user click from beginning again
-                    if (ref === 'province') {
-                        console.log($('#urbandistrict').children().length);
-                        if ($('#suburban').children().length !== 1) {
-                            $('#suburban').empty();
-                            $('<option value="0" name="suburban"/>').html('-- KECAMATAN --').appendTo('#suburban');
-                        }
-                    }
+				//bootbox.alert("Hello world!", function() {
+					//Example.show("Hello world callback");
+				  //});
                 }
                 // Empty loader
                 //$('#result_callback').empty();

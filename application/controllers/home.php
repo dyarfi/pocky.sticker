@@ -3,26 +3,26 @@
 class Home extends CI_Controller {
 
     public function __construct() {
-	parent::__construct();
+		parent::__construct();
 
-	// Load facebook and headers
-	$this->load->library('facebook');
-	$this->load->model('user_model');
-    
-	$this->config->set_item('show_header', true);
-	header('Access-Control-Allow-Origin: *');
+		// Load facebook and headers
+		$this->load->library('facebook');
+		$this->load->model('user_model');
 
-    // Load config
-    $this->load->config('config',true);
+		$this->config->set_item('show_header', true);
+		header('Access-Control-Allow-Origin: *');
 
-    // Load models
-    $this->load->model('region/Provinces');
-    $this->load->model('region/Suburbans');
-    $this->load->model('region/Urbandistricts');
-    $this->load->model('region/Districts');
-        
-	// Load Setting data
-	//$this->load->model('setting/Settings');
+		// Load config
+		$this->load->config('config',true);
+
+		// Load models
+		$this->load->model('region/Provinces');
+		$this->load->model('region/Suburbans');
+		$this->load->model('region/Urbandistricts');
+		$this->load->model('region/Districts');
+
+		// Load Setting data
+		$this->load->model('admin/Settings');
 
     } 
 
@@ -43,10 +43,10 @@ class Home extends CI_Controller {
             } else {
 
                 $fb_user = array();
-                $fb_user['fb_name'] = @$user_fb['name'];
-                $fb_user['fb_email'] = @$user_fb['email'];
-                $fb_user['fb_id'] = @$user_fb['id'];
-                $fb_user['fb_pic'] = @$user_fb['picture']['data']['url'];
+                $fb_user['fb_name']		= @$user_fb['name'];
+                $fb_user['fb_email']	= @$user_fb['email'];
+                $fb_user['fb_id']		= @$user_fb['id'];
+                $fb_user['fb_pic']		= @$user_fb['picture']['data']['url'];
                 $fb_user['added'] 		= time();
                 $fb_user['modified'] 	= time();
                 $this->user_model->insert_temp($fb_user);           
@@ -98,6 +98,7 @@ class Home extends CI_Controller {
 	
     // User registration
     public function register () {
+		
         /*
         $facebook = new Facebook();
 
@@ -239,28 +240,29 @@ class Home extends CI_Controller {
 	
 	// Gallery
 	public function gallery() {
+		// Load page pagination
 	    $this->load->library('pagination');
 
 	    $order = array('key' => 'image_created_date', 'value' => 'DESC');
 	    $sort = $this->input->get('sort', true);
 	    $data['sort'] = '';
 	    if ($sort) {
-		if ($sort == 'zota') {
-		    $order = array('key' => 'name', 'value' => 'DESC');
-		} else if ($sort == 'atoz') {
-		    $order = array('key' => 'name', 'value' => 'ASC');
-		} else if ($sort == 'vote') {
-		    $order = array('key' => '(select count(1) from liner_vote V where '
-			. ' V.image_id = liner_image.image_id)', 'value' => 'DESC');
-		}
+			if ($sort == 'zota') {
+				$order = array('key' => 'name', 'value' => 'DESC');
+			} else if ($sort == 'atoz') {
+				$order = array('key' => 'name', 'value' => 'ASC');
+			} else if ($sort == 'vote') {
+				$order = array('key' => '(select count(1) from liner_vote V where '
+				. ' V.image_id = liner_image.image_id)', 'value' => 'DESC');
+			}
 		$data['sort'] = $sort;
 	    }
 
 	    $search = $this->input->get('search', true);
 	    $data['search'] = '';
-	    if ($search != '') {
-		$sort .='&search=' . $search;
-		$data['search'] = $search;
+			if ($search != '') {
+			$sort .='&search=' . $search;
+			$data['search'] = $search;
 	    }
 	    $data['data'] = $this->input->get('data', true);
 
