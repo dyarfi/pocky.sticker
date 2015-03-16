@@ -1,5 +1,6 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); 
 
+//print_r($user_fb);
 
 ?>
 <script type="text/javascript">
@@ -41,7 +42,7 @@
                     <select name="gender" id="gender" class="form-control" required>
                         <option value=""></option>
                         <?php foreach ($genders as $gender) { ?>
-                            <option value="<?php echo $gender;?>" <?php echo $gender == $fields->gender ? 'selected' :'';?>><?php echo $gender;?></option>
+                            <option value="<?php echo $gender;?>" <?php echo $gender == ($fields['gender'] or $fb_me->gender) ? 'selected' :'';?>><?php echo $gender;?></option>
                         <?php } ?>
                     </select>
                     <small><?php echo $errors['gender'];?></small>
@@ -60,7 +61,7 @@
 			<div class="form-group">
 			  <div class="col-sm-4" for="textinput"></div>
 			  <div class="col-sm-4">
-                    <input type="hidden" value="<?php echo $field->province;?>">
+                    <input type="hidden" value="<?php echo $fields['province'];?>">
                     <select name="province" class="form-control" id="province" onChange="getRegion($(this),'province');" required>
                         <option value="0">-- PROPINSI --</option>
                         <?php foreach ($provinces as $province){ ?>
@@ -70,7 +71,7 @@
                     <small><?php echo $errors['province'];?></small>
 			  </div>
 			  <div class="col-sm-4">
-                    <input type="hidden" value="<?php echo $field->urbandistrict;?>">
+                    <input type="hidden" value="<?php echo $fields['urbandistrict'];?>">
                     <select name="urbandistrict" class="form-control" id="urbandistrict" onChange="getRegion($(this),'urbandistrict');">
                         <option value="0">-- KABUPATEN --</option>
                     </select>
@@ -80,7 +81,7 @@
 			<div class="form-group">
 			  <div class="col-sm-4" for="textinput"></div>
 			  <div class="col-sm-4">
-                    <input type="hidden" value="<?php echo $field->suburban;?>">
+                    <input type="hidden" value="<?php echo $fields['suburban'];?>">
                     <select name="suburban" class="form-control" id="suburban" onChange="getRegion($(this),'suburban');" required>
                         <option value="0">-- KECAMATAN --</option>
                     </select>
@@ -88,7 +89,7 @@
 			  </div>
 
 			  <div class="col-sm-4">
-                  <input type="text" name="zipcode" placeholder="Kode Pos" class="form-control" value="<?php echo $fields->zipcode;?>">
+                  <input type="text" name="zipcode" placeholder="Kode Pos" class="form-control" value="<?php echo $fields['zipcode'];?>">
                   <small><?php echo $errors['zipcode'];?></small>
 			  </div>
 			</div>
@@ -105,7 +106,7 @@
 			<div class="form-group">
 			  <label class="col-sm-4 control-label" for="textinput">No Kartu Identitas&ast;</label>
 			  <div class="col-sm-8">
-                    <input type="text" name="id_number" placeholder="KTP/SIM/KARTU PELAJAR" value="<?php echo $fields->id_number;?>" class="form-control" required>
+                    <input type="text" name="id_number" placeholder="KTP/SIM/KARTU PELAJAR" value="<?php echo $fields['id_number'];?>" class="form-control" required>
                     <small><?php echo $errors['id_number'];?></small>
               </div>
 			</div>
@@ -114,7 +115,7 @@
 			<div class="form-group">
 			  <label class="col-sm-4 control-label" for="textinput">Nama Oshi Favorit&ast;</label>
 			  <div class="col-sm-8">
-                    <input type="text" name="oshi_favorite" placeholder="Oshi Favorit" value="<?php echo $fields->oshi_favorite;?>" class="form-control">
+                    <input type="text" name="oshi_favorite" placeholder="Oshi Favorit" value="<?php echo $fields['oshi_favorite'];?>" class="form-control">
                     <small><?php echo $errors['oshi_favorite'];?></small>
               </div>
 			</div>
@@ -135,7 +136,7 @@
 
 		  </fieldset>
 		  <div class="error-form" style="width:50%; margin:0 auto">
-			<?php echo validation_errors('<div class="alert alert-danger" role="alert">', '</div>'); ?>
+			<?php //echo validation_errors('<div class="alert alert-danger" role="alert">', '</div>'); ?>
 		  </div>
 		<?=form_close();?>
 	  </div><!-- /.col-lg-12 -->

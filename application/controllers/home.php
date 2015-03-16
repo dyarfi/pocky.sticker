@@ -99,16 +99,18 @@ class Home extends CI_Controller {
     // User registration
     public function register () {
 		
-        /*
         $facebook = new Facebook();
 
         $fb_id = $facebook->getUser();
 		
-        $user_fb_data 	= $this->user_model->get_temp($fb_id);
+		//$fb_me = (object) $facebook->api('/me');
+		//$data['fb_me']	= $fb_me;
+		
+		$user_fb_data 	= $this->user_model->get_temp($fb_id);
 
         $user_data 		= $this->session->userdata('user_id');
 
-        $fb_user = $this->user_model->check_fb_user($fb_id);
+        $fb_user		= $this->user_model->check_fb_user($fb_id);
 
         if ($user_data) {
             $user_id = $this->user_model->decode($user_data);
@@ -117,7 +119,6 @@ class Home extends CI_Controller {
                 die();
             }
         }
-        */
         
         // Default data setup
         $fields	= array(
@@ -153,50 +154,18 @@ class Home extends CI_Controller {
         // Set main template Data for province
         $data['provinces'] = $this->Provinces->getAllProvince();
             
-            // Check if post is requested
+        // Check if post is requested
 	    if ($_SERVER['REQUEST_METHOD'] == 'POST') {			
 
 		    // Validation form checks
 		    if ($this->form_validation->run() === FALSE)
 		    {
 
-			// Set error fields
-			$error = array();
-			foreach(array_keys($fields) as $error) {
-				$errors[$error] = form_error($error);
-			}
-
-			// Set previous post merge to default
-			$fields = array_merge($fields, $this->input->post());
-
-			// Set site title page with module menu
-			$data['page_title'] = 'Daftar';
-
-			// Set main template
-			$data['main']	 = 'register';
-
-			// Set error data to view
-			$data['errors'] = $errors;
-
-			// Post Fields
-			$data['fields']		= (object) $fields;
-
-            // Logic Register via Ajax Request
-            if ($this->input->is_ajax_request()) {
-
-                $result['fields'] = $fields;
-                $result['errors'] = $errors;
-
-                echo json_encode($result,2);
-                // Set main template
-                $data['main']	 = 'json';
-                
-                $this->load->view('json', $this->load->vars($data));
-
-                exit;
-            }
-			// Set site template
-			$this->load->view('template/public/site_template', $this->load->vars($data));
+				// Set error fields
+				$error = array();
+				foreach(array_keys($fields) as $error) {
+					$errors[$error] = form_error($error);
+				}
 
 		    }
 		    else
@@ -217,24 +186,60 @@ class Home extends CI_Controller {
 
                 $user_id  = $this->session->set_userdata('user_id', $this->user_model->encode($user_id));
 
-                redirect(base_url('upload'));
+				if (!$this->input->is_ajax_request()) { 
+					// Redirect if not ajax
+					redirect(base_url('upload'));
+				} else {
+					// Send json message
+					$result['result']	= 'OK';
+					$result['label']	= base_url('upload');
+				}
 
 		    }
 
-	    } else {
-
-		    // Set fb data
-		    $data['user_fb'] = $user_fb_data;
-
-		    // Set site title page with module menu
-		    $data['page_title'] = 'Daftar';
-
-		    // Set default template
-		    $data['main']	 = 'register';
-
-		    // Set site template	
-		    $this->load->view('template/public/site_template', $this->load->vars($data));
 	    }
+
+		// Set previous post merge to default
+		$fields = array_merge($fields, array($this->input->post()));
+
+		// Set site title page with module menu
+		$data['page_title'] = 'Daftar';
+
+		// Set main template
+		$data['main']		= 'register';
+
+		// Set error data to view
+		$data['errors']		= $errors;
+
+		// Post Fields
+		$data['fields']		= $fields;
+
+		// Logic Register via Ajax Request
+		if ($this->input->is_ajax_request()) {
+
+			// Send fields and errors data
+			$result['fields'] = $fields;
+			$result['errors'] = $errors;
+
+			// Return data esult
+			$data['json'] = $result;
+			
+			// Set json main template
+			$this->load->view('json', $this->load->vars($result));
+			exit;
+		}
+
+		// Set fb data
+		$data['user_fb']	= $user_fb_data;
+
+		// Set site title page with module menu
+		$data['page_title'] = 'Daftar';
+
+		// Set default template
+		$data['main']		= 'register';
+
+		// Set site template	
+		$this->load->view('template/public/site_template', $this->load->vars($data));
 
 	}
 	

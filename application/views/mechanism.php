@@ -4,16 +4,13 @@
         FB.Canvas.setSize({ width: 810, height: 820 });
     }
 </script>
-<section id="content" class="mechanism">
-	<div class="cover">
-		<div class="head_tit mechan"></div>
-		<div class="listcen">
-			<div class="cont">
-			<img src="<?=base_url();?>assets/public/img/mechanisms.png" alt="" />
-			</div>
-		</div>
+<div class="container content">
+  <div class="mekanisme">
+	  <div class="title-page"><img src="<?php echo base_url();?>assets/public/img/title-mekanisme.png" alt="title mekanisme" class=""></div>
+	<div class="mekanisme-img">
+	  <img src="<?php echo base_url();?>assets/public/img/mekanisme.png" alt="mekanisme" class="">
 	</div>
-	<div class="atas text-center">
-		<a class="btn btn-primary btn-lg" role="button" href="<?=base_url('upload');?>">IKUT SEKARANG</a>
-	</div>
-</section>
+	<div class="klik font-pocky"><a href="<?php echo base_url('home/register');?>">Daftar</a></div>
+
+  </div>
+</div> <!-- /container -->

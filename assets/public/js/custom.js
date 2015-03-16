@@ -88,8 +88,10 @@
         e.preventDefault();
         //var post = $(this).serializeArray();
         //console.log(post.name);
-        var url = base_URL + 'home/register/';		
-		$.fancybox.open('<div class="text-center"><img width="40" height="40" src="'+base_URL+'assets/public/img/spinner.gif"/><h3>Sedang Mengirim</h3></div>', {closeClick:false,closeBtn:false,autoSize:false,fitToView:false,maxWidth:320,maxHeight:320}
+        var url = base_URL + 'home/register/';	
+		$.fancybox.open('<div class="text-center"><br/><img width="40" height="40" src="'+base_URL+'assets/public/img/spinner.gif"/><br/><br/><h4>Sedang Mengirim</h4></div>', 
+		{helpers : { overlay : {closeClick: false}},
+			closeBtn:false,autoSize:false,fitToView:false,maxWidth:150,maxHeight:150}
 		);
 
         $.ajax({
@@ -112,9 +114,10 @@
                 //$('#result_callback').empty();
                 // Empty loader image
                 //$('#loader').html('');
+				
             },
             complete: function(message) { 
-
+				$.fancybox.close();
             },
             error: function(x,message,t) { 
                 if(message==="timeout") {
