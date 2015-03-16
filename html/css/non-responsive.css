@@ -48,7 +48,7 @@ body,
   max-width: none !important;
 }
 
-.content{
+.content, .content-footer{
   background: transparent url('../img/bg-main.jpg') top center no-repeat;
 }
 
@@ -316,3 +316,17 @@ p{margin: 20px auto;}
 }
 .items-syarat li{margin: 20px 0;}
 .clear-all{clear: both;}
+.footer{
+  background: transparent url('../img/footer.png') bottom center no-repeat;
+  height: 121px;
+}
+.copy{
+  padding-top: 80px;
+  padding-left: 80px;
+  text-align: center;
+}
+
+.copy a{
+  color: #000;
+  font-weight: bold;
+}

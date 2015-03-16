@@ -1,5 +1,9 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
 	
- <div class="footer">
-	<img src="<?php echo base_url();?>assets/public/img/footer.png" class="ctr-img" alt="footer pocky">
-</div>
+	<div class="container content-footer">
+      <div class="footer">
+        <div class="copy">
+          Copyright &copy; Pocky 2015. <a href="">Terms &amp; Conditions</a>
+        </div>
+      </div>
+    </div>
