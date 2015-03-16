@@ -4,10 +4,10 @@
   <div class="container">
 	<div id="navbar" class="navmain">
 	  <ul class="nav navbar-nav">
-		<li class="active"><a href="<?php echo base_url();?>">Ikut Kompetisi</a></li>
-		<li><a href="<?php echo base_url('info');?>">Informasi Hadiah</a></li>
-		<li><a href="<?php echo base_url('mechanism');?>">Mekanisme</a></li>
-		<li><a href="<?php echo base_url('gallery');?>">Galeri</a></li>
+		<li class="<?php echo ($this->uri->segment(1)=='') ? 'active' :'';?>"><a href="<?php echo base_url();?>">Ikut Kompetisi</a></li>
+		<li class="<?php echo ($this->uri->segment(1)=='info') ? 'active' :'';?>"><a href="<?php echo base_url('info');?>">Informasi Hadiah</a></li>
+		<li class="<?php echo ($this->uri->segment(1)=='mechanism') ? 'active' :'';?>"><a href="<?php echo base_url('mechanism');?>">Mekanisme</a></li>
+		<li class="<?php echo ($this->uri->segment(1)=='gallery') ? 'active' :'';?>"><a href="<?php echo base_url('gallery');?>">Galeri</a></li>
 	  </ul>
 	</div><!--/.nav-collapse -->
   </div>
