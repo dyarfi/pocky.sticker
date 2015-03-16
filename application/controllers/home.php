@@ -99,12 +99,13 @@ class Home extends CI_Controller {
     // User registration
     public function register () {
 		
-        $facebook = new Facebook();
+        $facebook		= new Facebook();
 
-        $fb_id = $facebook->getUser();
+        $fb_id			= @$facebook->getUser();
 		
-		//$fb_me = (object) $facebook->api('/me');
-		//$data['fb_me']	= $fb_me;
+		$fb_me			= (object) @$facebook->api('/me');
+		
+		$data['fb_me']	= @$fb_me;
 		
 		$user_fb_data 	= $this->user_model->get_temp($fb_id);
 
