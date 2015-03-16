@@ -173,14 +173,36 @@ class Home extends CI_Controller {
 		    {
 
                 $part = array();
-                $part['name'] = $this->input->get_post('name', true);
-                $part['fb_id'] = $this->input->get_post('fb_id', true);
-                $part['fb_pic_url'] = $this->input->get_post('picture_url', true);
-                $part['address'] = $this->input->get_post('address', true);
-                $part['email'] = $this->input->get_post('email', true);
-                $part['phone_number'] = $this->input->get_post('phone', true);
-                $part['twitter'] = $this->input->get_post('twitter', true);
+				/*
+				 *  'name'          => '',
+					'gender'        => '',
+					'age'           => '',
+					'address'       => '',
+					'province'      => '',
+					'urbandistrict' => '',
+					'suburban'      => '',
+					'zipcode'       => '',
+					'phone'         => '',
+					'oshi_favorite' => '',
+					'id_number'     => ''
+				 */
+				
+                $part['fb_id']			= $this->input->get_post('fb_id', true);
+                $part['fb_pic_url']		= $this->input->get_post('picture_url', true);
+				$part['email']			= $fb_me->email;
+                $part['name']			= $this->input->get_post('name', true);
+				$part['age']			= $this->input->get_post('age', true);
+                $part['address']		= $this->input->get_post('address', true);
+                $part['province']		= $this->input->get_post('province', true);
+				$part['urbandistrict']	= $this->input->get_post('urbandistrict', true);
+				$part['suburban']		= $this->input->get_post('suburban', true);
+				$part['zipcode']		= $this->input->get_post('zipcode', true);
+                $part['phone_number']	= $this->input->get_post('phone', true);
+                $part['oshi_favorite']	= $this->input->get_post('oshi_favorite', true);
+				$part['id_number']		= $this->input->get_post('id_number', true);
+				
                 $this->load->model('user_model');
+				
                 $user_id = $this->user_model->reg_participant($part);
 
                 $this->config->set_item('user_id', $user_id);
