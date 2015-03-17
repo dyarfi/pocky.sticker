@@ -35,15 +35,40 @@
 					<img src="<?php echo base_url();?>assets/public/img/title-unggah-2.png" alt="title mekanisme" class="">
 				</a>
 			</div>
+		<?php echo form_open_multipart(base_url('upload/selfie?data='.$this->input->get('data', TRUE)), array('id'=>'fileUploadForm'));?>
 			<div class="up-16-img">
-			  <img src="<?php echo base_url();?>assets/public/img/2-sticker.png" alt="16-sticker" class="">
-			  <p>
-				Unggah koleksi 2 stiker reguler JKT48 Pocky kamu di sini.<br>
-				Pastikan koleksi stiker kamu sudah lengkap, dan berbeda satu sama lainnya.
-			  </p>
-			  <img src="<?php echo base_url();?>assets/public/img/def-up-sticker.png" alt="def-up-sticker" class="">
+				<img src="<?php echo base_url();?>assets/public/img/2-sticker.png" alt="16-sticker" class="">
+				<p>
+				  Unggah koleksi 2 stiker reguler JKT48 Pocky kamu di sini.<br>
+				  Pastikan koleksi stiker kamu sudah lengkap, dan berbeda satu sama lainnya.
+				</p>
+				<div class="img_holder_xhr text-center">
+					<div class="img-thumbnail">
+						<a class="colorbox" href="<?php echo base_url();?>assets/public/img/def-up-sticker.png">
+							<img src="<?php echo base_url();?>assets/public/img/def-up-sticker.png" alt="def-up-sticker" class="">
+						</a>
+					</div>
+				</div>
+				<div class="text-center">
+					<div class="container">
+						<p>
+						<!-- The global progress bar -->
+						<div id="progress" class="progress" style="display:block;">
+							<div class="progress-bar progress-bar-danger"></div>
+						</div>
+						</p>
+					</div>
+				</div>
+				<div class="center-block">
+					<div class="fileUpload btn btn-warning btn-md klik font-pocky">
+						<span>Browse</span>
+						<input class="upload" type="file" id="fileupload" name="fileupload" data-url="<?=base_url('upload/image');?>">
+					</div>
+				</div>
+				<input type="hidden" name="image_temp" value="">
 			</div>
-			<div class="klik font-pocky"><a href=>Unggah</a></div>
+			<div class="text-center button-submit" style="display: none"><button type="submit" class="klik font-pocky">Unggah</button></div>
+		<?php echo form_close(); ?>
 		</div>
 	</div>
 
@@ -54,15 +79,41 @@
 					<img src="<?php echo base_url();?>assets/public/img/title-unggah-16.png" alt="title mekanisme" class="">
 				</a>
 			</div>
-			<div class="up-16-img">
-			  <img src="<?php echo base_url();?>assets/public/img/16-sticker.png" alt="16-sticker" class="">
-			  <p>
-				Unggah koleksi 16 stiker reguler JKT48 Pocky kamu di sini.<br>
-				Pastikan koleksi stiker kamu sudah lengkap, dan berbeda satu sama lainnya.
-			  </p>
-			  <img src="<?php echo base_url();?>assets/public/img/def-up-sticker.png" alt="def-up-sticker" class="">
+			<?php echo form_open_multipart(base_url('upload/selfie?data='.$this->input->get('data', TRUE)), array('id'=>'fileUploadForm'));?>
+				<div class="up-16-img">
+				  <img src="<?php echo base_url();?>assets/public/img/16-sticker.png" alt="16-sticker" class="">
+				  <p>
+					Unggah koleksi 16 stiker reguler JKT48 Pocky kamu di sini.<br>
+					Pastikan koleksi stiker kamu sudah lengkap, dan berbeda satu sama lainnya.
+				  </p>
+					<div class="img_holder_xhr text-center">				
+						<div class="img-thumbnail">
+							<a class="colorbox" href="<?php echo base_url();?>assets/public/img/def-up-sticker.png">
+								<img src="<?php echo base_url();?>assets/public/img/def-up-sticker.png" alt="def-up-sticker" class="">
+							</a>
+						</div>
+					</div>
+					<div class="text-center">
+					  <div class="container">
+						  <p>
+							  <!-- The global progress bar -->
+							  <div id="progress" class="progress" style="display:block">
+								  <div class="progress-bar progress-bar-danger"></div>
+							  </div>
+						  </p>
+					  </div>
+					</div>
+					<div class="center-block">
+						<div class="fileUpload btn btn-warning btn-md klik font-pocky">
+							<span>Browse</span>
+							<input class="upload" type="file" id="fileupload" name="fileupload" data-url="<?=base_url('upload/image');?>">
+						</div>
+					</div>
+					<input type="hidden" name="image_temp" value="">
+				</div>
+			<div class="text-center button-submit" style="display: none"><button type="submit" class="klik font-pocky">Unggah</button></div>
+			<?php echo form_close(); ?>
 			</div>
-			<div class="klik font-pocky"><a href=>Unggah</a></div>
 		</div>	
 	</div>
 	

@@ -1,8 +1,7 @@
 
 body {
-
     font-family: 'Gotham_Book','Arial','Tahoma','Verdana';
-
+	text-rendering: optimizeLegibility;
 }
 
 html {
@@ -11,7 +10,7 @@ html {
 }
 h1,
 h2 {
-	margin-bottom: 10px;
+	/*margin-bottom: 10px;*/
 }
 h1,
 h2,
@@ -36,13 +35,26 @@ p.lead {
 	font-weight: 600;
 }
 
-a {
+a, button, .btn {
     -webkit-transition: all .2s ease-in-out;
     -moz-transition: all .2s ease-in-out;
     transition: all .2s ease-in-out;
 }
+.klik.font-pocky a {
+	outline: none;
+	text-decoration: none;
+}
 .sticker-upload {
 	display: none
+}
+.sticker-upload button {
+	color: #ffffff;
+}
+.sticker-upload button:hover {
+	color: #000000;
+}
+.sticker-upload a.text-success {
+	outline: none;
 }
 .sticker-upload a.text-success:hover img {
 	margin-left:3px; 
@@ -183,7 +195,7 @@ hr {
 .fileUpload {
 	position: relative;
 	overflow: hidden;
-	margin: 10px 10px 10px 43px;
+	margin: 10px 10px 10px 8px;
 }
 .fileUpload input.upload {
 	position: absolute;
