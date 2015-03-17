@@ -46,7 +46,10 @@ a {
 	margin: 30px auto 100px auto;
 	/*padding: 60px;*/
 }
-
+.klik-unggah a {
+	text-decoration: none;
+	outline: none
+}
 /* loader */
 #preloader {
     background: #ffffff;
@@ -100,6 +103,16 @@ hr {
 .marginbot-30{margin-bottom:30px !important;}
 .marginbot-40{margin-bottom:40px !important;}
 .marginbot-50{margin-bottom:50px !important;}
+
+/* ===========================
+--- PopUp sections
+============================ */
+#popup_page {
+	width: 100%;
+	position: fixed;
+	background: #ffffff;
+}
+
 
 /* ===========================
 --- General sections

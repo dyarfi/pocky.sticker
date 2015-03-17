@@ -25,6 +25,25 @@ class upload extends CI_Controller {
 		
 	}
 	
+	public function type($type='') { 
+		
+		// Checking if upload params does not match
+		if ($type != 16 && $type != 2) { redirect(base_url('upload')); }
+				
+		// Get upload type 
+		$data['type'] = $type;
+		
+		// Set main template
+		$data['main'] = 'upload_single';
+				
+		// Set site title page with module menu
+		$data['page_title'] = 'Upload '.$type.' Sticker';
+		
+		// Load admin template
+		$this->load->view('template/public/blank_template', $this->load->vars($data));
+		
+	}
+	
 	public function selfie() {
 
 		$get_data 	 = $this->session->userdata('user_id');

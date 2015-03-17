@@ -8,5 +8,5 @@ assets/admin/captcha/image/*
 */uploads/*
 .DS_Store
 *.htaccess
-application/config/config.php
-application/controllers/home.php
+*/config/config.php
+*/controllers/home.php

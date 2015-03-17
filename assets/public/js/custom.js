@@ -57,7 +57,11 @@
 		$('.vacancy-list-holder').show({duration:'220',easing:'easeOutExpo'});				
 		return false;
 	});
-	
+	$('.unggah16 a, .unggah2 a').click(function(){
+		var href = $(this).attr('href');
+		
+		return false;
+	});
 	/*
 		$(".apply-btn").fancybox({
 			maxWidth	: 800,
@@ -83,7 +87,8 @@
 //            'ogv': base_URL + 'assets/public/media/Gatwick_Airport_1Videvo_1',
 //            'poster': base_URL + 'assets/public/media/Gatwick_Airport_1Videvo_1'
 //    });
-    
+
+
     $('#register').submit(function(e) {
         e.preventDefault();
         //var post = $(this).serializeArray();

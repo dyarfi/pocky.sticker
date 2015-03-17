@@ -68,7 +68,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <link href="<?=admin_theme()?>assets/admin/css/print.css" rel="stylesheet" type="text/css" media="print"/>
 <link href="<?=admin_theme()?>assets/admin/css/custom.css" rel="stylesheet" type="text/css"/>
 <!-- END THEME STYLES -->
-<link rel="shortcut icon" href="favicon.ico"/>
+<!--<link rel="shortcut icon" href="favicon.ico"/>-->
 <script>base_URL = '<?=base_url()?>';</script>
 </head>
 <!-- END HEAD -->
