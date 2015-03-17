@@ -334,6 +334,7 @@ p{margin: 20px auto;}
 .footer{
   background: transparent url('../img/footer.png') bottom center no-repeat;
   height: 121px;
+  margin: 75px 0 0 0;
 }
 .copy{
   padding-top: 80px;

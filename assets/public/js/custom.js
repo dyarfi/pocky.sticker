@@ -57,9 +57,17 @@
 		$('.vacancy-list-holder').show({duration:'220',easing:'easeOutExpo'});				
 		return false;
 	});
+	$('.sticker-upload .text-success').click(function(){
+		$('.sticker-upload-landing').show({duration:'220',easing:'easeInOutBack'});
+		$('.mekanisme').find('.sticker-upload').hide();
+	});
 	$('.unggah16 a, .unggah2 a').click(function(){
 		var href = $(this).attr('href');
+		var arel = $(this).attr('rel');
+		$('.sticker-upload-landing').hide({duration:'220',easing:'easeInOutBack'});
 		
+		$('.mekanisme').find('.sticker-upload').hide();
+		$('.mekanisme').find('.'+arel).show();
 		return false;
 	});
 	/*

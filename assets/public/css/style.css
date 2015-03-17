@@ -41,9 +41,17 @@ a {
     -moz-transition: all .2s ease-in-out;
     transition: all .2s ease-in-out;
 }
-
+.sticker-upload {
+	display: none
+}
+.sticker-upload a.text-success:hover img {
+	margin-left:3px; 
+}
 .content-holder {
-	margin: 30px auto 100px auto;
+	margin: 30px auto
+}
+.content-holder p {
+	margin: 25px auto;
 	/*padding: 60px;*/
 }
 .klik-unggah a {

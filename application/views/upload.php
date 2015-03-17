@@ -5,7 +5,7 @@
     }
 </script>
 <div class="center-block">
-	<div class="upload-sticker">
+	<div class="sticker-upload-landing">
 		<div class="title-page"><img src="<?php echo base_url();?>assets/public/img/title-unggah.png" alt="title daftar" class="title"></div>
 		<div class="id-uploadsticker">
 		  <p>
@@ -16,43 +16,57 @@
 		  </p>
 		  <div class="col-md-6 col-xs-6">
 			<img src="<?php echo base_url();?>assets/public/img/16-sticker.png" alt="16 sticker" class="pull-right">
-			<div class="klik-unggah font-pocky pull-right unggah16"><a href="<?php echo base_url('upload/type/16');?>">16 sticker special</a></div>
+			<div class="klik-unggah font-pocky pull-right unggah16"><a rel="sticker16" href="<?php echo base_url('upload/type/16');?>">16 sticker special</a></div>
 		  </div>
 		  <div class="col-md-6 col-xs-6">
 			<img src="<?php echo base_url();?>assets/public/img/2-sticker.png" alt="2 sticker" class="pull-left">
-			<div class="klik-unggah font-pocky pull-left unggah2"><a href="<?php echo base_url('upload/type/2');?>">2 sticker special</a></div>
+			<div class="klik-unggah font-pocky pull-left unggah2"><a rel="sticker2" href="<?php echo base_url('upload/type/2');?>">2 sticker special</a></div>
 		  </div>
 		</div>
 	</div>
 </div>
 
-<div class="mekanisme hidden 2-sticker">
-	<div class="title-page"><img src="<?php echo base_url();?>assets/public/img/title-unggah-2.png" alt="title mekanisme" class=""></div>
-		<div class="up-16-img">
-		  <img src="<?php echo base_url();?>assets/public/img/2-sticker.png" alt="16-sticker" class="">
-		  <p>
-			Unggah koleksi 2 stiker reguler JKT48 Pocky kamu di sini.<br>
-			Pastikan koleksi stiker kamu sudah lengkap, dan berbeda satu sama lainnya.
-		  </p>
-		  <img src="<?php echo base_url();?>assets/public/img/def-up-sticker.png" alt="def-up-sticker" class="">
+<div class="upload-single">
+	
+	<div class="mekanisme">
+		<div class="sticker2 sticker-upload">
+			<div class="title-page">
+				<a href="javascript:;" class="text-success">
+					<img src="<?php echo base_url();?>assets/public/img/title-unggah-2.png" alt="title mekanisme" class="">
+				</a>
+			</div>
+			<div class="up-16-img">
+			  <img src="<?php echo base_url();?>assets/public/img/2-sticker.png" alt="16-sticker" class="">
+			  <p>
+				Unggah koleksi 2 stiker reguler JKT48 Pocky kamu di sini.<br>
+				Pastikan koleksi stiker kamu sudah lengkap, dan berbeda satu sama lainnya.
+			  </p>
+			  <img src="<?php echo base_url();?>assets/public/img/def-up-sticker.png" alt="def-up-sticker" class="">
+			</div>
+			<div class="klik font-pocky"><a href=>Unggah</a></div>
 		</div>
-	<div class="klik font-pocky"><a href=>Unggah</a></div>
-</div>
-
-
-<div class="mekanisme hidden 16-sticker">
-	<div class="title-page"><img src="img/title-unggah-16.png" alt="title mekanisme" class=""></div>
-	<div class="up-16-img">
-	  <img src="img/16-sticker.png" alt="16-sticker" class="">
-	  <p>
-		Unggah koleksi 16 stiker reguler JKT48 Pocky kamu di sini.<br>
-		Pastikan koleksi stiker kamu sudah lengkap, dan berbeda satu sama lainnya.
-	  </p>
-	  <img src="img/def-up-sticker.png" alt="def-up-sticker" class="">
 	</div>
-	<div class="klik font-pocky"><a href=>Unggah</a></div>
-</div>
 
+	<div class="mekanisme">
+		<div class="sticker16 sticker-upload">
+			<div class="title-page">
+				<a href="javascript:;" class="text-success">
+					<img src="<?php echo base_url();?>assets/public/img/title-unggah-16.png" alt="title mekanisme" class="">
+				</a>
+			</div>
+			<div class="up-16-img">
+			  <img src="<?php echo base_url();?>assets/public/img/16-sticker.png" alt="16-sticker" class="">
+			  <p>
+				Unggah koleksi 16 stiker reguler JKT48 Pocky kamu di sini.<br>
+				Pastikan koleksi stiker kamu sudah lengkap, dan berbeda satu sama lainnya.
+			  </p>
+			  <img src="<?php echo base_url();?>assets/public/img/def-up-sticker.png" alt="def-up-sticker" class="">
+			</div>
+			<div class="klik font-pocky"><a href=>Unggah</a></div>
+		</div>	
+	</div>
+	
+</div>
 
 
 <?php /* echo form_open_multipart(base_url('upload/selfie?data='.$this->input->get('data', TRUE)), array('id'=>'fileUploadForm'));?>
