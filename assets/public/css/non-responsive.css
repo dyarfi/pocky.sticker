@@ -13,7 +13,13 @@
 	font-weight: normal;
 	font-style: normal;
 }
-
+@font-face {
+	font-family: 'Gotham_Book';
+	src: url('../fonts/Gotham-Book.eot');
+	src: local('☺'), url('../fonts/Gotham-Book.woff') format('woff'), url('../fonts/Gotham-Book.ttf') format('truetype'), url('../fonts/Gotham-Book.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
 
 /* End Load*/
 
@@ -54,17 +60,18 @@ body,
 }
 
 .content, .content-footer{
-  background: transparent url('../img/bg-main.jpg') top center no-repeat;
+	padding: 60px 0 0 0; 
+	background: transparent url('../img/bg-main.jpg') top center no-repeat;
 }
 
 /* Demonstrate the grids */
 .col-xs-6 {
-  padding-top: 15px;
-  padding-bottom: 15px;
-  background-color: #eee;
-  background-color: rgba(86,61,124,.15);
-  border: 1px solid #ddd;
-  border: 1px solid rgba(86,61,124,.2);
+  /*padding-top: 15px;*/
+  /*padding-bottom: 15px;*/
+  /*background-color: #eee;*/
+  /*background-color: rgba(86,61,124,.15);*/
+  /*border: 1px solid #ddd;*/
+  /*border: 1px solid rgba(86,61,124,.2);*/
 }
 
 .container .navbar-header,
@@ -300,7 +307,7 @@ button{background: transparent; border: none;}
 }
 .unggah16{margin-right: 30px;}
 .unggah2{margin-left: 55px;}
-.id-uploadsticker p{text-align: center;}
+.id-uploadsticker p {text-align: center; margin-left:30px;margin-right:30px; }
 .link-sm{padding: 1px inherit 0;}
 .link-sm a{font-size: 12px;}
 .link-option{float: left; margin: 0 50px}

@@ -18,7 +18,7 @@ class upload extends CI_Controller {
 		$data['main'] = 'upload';
 				
 		// Set site title page with module menu
-		$data['page_title'] = 'Upload Selfie';
+		$data['page_title'] = 'Upload Sticker';
 		
 		// Load admin template
 		$this->load->view('template/public/site_template', $this->load->vars($data));

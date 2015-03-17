@@ -1,7 +1,7 @@
 
 body {
 
-    /*font-family: 'Arial','Tahoma','Verdana';*/
+    font-family: 'Gotham_Book','Arial','Tahoma','Verdana';
 
 }
 
@@ -40,6 +40,11 @@ a {
     -webkit-transition: all .2s ease-in-out;
     -moz-transition: all .2s ease-in-out;
     transition: all .2s ease-in-out;
+}
+
+.content-holder {
+	margin: 30px auto 100px auto;
+	/*padding: 60px;*/
 }
 
 /* loader */

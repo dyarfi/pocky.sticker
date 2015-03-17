@@ -1,14 +1,32 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
-
 <script type="text/javascript">
       window.onload = function() {
         FB.Canvas.setSize({ width: 810, height: 700 });
     }
 </script>
-<section id="content">
-<div class="cover">
-<div class="head_tit upload"></div>
-<?=form_open_multipart(base_url('upload/selfie?data='.$this->input->get('data', TRUE)), array('id'=>'fileUploadForm'));?>
+<div class="center-block">
+	<div class="upload-sticker">
+		<div class="title-page"><img src="<?php echo base_url();?>assets/public/img/title-unggah.png" alt="title daftar" class="title"></div>
+		<div class="id-uploadsticker">
+		  <p>
+			Pilih jumlah stiker yang kamu miliki sebelum mengunggah. 
+		  </p>
+		  <p>
+			Pastikan koleksi stiker dalam foto kamu sudah lengkap dan tidak sama satu sama lain, karena kamu hanya punya satu kali kesempatan untuk mengunggah koleksi stiker reguler dan stiker spesial JKT48 dari Pocky.
+		  </p>
+		  <div class="col-md-6 col-xs-6">
+			<img src="<?php echo base_url();?>assets/public/img/16-sticker.png" alt="16 sticker" class="pull-right">
+			<div class="klik-unggah font-pocky pull-right unggah16"><a href=>16 sticker special</a></div>
+		  </div>
+		  <div class="col-md-6 col-xs-6">
+			<img src="<?php echo base_url();?>assets/public/img/2-sticker.png" alt="2 sticker" class="pull-left">
+			<div class="klik-unggah font-pocky pull-left unggah2"><a href=>2 sticker special</a></div>
+		  </div>
+		</div>
+	</div>
+</div>
+	
+<?php /* echo form_open_multipart(base_url('upload/selfie?data='.$this->input->get('data', TRUE)), array('id'=>'fileUploadForm'));?>
 <div class="listcen">
 	<div class="cont">
 		<div id="sizeBox">
@@ -54,5 +72,4 @@
 		<button class="btn btn-primary btn-lg" role="button">KIRIM</button>
 	</div>
 </div>
-<?=form_close();?>
-</section>
+<?php echo form_close(); */?>
