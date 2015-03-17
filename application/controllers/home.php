@@ -103,9 +103,9 @@ class Home extends CI_Controller {
 
         $fb_id			= @$facebook->getUser();
 		
-		$fb_me			= (object) @$facebook->api('/me');
+		//$fb_me			= (object) @$facebook->api('/me');
 		
-		$data['fb_me']	= @$fb_me;
+		//$data['fb_me']	= @$fb_me;
 		
 		$user_fb_data 	= $this->user_model->get_temp($fb_id);
 

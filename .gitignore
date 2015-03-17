@@ -7,3 +7,6 @@ assets/admin/captcha/image/*
 */cache/!.htaccess
 */uploads/*
 .DS_Store
+*.htaccess
+application/config/config.php
+application/controllers/home.php
