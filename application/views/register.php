@@ -8,18 +8,21 @@
         FB.Canvas.setSize({ width: 810, height: 752 });
     }
 </script>
+<div class="title-page"><img src="<?php echo base_url();?>assets/public/img/title-mendaftar.png" alt="title mendaftar" class=""></div>
+
 <div class="content-img">
+	<div class="tag-daftar">Masukkan data pribadi kamu sebelum mengunggah foto koleksi stiker JKT48 yang sudah kamu miliki.</div>
 	<div class="row">
 	  <div class="registration">
 		<?php echo form_open_multipart(base_url('home/register'),array('id'=>'register','class'=>'form-horizontal'));?>
 		  <fieldset>
 
 			<!-- Form Name -->
-			<legend>Masukkan data pribadi kamu sebelum mengunggah foto koleksi stiker JKT48 yang sudah kamu miliki.</legend>
+			
 
 			<!-- Text input-->
 			<div class="form-group">
-			  <label class="col-sm-4 control-label" for="textinput">Nama&ast;</label>
+			  <label class="col-sm-4 control-label" for="textinput"><div class="border-top-bot">Nama&ast;</div></label>
 			  <div class="col-sm-8">
 				<input type="text" class="form-control" placeholder="Nama" value="<?php echo set_value('name', @$user_fb->fb_name) ?>" name="name" required>
                 <small><?php echo $errors['name'];?></small>
@@ -28,7 +31,7 @@
 
 			<!-- Text input-->
 			<div class="form-group">
-			  <label class="col-sm-4 control-label" for="textinput">Usia&ast;</label>
+			  <label class="col-sm-4 control-label" for="textinput"><div class="border-top-bot">Usia&ast;</div></label>
 			  <div class="col-sm-8">
 				<input type="text" class="form-control" placeholder="Usia" value="<?php echo set_value('age', @$user_fb->age) ?>" name="age" required>
                 <small><?php echo $errors['age'];?></small>
@@ -37,7 +40,7 @@
 
 			<!-- Text input-->
 			<div class="form-group">
-			  <label class="col-sm-4 control-label" for="textinput">Jenis Kelamin&ast;</label>
+			  <label class="col-sm-4 control-label" for="textinput"><div class="border-top-bot">Jenis Kelamin&ast;</div></label>
 			  <div class="col-sm-8">
                     <select name="gender" id="gender" class="form-control" required>
                         <option value=""></option>
@@ -51,7 +54,7 @@
 
 			<!-- Text input-->
 			<div class="form-group">
-			  <label class="col-sm-4 control-label" for="textinput">Alamat Lengkap&ast;</label>
+			  <label class="col-sm-4 control-label" for="textinput"><div class="border-top-bot">Alamat Lengkap&ast;</div></label>
 			  <div class="col-sm-8">
                     <textarea type="text" class="form-control" placeholder="Alamat" name="address" required><?php echo set_value('address', @$user_fb->address) ?></textarea>
                     <small><?php echo $errors['address'];?></small>
@@ -95,7 +98,7 @@
 			</div>
 			<!-- Text input-->
 			<div class="form-group">
-			  <label class="col-sm-4 control-label" for="textinput">No Hp.&ast;</label>
+			  <label class="col-sm-4 control-label" for="textinput"><div class="border-top-bot">No Hp.&ast;</div></label>
 			  <div class="col-sm-8">
                     <input type="text" name="phone" class="form-control" placeholder="No. Telp" value="<?php echo set_value('phone', @$user_fb->phone) ?>" name="phone" required>
                     <small><?php echo $errors['phone'];?></small>
@@ -104,7 +107,7 @@
 
 			<!-- Text input-->
 			<div class="form-group">
-			  <label class="col-sm-4 control-label" for="textinput">No Kartu Identitas&ast;</label>
+			  <label class="col-sm-4 control-label" for="textinput"><div class="border-top-bot">No Kartu Identitas&ast;</div></label>
 			  <div class="col-sm-8">
                     <input type="text" name="id_number" placeholder="KTP/SIM/KARTU PELAJAR" value="<?php echo $fields['id_number'];?>" class="form-control" required>
                     <small><?php echo $errors['id_number'];?></small>
@@ -113,7 +116,7 @@
 
 			<!-- Text input-->
 			<div class="form-group">
-			  <label class="col-sm-4 control-label" for="textinput">Nama Oshi Favorit&ast;</label>
+			  <label class="col-sm-4 control-label" for="textinput"><div class="border-top-bot">Nama Oshi Favorit&ast;</div></label>
 			  <div class="col-sm-8">
                     <input type="text" name="oshi_favorite" placeholder="Oshi Favorit" value="<?php echo $fields['oshi_favorite'];?>" class="form-control">
                     <small><?php echo $errors['oshi_favorite'];?></small>
