@@ -6,7 +6,9 @@
     }
 </script>
 	<section id="content" class="galeri">
+      <div class="title-page"><img src="<?php echo base_url();?>assets/public/img/title-pemenang.png" alt="title pemenang" class=""></div>
     <div class="cover">
+      
     <div class="head_tit <?php echo ($this->uri->segment(1) == 'participant') ? 'mygaleri' : 'galeri'?>"></div>
     <div class="listcen">
     	<div class="cont">         
@@ -63,8 +65,9 @@
     			</div>
     			<?php }
           } else { ?>
-          <h3 class="text-center">Belum ada galeri</h3>
-          <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+          <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+	  <h3 class="text-center font-pocky">Belum ada galeri</h3>
+          <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
           <?php } ?>					  				
         </div>
 

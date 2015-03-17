@@ -5,28 +5,29 @@
     }
 </script>
 <section id="content" class="thanks">
-<div class="cover">
-	<h1>SYARAT & KETENTUAN</h1>
-<div class="listtnc">
-	<div class="cont">             
-	<ul class="tnc">
-		  <li>Kompetisi Panasonic Score The Selfie berlangsung pada tanggal 24 Januari – 7 Februari 2015</li>
-			<li>Peserta hanya boleh mengirimkan foto selfie yang dibuat di stadion Gelora Bung Karno, tanggal 24 Januari 2015, saat pertandingan Persija vs Gamba Osaka berlangsung.</li>
-			<li>Peserta boleh mengunggah foto selfienya selama 24 – 26 Januari 2015.</li>
-			<li>Selain melalui apps, peserta juga bisa mengikuti kompetisi ini melalui twitter dengan cara mengunggah foto selfie dengan hashtag #scoretheselfie dan mention @IDPanasonic.</li>
-			<li>Peserta boleh mengirimkan foto sebanyak-banyaknya.</li>
-			<li>Voting untuk menentukan pemenang dibuka mulai 24 Januari sampai 7 Februari 2015.</li>
-			<li>Panasonic Indonesia berhak menggunakan data diri kamu untuk keperluan promosi</li>
-			<li>Foto yang dikirimkan tidak mengandung unsur kekerasan, pelecehan, pornografi, dan tidak menyinggung SARA.</li>
-			<li>Panasonic Indonesia berhak untuk menghapus posting yang dikirim peserta jika dianggap tidak etis, berisi pornografi, rasisme, kriminal dan berbau SARA serta mengandung materi yang sifatnya provokatif dan dapat memicu konflik antar golongan pihak mana pun.</li>
-			<li>Tiga orang pemenang akan ditentukan berdasarkan jumlah vote/likes yang diperoleh foto tersebut. Apabila terjadi jumlah vote yang sama, dewan juri akan memilih pemenang berdasarkan kreativitas peserta dalam mengkreasikan foto. </li>
-			<li>Para pemenang akan mendapatkan hadiah kamera Panasonic Lumix.</li>
-			<li>Pemenang harus menyimpan tiket pertandingan Persija vs Gamba Osaka di Stadion Gelora Bung Karno, Jakarta pada 24 Januari 2015, dan menunjukkannya sebagai bukti untuk validasi pengiriman hadiah.</li>
-			<li>Keputusan juri tidak dapat diganggu gugat.</li>
-			<li>Pemenang akan diumumkan pada tanggal 12 Februari 2015 melalui fanpage Panasonic Indonesia di Facebook.</li>
-	 </ul>        
-	</div>
-</div>
-</div>
+<div class="container content">
+      <div class="mekanisme">
+        <div class="title-page"><img src="<?php echo base_url();?>assets/public/img/title-syarat.png" alt="title terimakasih" class=""></div>
+        <div class="syarat">
+          <ul class="items-syarat">
+            <li>Stiker Inspirasi Pocky adalah kegiatan promosi yang berlangsung di media Facebook dengan menggunakan Facebook Apps.</li>
+            <li>Kegiatan Stiker Inspirasi berlangsung selama bulan Maret sampai Agustus 2015.</li>
+            <li>Kegiatan promosi ini terbuka untuk semua warga negara Indonesia dengan usia minimal 17 tahun.</li>
+            <li>Untuk mengikuti kegiatan ini, partisipan harus mengunggah foto koleksi 16 stiker reguler JKT48 atau 2 stiker spesial JKT48 yang terdapat dalam kemasan Pocky.</li>
+            <li>Koleksi stiker baik yang berjumlah 16 ataupun 2, harus diperlihatkan sekaligus dalam 1 foto, yang diunggah ke dalam Facebook Apps ini.</li>
+            <li>Setiap 1 periode promosi (2 bulan), Pocky menyediakan 600 album stiker spesial untuk 600 partisipan yang berhasil mengumpulkan 16 stiker reguler dan 20 foto 
+kanvas Oshimen JKT48 untuk 20 partisipan yang berhasil mengumpulkan 2 stiker spesial JKT48 dari kemasan Pocky.</li>
+            <li>Setiap partisipan hanya boleh ikut serta menggunakan 1 (satu) akun Facebook.</li>
+            <li>Setiap partisipan hanya bisa menang 1 kali untuk 1 hadiah selama kegiatan ini berlangsung (6 bulan).</li>
+            <li>Admin Pocky akan menghubungi pemenang untuk melakukan konfirmasi identitas demi kepentingan pengiriman hadiah.</li>
+            <li>Pocky berhak untuk menggunakan informasi pribadi yang dimasukkan oleh partisipan demi kepentingan promosi.</li>
+            <li>Foto stiker yang diikutsertakan dalam kegiatan ini tidak boleh mengandung unsur kekerasan, pelecehan, pornografi dan menyerang pihak manapun.</li>
+            <li>Pocky berhak untuk menghapus foto yang dianggap tidak etis, mengandung pornografi, rasisme, kejahatan, atau muatan provokatif apapun yang bisa memicu konflik sectarian terhadap pihak manapun.</li>
+          </ul>
+        </div>
+        <div class="klik font-pocky"><a href=>home</a></div>
+        
+      </div>
+    </div> <!-- /container -->
 
 </section>
