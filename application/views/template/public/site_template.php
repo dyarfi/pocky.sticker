@@ -56,7 +56,7 @@
 <script src="<?php echo base_url();?>assets/public/js/bootstrap.min.js"></script>
 <!--<script src="<?php echo base_url();?>assets/public/js/jquery.fancybox.pack.js"></script>-->
 <script src="<?php echo base_url();?>assets/public/js/jquery.colorbox-min.js"></script>
-
+<script src="<?php echo base_url();?>assets/public/js/bootbox/bootbox.min.js"></script>
 <script src="<?php echo base_url();?>assets/public/js/ie10-viewport-bug-workaround.js"></script>
 <script src="<?php echo base_url();?>assets/public/js/jquery.easing.min.js"></script>
 	

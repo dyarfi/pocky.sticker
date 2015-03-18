@@ -38,7 +38,7 @@ window.onload = function() {
         </div>
         <?php } ?>
         <div class="clearfix"></div>
-    			<?php 
+		<?php 
           if (!empty($gallery)) {
           foreach ($gallery as $image) { ?>
     			<div class="col-xs-4 col-md-4">                  
@@ -50,7 +50,7 @@ window.onload = function() {
   					  <img data-toggle="modal" data-target=".bs-example-modal-sm-<?php echo $image->id ?>" src="<?=base_url();?>uploads/gallery/<?=$thumb?>" alt="<?=$image->file_name;?>" />
     				</div>
     				<div class="bottomleft"><?=character_limiter($image->name, 16);?>
-              <?php      
+              <?php /*    
               if ($user_id == $image->part_id || $this->gallery_model->check_ifscored($user_id, $image->id) == 1) { ?>
               <i class="glyphicon glyphicon-heart pull-right"></i>
 							<span class="hit" rel="<?=base64_encode($image->id)?>"><?=$image->count;?></span>
@@ -59,7 +59,7 @@ window.onload = function() {
                 <i class="glyphicon glyphicon-heart pull-right"></i>
                 <span class="hit" rel="<?=base64_encode($image->id)?>"><?=$image->count;?></span>
               </a>
-              <?php }?>
+              <?php } */ ?>
     				</div>
     			</div>
     			<?php }
@@ -108,7 +108,8 @@ window.onload = function() {
                             <?=@$image->name;?>
                             <div class="pull-right">
 
-                              <?php      
+                              <?php   
+							  /*
                               if ($user_id == $image->part_id || $this->gallery_model->check_ifscored($user_id, $image->id) == 1) { ?>
                               <i class="glyphicon glyphicon-heart pull-right"></i>
                               <span class="hit black" rel="<?=base64_encode($image->id)?>"><?=$image->count;?></span>
@@ -117,7 +118,7 @@ window.onload = function() {
                                 <i class="glyphicon glyphicon-heart pull-right"></i>
                                 <span class="hit black" rel="<?=base64_encode($image->id)?>"><?=$image->count;?></span>
                               </a>
-                              <?php }?>
+                              <?php } */?>
                               
                             </div>
                           </div>

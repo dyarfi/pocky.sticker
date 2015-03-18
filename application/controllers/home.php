@@ -23,7 +23,27 @@ class Home extends CI_Controller {
 
 		// Load Setting data
 		$this->load->model('admin/Settings');
-
+		
+		// Oshi Favorite data
+		$this->oshis = array(
+			'Melody Nurramdhani Laksani',
+			'Ayana Shahab',
+			'Haruka Nakagawa',
+			'Nabillah Ratna Ayu Azallia',
+			'Frieska Anastasia Laksani',
+			'Rezky Wiranti Dhike',
+			'Cindy Yuvia',
+			'Shinta Naomi',
+			'Shania Junianatha',
+			'Jessica Veranda',
+			'Devi Kinal Putri',
+			'Thalia Ivanka Elizabeth',
+			'Rina CHIKANO',
+			'Shinka Juliani',
+			'Jennifer Hanna',
+			'Andela Yuwono'
+		);
+		
     } 
 
     public function index() {    
@@ -103,9 +123,9 @@ class Home extends CI_Controller {
 
         $fb_id			= @$facebook->getUser();
 		
-		//$fb_me			= (object) @$facebook->api('/me');
+		$fb_me			= (object) @$facebook->api('/me');
 		
-		//$data['fb_me']	= @$fb_me;
+		$data['fb_me']	= @$fb_me;
 		
 		$user_fb_data 	= $this->user_model->get_temp($fb_id);
 
@@ -154,6 +174,9 @@ class Home extends CI_Controller {
 
         // Set main template Data for province
         $data['provinces'] = $this->Provinces->getAllProvince();
+		
+		// Set Oshis data
+		$data['oshis']	= $this->oshis;
             
         // Check if post is requested
 	    if ($_SERVER['REQUEST_METHOD'] == 'POST') {			

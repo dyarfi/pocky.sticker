@@ -114,7 +114,12 @@ window.onload = function() {
 			<div class="form-group">
 			  <label class="col-sm-4 control-label" for="textinput"><div class="border-top-bot">Nama Oshi Favorit&ast;</div></label>
 			  <div class="col-sm-8">
-                    <input type="text" name="oshi_favorite" placeholder="Oshi Favorit" value="<?php echo $fields['oshi_favorite'];?>" class="form-control">
+                   <select name="oshi_favorite" id="oshi_favorite" class="form-control" required>
+                        <option value=""></option>
+                        <?php foreach ($oshis as $oshi) { ?>
+                            <option value="<?php echo $oshi;?>" <?php echo $gender == $fields['oshi_favorite'] ? 'selected' :'';?>><?php echo $oshi;?></option>
+                        <?php } ?>
+                    </select>
                     <small><?php echo $errors['oshi_favorite'];?></small>
               </div>
 			</div>
@@ -130,7 +135,7 @@ window.onload = function() {
 			</div>
 
 			<div class="klik font-pocky">
-			  <button type="submit" class=""><a href=>LANJUTKAN</a></button>
+			  <button type="submit" class="">LANJUTKAN</button>
 			</div>
 
 		  </fieldset>

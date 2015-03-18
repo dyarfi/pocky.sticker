@@ -31,10 +31,10 @@ class Gallery Extends CI_Model {
 			    . '`title` VARCHAR(255) NULL, '
 			    . '`file_name` TEXT NULL, '
 			    . '`count` INT(11) NULL , '	
-			    . '`status` ENUM( \'publish\', \'unpublish\', \'deleted\' ) NULL DEFAULT \'publish\', '
+			    . '`status` TINYINT(1) NULL DEFAULT 1, '
 			    . '`added` INT(11) NULL, '
 			    . '`modified` INT(11) NULL, '
-			    . 'INDEX (`part_id`, `name`, `status`) '
+			    . 'INDEX (`part_id`, `name`) '
 			    . ') ENGINE=MYISAM';
 
 	    $this->db->query($sql);

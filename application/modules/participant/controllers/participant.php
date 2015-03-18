@@ -25,33 +25,41 @@ class Participant extends Admin_Controller {
             // Set CRUD subject
             $crud->set_subject('Participant');                            
             // Set table relation
-            //$crud->set_relation('menu_id','tbl_page_menus','name');
+            $crud->set_relation('province','tbl_provinces','name');
+            // Set table relation
+            $crud->set_relation('urbandistrict','tbl_urban_districts','name');
+            // Set table relation
+            $crud->set_relation('suburban','tbl_sub_urbans','name');
+			// Set column display 
+            $crud->display_as('province','Propinsi');
+            $crud->display_as('urbandistrict','Kabupaten');
+            $crud->display_as('suburban','Kecamatan');
             // Set column
             //$crud->columns('subject','name','menu_id','synopsis','text','status','added','modified');			
-	    // The fields that user will see on add and edit form
-	    //$crud->fields('subject','name','menu_id','synopsis','text','publish_date','unpublish_date','status','added','modified');
+			// The fields that user will see on add and edit form
+			//$crud->fields('subject','name','menu_id','synopsis','text','publish_date','unpublish_date','status','added','modified');
             // Set column display 
             //$crud->display_as('menu_id','Menu');
-	    // Changes the default field type
-	    //$crud->field_type('added', 'hidden');
-	    //$crud->field_type('modified', 'hidden');
-	    // This callback escapes the default auto field output of the field name at the add form
-	    //$crud->callback_add_field('added',array($this,'_callback_time_added'));
-	    // This callback escapes the default auto field output of the field name at the edit form
-	    //$crud->callback_edit_field('modified',array($this,'_callback_time_modified'));
-	    // This callback escapes the default auto field output of the field name at the add/edit form. 
-	    // $crud->callback_field('status',array($this,'_callback_dropdown'));
-	    // This callback escapes the default auto column output of the field name at the add form
-	    $crud->callback_column('added',array($this,'_callback_time'));
-	    $crud->callback_column('modified',array($this,'_callback_time'));  
-	    $crud->callback_column('fb_pic_url',array($this,'callback_pic'));
-	    // Sets the required fields of add and edit fields
-	    //$crud->required_fields('subject','name','text','status'); 
+			// Changes the default field type
+			//$crud->field_type('added', 'hidden');
+			//$crud->field_type('modified', 'hidden');
+			// This callback escapes the default auto field output of the field name at the add form
+			//$crud->callback_add_field('added',array($this,'_callback_time_added'));
+			// This callback escapes the default auto field output of the field name at the edit form
+			//$crud->callback_edit_field('modified',array($this,'_callback_time_modified'));
+			// This callback escapes the default auto field output of the field name at the add/edit form. 
+			// $crud->callback_field('status',array($this,'_callback_dropdown'));
+			// This callback escapes the default auto column output of the field name at the add form
+			$crud->callback_column('added',array($this,'_callback_time'));
+			$crud->callback_column('modified',array($this,'_callback_time'));  
+			$crud->callback_column('fb_pic_url',array($this,'callback_pic'));
+			// Sets the required fields of add and edit fields
+			//$crud->required_fields('subject','name','text','status'); 
             // Set upload field
             // $crud->set_field_upload('file_name','uploads/pages');
-	    $crud->unset_add();
-	    $crud->unset_edit();
-	    $crud->unset_delete();
+			$crud->unset_add();
+			$crud->unset_edit();
+			$crud->unset_delete();
             $this->load($crud, 'participant');
         } catch (Exception $e) {
             show_error($e->getMessage() . ' --- ' . $e->getTraceAsString());
