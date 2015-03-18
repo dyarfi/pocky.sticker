@@ -357,3 +357,10 @@ p{margin: 20px auto;}
 	width: 80%;
 	text-align: center;
 }
+.info-hadiah{padding-left: 40px;}
+.btn-info-hadiah{
+	display: inherit;
+	padding: 0;
+	border: none;
+}
+.popover{max-width: none;}

@@ -14,7 +14,7 @@
     <p>
       Alami serunya menempelkan stiker koleksimu ke dalam album stiker spesial<br> dengan menghiasnya sesuai dekorasi yang kamu suka!
     </p>
-    <img src="<?php echo base_url();?>assets/public/img/info-hadiah-16.jpg" alt="info hadiah 16" class="">
+    <a class="btn btn-info-hadiah" rel="popover" data-img="<?php echo base_url();?>assets/public/img/album.png"><img src="<?php echo base_url();?>assets/public/img/info-hadiah-16.jpg" alt="info hadiah 16" class=""></a>
     <p>
       Menangkan 600 Album Stiker Spesial setiap 2 bulannya!
     </p>
