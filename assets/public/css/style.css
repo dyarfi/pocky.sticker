@@ -47,10 +47,14 @@ a, button, .btn {
 .sticker-upload {
 	display: none
 }
-.sticker-upload button {
+.font-pocky button {
+	width: 100%;
+	font-size: 1.2em;
+}
+.sticker-upload button, .font-pocky button {
 	color: #ffffff;
 }
-.sticker-upload button:hover {
+.sticker-upload button:hover, .font-pocky button:hover {
 	color: #000000;
 }
 .sticker-upload a.text-success {
@@ -96,19 +100,19 @@ a, button, .btn {
 
 #load {
 	z-index: 9999;
-  background-color: #FF4136;
-  opacity: 0.75;
-  width: 10px;
-  height: 10px;
-  position: absolute;
-  top: 50%;
-  margin: -5px auto 0 auto;
-  left: 0;
-  right: 0;
-  border-radius: 0px;
-  border: 5px solid #FF4136;
-  box-shadow: 10px 0px #39CCCC, 10px 0px #01FF70;
-  animation: shadowSpin 1s ease-in-out infinite;
+	background-color: #FF4136;
+	opacity: 0.75;
+	width: 10px;
+	height: 10px;
+	position: absolute;
+	top: 50%;
+	margin: -5px auto 0 auto;
+	left: 0;
+	right: 0;
+	border-radius: 0px;
+	border: 5px solid #FF4136;
+	box-shadow: 10px 0px #39CCCC, 10px 0px #01FF70;
+	animation: shadowSpin 1s ease-in-out infinite;
 }
 
 /* misc */
@@ -155,42 +159,6 @@ hr {
 
 /* --- section color var --- */
 
-.text-light {
-	color: #fff;
-}
-
-.carousel-control.right, .carousel-control.left {
-	background-image:none;
-}
-
-
-.intro-text {
-    font-size: 18px;
-}
-
-.intro .slogan h2 {
-	color: #FFF;
-	text-shadow: none;
-	/*font-size: 60px;*/
-	font-size: 290%;
-	word-wrap: break-word;
-	line-height: 56px;
-	font-weight: 700;
-	font-family: Montserrat, sans-serif;
-	background-color: rgba(0, 0, 0, 0);
-	text-decoration: none;
-	text-transform: uppercase;
-	border-width: 0px;
-	border-color: #000;
-	border-style: none;
-	text-shadow: -1px 0 1px #000;
-}
-
-.intro .slogan h4 {
-	color: #fff;
-	text-shadow: -1px 1px 1px #000;
-}
-
 
 .fileUpload {
 	position: relative;
@@ -207,18 +175,6 @@ hr {
 	cursor: pointer;
 	opacity: 0;
 	filter: alpha(opacity=0);
-}
-.img-client .wow img {
-	height: 50px;
-	margin: 0 8px 8px 0;
-	opacity: 1;
-	transition: opacity 0.5s ease;
-}
-  
-.img-client .wow img:hover {
-	height: 50px;
-	margin: 0 8px 8px 0;
-	opacity: 0.6;
 }
 
 /* ===========================

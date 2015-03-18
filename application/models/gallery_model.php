@@ -57,7 +57,7 @@ class Gallery_model extends CI_Model {
 		if ($Q->num_rows() > 0){
 			$data = $Q->result_object();
 		}
-        
+		
         $Q->free_result();
         
 		return $data;	
