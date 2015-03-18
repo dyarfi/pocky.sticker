@@ -1,8 +1,8 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
 <script type="text/javascript">
-      window.onload = function() {
-        FB.Canvas.setSize({ width: 810, height: 700 });
-    }
+window.onload = function() {
+	FB.Canvas.setSize({ width: 810, height: 796 });
+}
 </script>
 <div class="center-block">
 	<div class="sticker-upload-landing">
