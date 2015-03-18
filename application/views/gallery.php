@@ -1,9 +1,8 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');?>
-
 <script type="text/javascript">
-      window.onload = function() {
-        FB.Canvas.setSize({ width: 810, height: 908 });
-    }
+window.onload = function() {
+	FB.Canvas.setSize({ width: 810, height: 796 });
+}
 </script>
 	<section id="content" class="galeri">
       <div class="title-page"><img src="<?php echo base_url();?>assets/public/img/title-pemenang.png" alt="title pemenang" class=""></div>

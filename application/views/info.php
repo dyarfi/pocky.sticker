@@ -1,10 +1,9 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
 <script type="text/javascript">
-      window.onload = function() {
-        FB.Canvas.setSize({ width: 810, height: 820 });
-    }
+window.onload = function() {
+	FB.Canvas.setSize({ width: 810, height: 1147 });
+}
 </script>
-
 <div class="container content">
 <div class="mekanisme">
   <div class="title-page"><img src="<?php echo base_url();?>assets/public/img/title-info-hadiah.png" alt="title terimakasih" class=""></div>
@@ -28,4 +27,3 @@
   <div class="klik font-pocky"><a href="<?php echo base_url('home/register');?>">Lanjutkan</a></div>
   
 </div>
-</div> <!-- /container -->
