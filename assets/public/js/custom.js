@@ -141,7 +141,11 @@
 		// Log the current bitrate for this upload:
 		//console.log(data.bitrate);
 	});
-	
+	$('.popover_bootbox').click(function(){
+		var image = $(this).attr('rel');
+		var html = '<div class="text-center"><img class="img-responsive img-center" src="'+image+'" alt="'+image+'" width="100%"/></div>';
+		bootbox.alert({message:html});
+	});
 	/*
 		$(".apply-btn").fancybox({
 			maxWidth	: 800,

@@ -26,7 +26,7 @@ window.onload = function() {
           </form> 
         </div>
         <div class="col-sm-7 pull-right">
-					<form class="form-inline" action="" method="GET">
+		<form class="form-inline" action="" method="GET">
             <div class="form-group">
               <label class="sr-only" for="exampleInputAmount">Participant</label>
               <div class="input-group">
@@ -34,7 +34,7 @@ window.onload = function() {
               </div>
             </div>
             <button type="submit" class="btn btn-primary">Cari</button>
-          </form>
+		</form>
         </div>
         <?php } ?>
         <div class="clearfix"></div>
@@ -47,7 +47,9 @@ window.onload = function() {
     						$pathinfo	= pathinfo($image->file_name);
     						$thumb		= $pathinfo['filename'].'_thumb.'.$pathinfo['extension'];
     					?>
-  					  <img data-toggle="modal" data-target=".bs-example-modal-sm-<?php echo $image->id ?>" src="<?=base_url();?>uploads/gallery/<?=$thumb?>" alt="<?=$image->file_name;?>" />
+						<a href="javascript:;" class="popover_bootbox" rel="<?=base_url();?>uploads/gallery/<?=$image->file_name?>">
+							<img data-toggle="modal" data-target=".bs-example-modal-sm-<?php echo $image->id ?>" src="<?=base_url();?>uploads/gallery/<?=$thumb?>" alt="<?=$image->file_name;?>" />
+						</a>
     				</div>
     				<div class="bottomleft"><?=character_limiter($image->name, 16);?>
               <?php /*    
@@ -84,7 +86,7 @@ window.onload = function() {
 	</div>
 	</section>
 
-<?php foreach ($gallery as $image) { 
+<?php /* foreach ($gallery as $image) { 
         $pathinfo = pathinfo($image->file_name);
         $thumb    = $pathinfo['filename'].'_thumb.'.$pathinfo['extension'];?>
   <div class="modal fade bs-an bs-example-modal-sm-<?php echo $image->id ?>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -109,7 +111,7 @@ window.onload = function() {
                             <div class="pull-right">
 
                               <?php   
-							  /*
+							  
                               if ($user_id == $image->part_id || $this->gallery_model->check_ifscored($user_id, $image->id) == 1) { ?>
                               <i class="glyphicon glyphicon-heart pull-right"></i>
                               <span class="hit black" rel="<?=base64_encode($image->id)?>"><?=$image->count;?></span>
@@ -118,7 +120,7 @@ window.onload = function() {
                                 <i class="glyphicon glyphicon-heart pull-right"></i>
                                 <span class="hit black" rel="<?=base64_encode($image->id)?>"><?=$image->count;?></span>
                               </a>
-                              <?php } */?>
+                              <?php } ?>
                               
                             </div>
                           </div>
@@ -131,7 +133,7 @@ window.onload = function() {
             </div>
         </div>
   </div>
-<?php } ?>
+<?php } */ ?>
 
 <script type="text/javascript">
     function fb_share(url, image) {
@@ -160,7 +162,7 @@ window.onload = function() {
     }
 </script>
 
-<?php if (!empty($image_new)) { ?>
+<?php /* if (!empty($image_new)) { ?>
   <div id="myModal" class="modal fade bs-an" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -185,9 +187,9 @@ window.onload = function() {
         </div>
   </div>
   <script type="text/javascript">$('#myModal').modal('show');</script>
-<?php } ?>
+<?php } */ ?>
 
-  <div class="modal fade bs-an modal-message" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelMessage" aria-hidden="true">
+  <!--div class="modal fade bs-an modal-message" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabelMessage" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <button class="close" aria-hidden="true" data-dismiss="modal" type="button">×</button>
@@ -204,4 +206,4 @@ window.onload = function() {
                 </div>
             </div>
         </div>
-  </div>
+  </div-->
