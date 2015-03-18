@@ -144,7 +144,10 @@
 	$('.popover_bootbox').click(function(){
 		var image = $(this).attr('rel');
 		var html = '<div class="text-center"><img class="img-responsive img-center" src="'+image+'" alt="'+image+'" width="100%"/></div>';
-		bootbox.alert({message:html});
+		bootbox.alert({message:html,closeButton:false});
+	});
+	$(document).on('click', '.bootbox', function (event) {
+		bootbox.hideAll();
 	});
 	/*
 		$(".apply-btn").fancybox({

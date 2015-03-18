@@ -51,9 +51,9 @@
 <?php $this->load->view('template/public/footer'); ?>
 <!-- Core JavaScript Files -->
 <script src="<?php echo base_url();?>assets/public/js/jquery.min.js"></script>
+<script src="<?php echo base_url();?>assets/public/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="<?=base_url();?>assets/public/js/modernizr.js"></script>
 <script type="text/javascript" src="<?=base_url();?>assets/public/js/selectivizr.min.js"></script>
-<script src="<?php echo base_url();?>assets/public/js/bootstrap.min.js"></script>
 <!--<script src="<?php echo base_url();?>assets/public/js/jquery.fancybox.pack.js"></script>-->
 <script src="<?php echo base_url();?>assets/public/js/jquery.colorbox-min.js"></script>
 <script src="<?php echo base_url();?>assets/public/js/bootbox/bootbox.min.js"></script>
