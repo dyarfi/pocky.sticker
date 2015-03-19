@@ -12,7 +12,7 @@ class gallery extends CI_Controller {
 		$this->fb_id = $facebook->getUser();
 	}
 	
-	public function index() {				
+	public function index($image_id='') {				
 			
 		if ($this->input->is_ajax_request()) {        	
             echo json_encode(array('url'=>'?sort='.$this->input->get('sort')));
@@ -78,7 +78,7 @@ class gallery extends CI_Controller {
 		$data['gallery'] 	= $this->gallery_model->get_all_images($config["per_page"], $page, $order, $search);
 
 		// Set main template
-		$data['main'] = 'gallery';
+		$data['main']		= 'gallery';
 				
 		// Set site title page with module menu
 		$data['page_title'] = 'Gallery';
@@ -88,6 +88,24 @@ class gallery extends CI_Controller {
 		
 	}
 	
+	public function single ($type='',$image_id=''){
+		
+		// Type image
+		$data['type']		= $type;
+		
+		// Image id
+		$data['image']		= $this->gallery_model->get_image($image_id);
+		
+		// Set main template
+		$data['main']		= 'gallery_single';
+				
+		// Set site title page with module menu
+		$data['page_title'] = 'Gallery';
+		
+		// Load admin template
+		$this->load->view('template/public/site_template', $this->load->vars($data));
+		
+	}
 }
 
 /* End of file user.php */

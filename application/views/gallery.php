@@ -55,7 +55,7 @@ window.onload = function() {
               <?php /*    
               if ($user_id == $image->part_id || $this->gallery_model->check_ifscored($user_id, $image->id) == 1) { ?>
               <i class="glyphicon glyphicon-heart pull-right"></i>
-							<span class="hit" rel="<?=base64_encode($image->id)?>"><?=$image->count;?></span>
+				<span class="hit" rel="<?=base64_encode($image->id)?>"><?=$image->count;?></span>
     				  <?php } else { ?>
               <a href="javascript:;" class="btn-hit" rel="<?=base64_encode($image->id)?>" data-url="<?=base_url('scores');?>" data-ref="<?=current_url();?>" data-toggle="tooltip" data-placement="bottom">
                 <i class="glyphicon glyphicon-heart pull-right"></i>

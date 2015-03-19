@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 16, 2015 at 07:35 PM
+-- Generation Time: Mar 19, 2015 at 09:56 PM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -32,14 +32,14 @@ CREATE TABLE IF NOT EXISTS `tbl_captcha` (
   `ip_address` varchar(16) DEFAULT NULL,
   `word` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=351 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=352 ;
 
 --
 -- Dumping data for table `tbl_captcha`
 --
 
 INSERT INTO `tbl_captcha` (`id`, `time`, `ip_address`, `word`) VALUES
-(350, 1426071830, '::1', 'zXYrQ');
+(351, 1426568322, '::1', 'uWPTq');
 
 -- --------------------------------------------------------
 
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `tbl_ci_sessions` (
 --
 
 INSERT INTO `tbl_ci_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activity`, `user_data`) VALUES
-('3bc098be1e26996db0e6bc658e0b8bb8', '::1', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:36.0) Gecko/20100101 Firefox/36.0', 1426503787, 'a:2:{s:9:"user_data";s:0:"";s:8:"curr_url";s:13:"home/register";}');
+('8382ff40bf2b00eeea42a06879356805', '::1', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:36.0) Gecko/20100101 Firefox/36.0', 1426776899, 'a:2:{s:9:"user_data";s:0:"";s:8:"curr_url";s:6:"upload";}');
 
 -- --------------------------------------------------------
 
@@ -26041,7 +26041,7 @@ CREATE TABLE IF NOT EXISTS `tbl_participants` (
   `zipcode` varchar(24) NOT NULL,
   `email` varchar(255) DEFAULT NULL,
   `phone_number` varchar(255) DEFAULT NULL,
-  `oshi_favorite` varchar(16) NOT NULL,
+  `oshi_favorite` varchar(32) NOT NULL,
   `twitter` varchar(255) DEFAULT NULL,
   `fb_id` varchar(512) DEFAULT NULL,
   `fb_pic_url` varchar(255) NOT NULL,
@@ -26056,7 +26056,7 @@ CREATE TABLE IF NOT EXISTS `tbl_participants` (
 --
 
 INSERT INTO `tbl_participants` (`part_id`, `id_number`, `name`, `gender`, `age`, `address`, `province`, `urbandistrict`, `suburban`, `zipcode`, `email`, `phone_number`, `oshi_favorite`, `twitter`, `fb_id`, `fb_pic_url`, `file_name`, `completed`, `join_date`) VALUES
-(1, '', 'Abdullah Assajid', '', 0, 'Dusun bakan tambun, RT 002 RW 008, Dese/kel pucung, kecamatan kota baru, kabupaten karawang', '', '', '', '', 'dizasjmc24@ymail.com', '089639949647', '', '@dizas_drj', '565131000290364', 'https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfa1/v/t1.0-1/p50x50/1975112_562496580553806_2210115884134723189_n.jpg?oh=c1ba1657fe1226f19a54a07eaec2989f&oe=552ABF17&__gda__=1428211269_546d8ea145109aeb8f63ea138c4a9b56', NULL, 0, '2015-01-24 09:32:28'),
+(1, '', 'Abdullah Assajid', '', 0, 'Dusun bakan tambun, RT 002 RW 008, Dese/kel pucung, kecamatan kota baru, kabupaten karawang', '32', '3275', '3275040', '17515', 'dizasjmc24@ymail.com', '089639949647', '', '@dizas_drj', '565131000290364', 'https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfa1/v/t1.0-1/p50x50/1975112_562496580553806_2210115884134723189_n.jpg?oh=c1ba1657fe1226f19a54a07eaec2989f&oe=552ABF17&__gda__=1428211269_546d8ea145109aeb8f63ea138c4a9b56', NULL, 0, '2015-03-18 07:44:52'),
 (2, '', 'Mandala Wisnu', '', 0, 'jl kh syahdan', '', '', '', '', 'wsnukesumamandala@yahoo.com', '081288004472', '', '@mandalawisnu', '10203709687846191', 'https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpf1/v/t1.0-1/p50x50/1509074_10203444812824481_7099475292656601658_n.jpg?oh=10faf3cf79fd2833eae9d2340806a3b5&oe=555A4EC1&__gda__=1432817070_1f86ac7d36d08e91d4b0cb939caaf945', NULL, 0, '2015-01-24 11:18:52'),
 (3, '', 'Anwal Tasbiansyakh', '', 0, 'Jln. Muara Bahari RT 05 RW 01 No. 36 Sunter Agung Jakarta Utara', '', '', '', '', 'bian.anwal@gmail.com', '089604381426', '', '@AnwalTasbiansah', '995564460471799', 'https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfp1/v/t1.0-1/c0.0.50.50/p50x50/10277753_831572666870980_5128532176410782642_n.jpg?oh=f9c156f12a2ab1a1b2c5e52361ac6983&oe=556DC8A3&__gda__=1431939975_fca8f7e5d0956463c2ebb85340e0a836', NULL, 0, '2015-01-25 06:34:02'),
 (4, '', 'Syahida Nur Salim', '', 0, 'Kasihan II, RT.25/RW.08, Ngentakrejo, Lendah, Kulon Progo, Yogyakarta.', '', '', '', '', 'goregush@gmail.com', '08886843401', '', 'syahid_ns', '633944563418153', 'https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xap1/v/t1.0-1/p50x50/10857810_627594064053203_2434679439480630975_n.jpg?oh=9abd586ebe9aaefe2c07c9dc77f718fa&oe=55292B49&__gda__=1428348031_2540878a568ea1846a573098511d6ab7', NULL, 0, '2015-01-25 09:07:35'),
@@ -26104,50 +26104,7 @@ INSERT INTO `tbl_participants` (`part_id`, `id_number`, `name`, `gender`, `age`,
 (46, '', 'Catim Setiawan', '', 0, 'cibaduyut', '', '', '', '', 'catim786099@yahoo.com', '089454646446', '', '@catim_468', '728013500653412', 'https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xaf1/v/t1.0-1/p50x50/10421298_699179443536818_7497336559836872107_n.jpg?oh=bd740131f4d6d0ec2d36a626b1ad47da&oe=5550E1F4&__gda__=1432069699_1fb1309f8ce8481266ee76286adf0186', NULL, 0, '2015-02-06 22:10:59'),
 (47, '', 'lulu darma', '', 0, 'pekalongan', '', '', '', '', 'darma224@gmail.com', '09868758785', '', '@darma__90', '', '', NULL, 0, '2015-02-06 22:16:08'),
 (48, '', 'lulu gaga', '', 0, 'surabaya', '', '', '', '', 'gglluuu@yahoo.com', '089687596969', '', '@gaga11', '', '', NULL, 0, '2015-02-06 22:20:12'),
-(49, '', 'uybibt', '', 0, 'ytbotb', '', '', '', '', 'tyrbl@gmail.com', '08754746974', '', '@ubyu', '', '', NULL, 0, '2015-02-06 22:28:33'),
-(50, '', 'sadasdasd', '', 0, 'adsasdasd', '', '', '', '', '0', '12312312323', '', '0', '0', '0', NULL, 0, '2015-03-15 19:18:59'),
-(51, '', 'dsfsdfsdf', '', 0, 'sdfsdfsdf', '', '', '', '', '0', '23423423', '', '0', '0', '0', NULL, 0, '2015-03-15 19:20:22'),
-(52, '', 'xcvxcvx', '', 0, '121', '', '', '', '', '0', '12', '', '0', '0', '0', NULL, 0, '2015-03-15 19:39:43'),
-(53, '', 'zxczxc', '', 0, '121', '', '', '', '', '0', '12', '', '0', '0', '0', NULL, 0, '2015-03-15 19:52:35'),
-(54, '', 'zxczxc', '', 0, '121', '', '', '', '', '0', '12', '', '0', '0', '0', NULL, 0, '2015-03-15 19:52:58'),
-(55, '', 'zxczxc', '', 0, '121', '', '', '', '', '0', '12', '', '0', '0', '0', NULL, 0, '2015-03-15 19:53:27'),
-(56, '', 'Dutch', '', 0, '2525', '', '', '', '', '0', '2313123123', '', '0', '0', '0', NULL, 0, '2015-03-16 03:55:06'),
-(57, '', 'Dutch', '', 0, '2525', '', '', '', '', '0', '2313123123', '', '0', '0', '0', NULL, 0, '2015-03-16 03:55:08'),
-(58, '', 'Dutch', '', 0, '2525', '', '', '', '', '0', '2313123123', '', '0', '0', '0', NULL, 0, '2015-03-16 03:55:12'),
-(59, '', 'Dutch', '', 0, 'Test', '', '', '', '', '0', '23213', '', '0', '0', '0', NULL, 0, '2015-03-16 03:58:49'),
-(60, '', 'Dutch', '', 0, 'Test', '', '', '', '', '0', '23213', '', '0', '0', '0', NULL, 0, '2015-03-16 03:59:12'),
-(61, '', 'Dutch', '', 0, 'asdasd', '', '', '', '', '0', '2313123123', '', '0', '0', '0', NULL, 0, '2015-03-16 04:12:26'),
-(62, '', 'Dutch', '', 0, 'asdasd', '', '', '', '', '0', '2313123123', '', '0', '0', '0', NULL, 0, '2015-03-16 04:14:14'),
-(63, '', 'Dutch', '', 0, 'asdasd', '', '', '', '', '0', '23213', '', '0', '0', '0', NULL, 0, '2015-03-16 04:14:36'),
-(64, '', 'Dutch', '', 0, 'Test', '', '', '', '', '0', '2313123123', '', '0', '0', '0', NULL, 0, '2015-03-16 04:18:09'),
-(65, '', 'Dutch', '', 0, 'TEas', '', '', '', '', '0', '2313123123', '', '0', '0', '0', NULL, 0, '2015-03-16 04:20:08'),
-(66, '', 'Dutch', '', 0, 'TEst', '', '', '', '', '0', '2313123123', '', '0', '0', '0', NULL, 0, '2015-03-16 04:21:03'),
-(67, '', 'Dutch', '', 0, 'closeBtn  : false,', '', '', '', '', '0', '2313123123', '', '0', '0', '0', NULL, 0, '2015-03-16 04:22:26'),
-(68, '', 'Dutch', '', 0, 'Test', '', '', '', '', '0', '2313123123', '', '0', '0', '0', NULL, 0, '2015-03-16 04:23:56'),
-(69, '', 'Dutch', '', 0, 'Test', '', '', '', '', '0', '2313123123', '', '0', '0', '0', NULL, 0, '2015-03-16 04:28:51'),
-(70, '', 'Dutch', '', 0, 'Test', '', '', '', '', '0', '234234', '', '0', '0', '0', NULL, 0, '2015-03-16 04:29:45'),
-(71, '', 'Dutch', '', 0, 'Test', '', '', '', '', '0', '2313123123', '', '0', '0', '0', NULL, 0, '2015-03-16 04:32:11'),
-(72, '', 'Dutch', '', 0, 'Test', '', '', '', '', '0', '2313123123', '', '0', '0', '0', NULL, 0, '2015-03-16 04:42:03'),
-(73, '', 'Dutch', '', 0, 'Test', '', '', '', '', '0', '2313123123', '', '0', '0', '0', NULL, 0, '2015-03-16 04:43:35'),
-(74, '', 'Dutch', '', 0, 'TEst', '', '', '', '', '0', '2313123123', '', '0', '0', '0', NULL, 0, '2015-03-16 04:52:59'),
-(75, '', 'Dutch', '', 0, 'Test', '', '', '', '', '0', '2313123123', '', '0', '0', '0', NULL, 0, '2015-03-16 04:56:22'),
-(76, '', 'Dutch', '', 0, 'Test', '', '', '', '', '0', '2313123123', '', '0', '0', '0', NULL, 0, '2015-03-16 04:58:14'),
-(77, '', 'Dutch', '', 0, 'TEst', '', '', '', '', '0', '2313123123', '', '0', '0', '0', NULL, 0, '2015-03-16 05:02:38'),
-(78, '', 'Dutch', '', 0, 'TEst', '', '', '', '', '0', '2313123123', '', '0', '0', '0', NULL, 0, '2015-03-16 05:04:18'),
-(79, '', 'Dutch', '', 0, 'Test', '', '', '', '', '0', '2313123123', '', '0', '0', '0', NULL, 0, '2015-03-16 05:05:01'),
-(80, '', 'teast', '', 0, 'Test', '', '', '', '', '0', '2313123123', '', '0', '0', '0', NULL, 0, '2015-03-16 05:05:28'),
-(81, '', 'Dutch', '', 0, 'Test', '', '', '', '', '0', '2313123123', '', '0', '0', '0', NULL, 0, '2015-03-16 05:31:07'),
-(82, '', 'Dutch', '', 0, 'Teast', '', '', '', '', '0', '23213', '', '0', '0', '0', NULL, 0, '2015-03-16 05:31:43'),
-(83, '', 'Dutch', '', 0, 'Teast', '', '', '', '', '0', '23213', '', '0', '0', '0', NULL, 0, '2015-03-16 05:31:44'),
-(84, '', 'Dutch', '', 0, 'Teast', '', '', '', '', '0', '23213', '', '0', '0', '0', NULL, 0, '2015-03-16 05:31:45'),
-(85, '', 'Dutch', '', 0, 'Teast', '', '', '', '', '0', '23213', '', '0', '0', '0', NULL, 0, '2015-03-16 05:31:46'),
-(86, '', 'Dutch', '', 0, 'Test', '', '', '', '', '0', '2313123123', '', '0', '0', '0', NULL, 0, '2015-03-16 05:39:25'),
-(87, '', 'Dutch', '', 0, 'Test', '', '', '', '', '0', '2313123123', '', '0', '0', '0', NULL, 0, '2015-03-16 05:40:44'),
-(88, '', 'Dutch', '', 0, 'Test', '', '', '', '', '0', '2313123123', '', '0', '0', '0', NULL, 0, '2015-03-16 05:40:51'),
-(89, '', 'Dutch', '', 0, 'Test', '', '', '', '', '0', '2313123123', '', '0', '0', '0', NULL, 0, '2015-03-16 05:42:12'),
-(90, '', 'Dutch', '', 0, 'Test', '', '', '', '', '0', '2313123123', '', '0', '0', '0', NULL, 0, '2015-03-16 05:42:46'),
-(91, '', 'Dutch', '', 0, 'Test', '', '', '', '', '0', '2313123123', '', '0', '0', '0', NULL, 0, '2015-03-16 05:42:49'),
-(92, '', 'Dutch', '', 0, 'TEst', '', '', '', '', '0', '2313123123', '', '0', '0', '0', NULL, 0, '2015-03-16 05:46:04');
+(49, '', 'uybibt', '', 0, 'ytbotb', '', '', '', '', 'tyrbl@gmail.com', '08754746974', '', '@ubyu', '', '', NULL, 0, '2015-02-06 22:28:33');
 
 -- --------------------------------------------------------
 
@@ -26160,10 +26117,10 @@ CREATE TABLE IF NOT EXISTS `tbl_participant_images` (
   `type` tinyint(1) NOT NULL,
   `part_id` int(11) unsigned DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
-  `title` varchar(255) DEFAULT NULL,
-  `file_name` text,
+  `file_name` varchar(255) DEFAULT NULL,
+  `title` text,
   `count` int(11) DEFAULT NULL,
-  `status` enum('publish','unpublish','deleted') DEFAULT 'publish',
+  `status` tinyint(1) DEFAULT '1',
   `added` int(11) DEFAULT NULL,
   `modified` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -26174,37 +26131,37 @@ CREATE TABLE IF NOT EXISTS `tbl_participant_images` (
 -- Dumping data for table `tbl_participant_images`
 --
 
-INSERT INTO `tbl_participant_images` (`id`, `type`, `part_id`, `name`, `title`, `file_name`, `count`, `status`, `added`, `modified`) VALUES
-(1, 0, 1, 'Abdullah Assajid', 'Kebayoran Lama-20150124-014672.jpg', '', 161, 'publish', 1422118377, 1423261386),
-(2, 0, 6, 'Novalia Harti Diana', 'IMG_20150125_183151.jpg', '', 0, 'publish', 1422187046, 0),
-(3, 0, 6, 'Novalia Harti Diana', 'IMG_20150125_100946.jpg', '', 0, 'publish', 1422188115, 0),
-(4, 0, 6, 'Novalia Harti Diana', 'IMG_20150125_102343.jpg', '', 0, 'publish', 1422188157, 0),
-(5, 0, 6, 'Novalia Harti Diana', 'IMG_20150125_102350.jpg', '', 0, 'publish', 1422188196, 0),
-(6, 0, 6, 'Novalia Harti Diana', 'IMG_20150125_102506.jpg', '', 0, 'publish', 1422188273, 0),
-(7, 0, 6, 'Novalia Harti Diana', 'IMG_20150125_102545.jpg', '', 0, 'publish', 1422188313, 0),
-(8, 0, 7, 'Fahrul Pamungkas Rabbana', '20150124_211726_LLS.jpg', '', 1, 'publish', 1422188348, 1422742085),
-(9, 0, 9, 'Novalia Harti Diana', 'IMG_20150125_183151.jpg', '', 1, 'publish', 1422192344, 1422323970),
-(10, 0, 10, 'Nova Ryzal Wicaksono', 'IMG_20150125_183151.jpg', '', 1, 'publish', 1422192734, 1422323980),
-(11, 0, 4, 'Syahida Nur Salim', 'proxy.jpg', '', 2, 'publish', 1422237225, 1422465022),
-(12, 0, 12, 'reza hayatul', 'usami.JPG', '', 2, 'publish', 1422261589, 1422858439),
-(13, 0, 12, 'reza hayatul', 'patric.JPG', '', 2, 'publish', 1422261895, 1422858431),
-(14, 0, 1, 'Abdullah Assajid', 'gamba v persija.jpg', '', 255, 'publish', 1422264788, 1423262555),
-(15, 0, 1, 'Abdullah Assajid', 'Kebayoran Lama-20150124-01471.jpg', '', 235, 'publish', 1422265231, 1423262643),
-(16, 0, 13, 'Muhammad Mukorrobin', 'Kebayoran Lama-20150124-01485.jpg', '', 104, 'publish', 1422266146, 1423262846),
-(17, 0, 13, 'Muhammad Mukorrobin', 'Kebayoran Lama-20150124-01473.jpg', '', 94, 'publish', 1422266370, 1423261336),
-(18, 0, 13, 'Muhammad Mukorrobin', 'Kebayoran Lama-20150124-01472.jpg', '', 165, 'publish', 1422266545, 1423262753),
-(19, 0, 13, 'Muhammad Mukorrobin', 'Kebayoran Lama-20150124-01470.jpg', '', 313, 'publish', 1422267341, 1423262263),
-(20, 0, 14, 'Muhammad Munandar', 'Angellina Anggraini.jpg', '', 138, 'publish', 1422274534, 1423262062),
-(21, 0, 14, 'Muhammad Munandar', 'nm.͡▹Tɐguh Triyanto                0888-1615-884.jpg', '', 248, 'publish', 1422274575, 1423261972),
-(22, 0, 18, 'Roni Nugraha', 'DSC09665c.jpg', '', 3, 'publish', 1422287437, 1423103633),
-(23, 0, 13, 'Muhammad Mukorrobin', 'obin.jpg', '', 209, 'publish', 1422288092, 1423261852),
-(24, 0, 13, 'Muhammad Mukorrobin', 'obin2.jpg', '', 160, 'publish', 1422288153, 1423261769),
-(25, 0, 13, 'Muhammad Mukorrobin', 'obin3.jpg', '', 216, 'publish', 1422288230, 1423261754),
-(26, 0, 24, 'Juki Hendra', '1972343_752851694739559_768097121_n.jpg', '', 2, 'publish', 1422329557, 1423193515),
-(27, 0, 25, 'Siti Khodijah', 'selfieteruss.jpg', '', 1, 'publish', 1422347130, 1422469336),
-(28, 0, 21, 'Syahida Nur Salim', 'DC1927.jpg', '', 1, 'publish', 1422468464, 1422469014),
-(29, 0, 32, 'Edza', '10906230_799829760095676_7039976314706591840_n.jpg', '', 3, 'publish', 1422848774, 1423103525),
-(30, 0, 33, 'Ayu Rahayu C', 'CAM00579.jpg', '', 1, 'publish', 1422858122, 1422858420);
+INSERT INTO `tbl_participant_images` (`id`, `type`, `part_id`, `name`, `file_name`, `title`, `count`, `status`, `added`, `modified`) VALUES
+(1, 0, 1, 'Abdullah Assajid', 'Kebayoran Lama-20150124-014672.jpg', '', 161, 1, 1422118377, 1423261386),
+(2, 0, 6, 'Novalia Harti Diana', 'IMG_20150125_183151.jpg', '', 0, 1, 1422187046, 0),
+(3, 0, 6, 'Novalia Harti Diana', 'IMG_20150125_100946.jpg', '', 0, 1, 1422188115, 0),
+(4, 0, 6, 'Novalia Harti Diana', 'IMG_20150125_102343.jpg', '', 0, 1, 1422188157, 0),
+(5, 0, 6, 'Novalia Harti Diana', 'IMG_20150125_102350.jpg', '', 0, 1, 1422188196, 0),
+(6, 0, 6, 'Novalia Harti Diana', 'IMG_20150125_102506.jpg', '', 0, 1, 1422188273, 0),
+(7, 0, 6, 'Novalia Harti Diana', 'IMG_20150125_102545.jpg', '', 0, 1, 1422188313, 0),
+(8, 0, 7, 'Fahrul Pamungkas Rabbana', '20150124_211726_LLS.jpg', '', 1, 1, 1422188348, 1422742085),
+(9, 0, 9, 'Novalia Harti Diana', 'IMG_20150125_183151.jpg', '', 1, 1, 1422192344, 1422323970),
+(10, 0, 10, 'Nova Ryzal Wicaksono', 'IMG_20150125_183151.jpg', '', 1, 1, 1422192734, 1422323980),
+(11, 0, 4, 'Syahida Nur Salim', 'proxy.jpg', '', 2, 1, 1422237225, 1422465022),
+(12, 0, 12, 'reza hayatul', 'usami.JPG', '', 2, 1, 1422261589, 1422858439),
+(13, 0, 12, 'reza hayatul', 'patric.JPG', '', 2, 1, 1422261895, 1422858431),
+(14, 0, 1, 'Abdullah Assajid', 'gamba v persija.jpg', '', 255, 1, 1422264788, 1423262555),
+(15, 0, 1, 'Abdullah Assajid', 'Kebayoran Lama-20150124-01471.jpg', '', 235, 1, 1422265231, 1423262643),
+(16, 0, 13, 'Muhammad Mukorrobin', 'Kebayoran Lama-20150124-01485.jpg', '', 104, 1, 1422266146, 1423262846),
+(17, 0, 13, 'Muhammad Mukorrobin', 'Kebayoran Lama-20150124-01473.jpg', '', 94, 1, 1422266370, 1423261336),
+(18, 0, 13, 'Muhammad Mukorrobin', 'Kebayoran Lama-20150124-01472.jpg', '', 165, 1, 1422266545, 1423262753),
+(19, 0, 13, 'Muhammad Mukorrobin', 'Kebayoran Lama-20150124-01470.jpg', '', 313, 1, 1422267341, 1423262263),
+(20, 0, 14, 'Muhammad Munandar', 'Angellina Anggraini.jpg', '', 138, 1, 1422274534, 1423262062),
+(21, 0, 14, 'Muhammad Munandar', 'nm.͡▹Tɐguh Triyanto                0888-1615-884.jpg', '', 248, 1, 1422274575, 1423261972),
+(22, 0, 18, 'Roni Nugraha', 'DSC09665c.jpg', '', 3, 1, 1422287437, 1423103633),
+(23, 0, 13, 'Muhammad Mukorrobin', 'obin.jpg', '', 209, 1, 1422288092, 1423261852),
+(24, 0, 13, 'Muhammad Mukorrobin', 'obin2.jpg', '', 160, 1, 1422288153, 1423261769),
+(25, 0, 13, 'Muhammad Mukorrobin', 'obin3.jpg', '', 216, 1, 1422288230, 1423261754),
+(26, 0, 24, 'Juki Hendra', '1972343_752851694739559_768097121_n.jpg', '', 2, 1, 1422329557, 1423193515),
+(27, 0, 25, 'Siti Khodijah', 'selfieteruss.jpg', '', 1, 1, 1422347130, 1422469336),
+(28, 0, 21, 'Syahida Nur Salim', 'DC1927.jpg', '', 1, 1, 1422468464, 1422469014),
+(29, 0, 32, 'Edza', '10906230_799829760095676_7039976314706591840_n.jpg', '', 3, 1, 1422848774, 1423103525),
+(30, 0, 33, 'Ayu Rahayu C', 'CAM00579.jpg', '', 1, 1, 1422858122, 1422858420);
 
 -- --------------------------------------------------------
 
@@ -33789,7 +33746,7 @@ CREATE TABLE IF NOT EXISTS `tbl_users` (
 --
 
 INSERT INTO `tbl_users` (`id`, `username`, `email`, `password`, `group_id`, `last_login`, `logged_in`, `status`, `session_id`, `added`, `modified`) VALUES
-(1, 'admin', 'admin@admin.com', 'dd94709528bb1c83d08f3088d4043f4742891f4f', 1, 1426407719, 1, 1, 'abf6f5d3e683ffc9d72b4bcdbb7f084c', 0, 0),
+(1, 'admin', 'admin@admin.com', 'dd94709528bb1c83d08f3088d4043f4742891f4f', 1, 1426407719, 1, 1, 'ca07123efdb1f12bc18d7f96ff6f2923', 0, 0),
 (2, 'joni', 'admin1@admin.com', '8b60e3e54b9f8fe6ec8a5c56c8ecb1595c948c92', 2, 1425630918, 0, 1, '', 0, 1424687676),
 (3, 'qc9080', 'asdf@asdf.com', 'fb00378895cf135de3b135f385c0012f3823e4fb', 116, 1417001008, 0, 1, '', 1425031512, 1424689343),
 (29, 'dyarfi', 'dyarfi20@gmail.com', '647dc5d75f6ce3c6a859eb3b91fa6ccaab05b245', 116, 0, 0, 1, '', 1417065898, 0),

@@ -64,7 +64,7 @@
 		innerWidth:'640px',
 		preloading:false
 	});
-	$('#fileupload').fileupload({
+	$('#fileupload,#fileupload16').fileupload({
 		url: $(this).attr('data-url'),
 		dataType: 'json',
 		//acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
@@ -92,18 +92,16 @@
 			e.preventDefault();
 			$.each(data.result.files, function (index, file) {	
 				//alert(file.error);
-				$('.clear .topBotDiv10').html('<h2>Sukses</h2>').show();
 				$('.img-thumbnail a.colorbox')
 				.prop('href',base_URL + file.url).empty()
 				.html('<img src="'+base_URL + file.thumbnailUrl+'"//>');
 				$('input[name="image_temp"]').attr('value',file.name);
             });			
-			$('.clear.topBotDiv10').html('<h2>Sukses</h2>').hide();
 			$('.progress').hide();			
 			$('.button-submit').show({duration:'260',easing:'easeInOutBack'});
         },
         progressall: function (e, data) {
-			e.preventDefault();			
+			e.preventDefault();
             var progress = parseInt(data.loaded / data.total * 100, 10);
 			$('.progress').show();
             $('.progress .progress-bar').css(
@@ -120,7 +118,7 @@
                 .append('<br>')
                 .append(error);
             //console.log(files);
-        })
+        });
     })
 	.prop('disabled', !$.support.fileInput)
         .parent().addClass($.support.fileInput ? undefined : 'disabled');
@@ -139,12 +137,9 @@
 	});
     $('#register').submit(function(e) {
         e.preventDefault();
-        //var post = $(this).serializeArray();
-        //console.log(post.name);
         var url = base_URL + 'home/register/';	
 		$.colorbox({html:'<div class="text-center"><br/><img width="40" height="40" src="'+base_URL+'assets/public/img/spinner.gif"/><br/><br/><h4>Sedang Mengirim</h4></div>',width:200,height:200,preloading:false,scrolling:false,transition:'fade',overlayClose:false,escKey:false,closeButton:false}
 		);
-
         $.ajax({
             type: "POST",
             url: url,

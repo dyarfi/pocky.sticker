@@ -88,7 +88,7 @@ class Home extends CI_Controller {
                 }
                 $this->config->set_item('user_id', $user->part_id);
                 if ($sc_id) {
-                    redirect(base_url() . 'gallery/single/' . $sc_encoded . '?data=' . $this->user_model->encode($user->part_id));
+                    redirect(base_url() . 'upload/' . $sc_encoded . '?data=' . $this->user_model->encode($user->part_id));
                 } else {
                     //redirect(base_url() . 'participant?data=' . $this->user_model->encode($user->part_id));
                     $this->session->set_userdata('user_id',$this->user_model->encode($user->part_id));

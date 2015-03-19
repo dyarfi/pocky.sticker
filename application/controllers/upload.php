@@ -44,12 +44,12 @@ class upload extends CI_Controller {
 		
 	}
 	
-	public function selfie() {
+	public function sticker() {
 
 		$get_data 	 = $this->session->userdata('user_id');
 		
         if (!$get_data) {
-            redirect(base_url('home/registration'));
+            redirect(base_url('home/register'));
         } else {
 
 			$facebook = new Facebook();        
@@ -70,14 +70,15 @@ class upload extends CI_Controller {
 				$participant = $this->user_model->get_participant($part_id);
 
 				$image['file_name'] = $this->input->post('image_temp');
+				$image['type']		= $this->input->post('image_type');
 				$image['part_id']	= $part_id;
 				$image['name']		= $participant->name;				
 				$image['status']	= 1;
 				$image['added']		= time();
 
 				$image_id 			= $this->gallery_model->insert_image($image);
-
-				if ($image_id) redirect(base_url() . 'participant?data=' . base64_encode($image_id));
+			
+				if ($image_id) redirect(base_url() . 'gallery/single/'. $image['type'].'/' . $image_id);
 
 			} else {
 
@@ -87,8 +88,7 @@ class upload extends CI_Controller {
 	}
 
 	public function image() {
-		
-				
+			
 		// Check if the request via AJAX
 		if (!$this->input->is_ajax_request()) {
 			exit('No direct script access allowed');		
