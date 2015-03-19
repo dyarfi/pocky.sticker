@@ -62,6 +62,7 @@
 		width:'640',
 		maxWidth:'640px',
 		innerWidth:'640px',
+		preloading:false
 	});
 	$('#fileupload').fileupload({
 		url: $(this).attr('data-url'),

@@ -142,7 +142,7 @@ class Home extends CI_Controller {
         if ($user_data) {
             $user_id = $this->user_model->decode($user_data);
             if ($user_id && $fb_user) {
-                redirect(site_url('gallery'));
+                redirect(site_url('upload'));
                 die();
             }
         }
