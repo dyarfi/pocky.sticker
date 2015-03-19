@@ -10,10 +10,10 @@ class Districts extends CI_Model {
 		parent::__construct();
 
 		$this->_model_vars	= array('id'			=> 0,
-                                                'sub_urban_id'          => 0,
-                                                'name'			=> '',
-                                                'added'			=> 0,
-                                                'modified'		=> 0);
+									'sub_urban_id'          => 0,
+									'name'			=> '',
+									'added'			=> 0,
+									'modified'		=> 0);
 
 		$this->db = $this->load->database('default', true);
 		
@@ -59,20 +59,20 @@ class Districts extends CI_Model {
 		}
 	}
         
-        public function getBySubUrban () {
-            if(!empty($id)){
-                    $data = array();
-                    $options = array('sub_urban_id' => $id);
-                    $Q = $this->db->get_where($this->table,$options);
-                    if ($Q->num_rows() > 0){
-                            //foreach ($Q->result_object() as $row)
-                            //$data = $row;
-                            $data = $Q->result_object();
-                    }
-                    $Q->free_result();
-                    return $data;
-            }	
-        }
+	public function getBySubUrban () {
+		if(!empty($id)){
+				$data = array();
+				$options = array('sub_urban_id' => $id);
+				$Q = $this->db->get_where($this->table,$options);
+				if ($Q->num_rows() > 0){
+						//foreach ($Q->result_object() as $row)
+						//$data = $row;
+						$data = $Q->result_object();
+				}
+				$Q->free_result();
+				return $data;
+		}	
+	}
         
 	public function getAllDistrict($admin=null){
 		$data = array();

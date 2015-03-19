@@ -60,18 +60,18 @@ class SubUrbans extends CI_Model {
 	}	
 	
 	public function getByUrban($id=null) {
-                if(!empty($id)){
-                        $data = array();
-                        $options = array('urban_district_id' => $id);
-                        $Q = $this->db->get_where($this->table,$options);
-                        if ($Q->num_rows() > 0){
-                                //foreach ($Q->result_object() as $row)
-                                //$data = $row;
-                                $data = $Q->result_object();
-                        }
-                        $Q->free_result();
-                        return $data;
-                }
+		if(!empty($id)){
+				$data = array();
+				$options = array('urban_district_id' => $id);
+				$Q = $this->db->get_where($this->table,$options);
+				if ($Q->num_rows() > 0){
+						//foreach ($Q->result_object() as $row)
+						//$data = $row;
+						$data = $Q->result_object();
+				}
+				$Q->free_result();
+				return $data;
+		}
 	}
 	
 	public function getAllSubUrban($admin=null){

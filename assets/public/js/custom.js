@@ -31,18 +31,6 @@
 			event.preventDefault();
 		});
 	});
-
-	$('.handler-team').click(function() {
-		//$('.box-team').toggleClass('hidden wow slideInRight');
-	});
-	
-	$('.box-team').click(function(){
-		//$(this).addClass('hidden');
-	});
-	
-	//$('#vacancy-form').submit(function() {
-		//alert('asdf');
-	//});
 			
 	$(".apply-btn").click(function() {
 		var title = $(this).parent().find('.service-desc h5').text();		
@@ -65,7 +53,6 @@
 		var href = $(this).attr('href');
 		var arel = $(this).attr('rel');
 		$('.sticker-upload-landing').hide({duration:'260',easing:'easeInOutBack'});
-		
 		$('.mekanisme').find('.sticker-upload').hide({duration:'260',easing:'easeInOutBack'});
 		$('.mekanisme').find('.'+arel).show();
 		return false;
@@ -75,6 +62,7 @@
 		width:'640',
 		maxWidth:'640px',
 		innerWidth:'640px',
+		preloading:false
 	});
 	$('#fileupload').fileupload({
 		url: $(this).attr('data-url'),
@@ -149,39 +137,12 @@
 	$(document).on('click', '.bootbox', function (event) {
 		bootbox.hideAll();
 	});
-	/*
-		$(".apply-btn").fancybox({
-			maxWidth	: 800,
-			maxHeight	: 600,
-			fitToView	: false,
-			width		: '70%',
-			height		: '70%',
-			autoSize	: false,
-			closeClick	: false,
-			openEffect	: 'none',
-			closeEffect	: 'none',
-			helpers: {
-				overlay: {
-				  locked: false
-				}
-			}
-		});
-	*/
-   
-//	$("#about").vide({
-//            'mp4': base_URL + 'assets/public/media/Gatwick_Airport_1Videvo_1'//,
-//            'webm': base_URL + 'assets/public/media/Gatwick_Airport_1Videvo_1',
-//            'ogv': base_URL + 'assets/public/media/Gatwick_Airport_1Videvo_1',
-//            'poster': base_URL + 'assets/public/media/Gatwick_Airport_1Videvo_1'
-//    });
-
-
     $('#register').submit(function(e) {
         e.preventDefault();
         //var post = $(this).serializeArray();
         //console.log(post.name);
         var url = base_URL + 'home/register/';	
-		$.colorbox({html:'<div class="text-center"><br/><img width="40" height="40" src="'+base_URL+'assets/public/img/spinner.gif"/><br/><br/><h4>Sedang Mengirim</h4></div>',overlayClose:false,escKey:false,closeButton:false,width:200,height:200,preloading:false,scrolling:false,transition:fade,photo:true}
+		$.colorbox({html:'<div class="text-center"><br/><img width="40" height="40" src="'+base_URL+'assets/public/img/spinner.gif"/><br/><br/><h4>Sedang Mengirim</h4></div>',overlayClose:false,escKey:false,closeButton:false,width:200,height:200,preloading:false,scrolling:false,transition:'fade',photo:true}
 		);
 
         $.ajax({
@@ -193,47 +154,47 @@
             timeout: 8000,
             dataType: "JSON",
             success: function(json) {
-				
-                // Check returned data from Parse JSON result
-                if (json.result !== '' && json.result !== null) {
-				//bootbox.alert("Hello world!", function() {
-					//Example.show("Hello world callback");
-				  //});
-                }
+				// Check returned data from Parse JSON result
+                if (json.result === 'OK' && json.label !== '') {
+				  location.href = json.label;
+                } else if (json.errors !== undefined) {
+					var html = '';
+					$.each(json.errors, function (index, error) {	
+						html += error;
+					});
+					bootbox.alert({message:html,closeButton:false});
+				}			
                 // Empty loader
                 //$('#result_callback').empty();
                 // Empty loader image
                 //$('#loader').html('');
-				
             },
             complete: function(message) { 
 				$.colorbox.close();
             },
             error: function(x,message,t) { 
                 if(message==="timeout") {
-                        console.log("got timeout");
+					console.log("got timeout");
                 } else {
-                        //alert(message);
+					//alert(message);
                 }	
             }
-	});
-        
+		});    
     });  
+	
 })(jQuery);
 
 // Function to get area region
 function getRegion(dataSel,dataUrl) {
 	// Set ajax post handler
-        var ref = dataSel.attr('id');
+    var ref = dataSel.attr('id');
 	var ids = dataSel.val();
 	var url = base_URL + 'home/get_area/' + dataUrl;
         // Send ajax request
         $.ajax({
             type: "POST",
             url: url,
-            data: { 
-                    id : ids
-            },
+            data: { id : ids },
             //cache: true,
             //async: true,
             timeout: 8000,
@@ -258,7 +219,7 @@ function getRegion(dataSel,dataUrl) {
                     };
                     // Cheking if user click from beginning again
                     if (ref === 'province') {
-                        console.log($('#urbandistrict').children().length);
+                        //console.log($('#urbandistrict').children().length);
                         if ($('#suburban').children().length !== 1) {
                             $('#suburban').empty();
                             $('<option value="0" name="suburban"/>').html('-- KECAMATAN --').appendTo('#suburban');
@@ -270,25 +231,21 @@ function getRegion(dataSel,dataUrl) {
                 // Empty loader image
                 //$('#loader').html('');
             },
-            complete: function(message) { 
-
-            },
+            complete: function(message) { },
             error: function(x,message,t) { 
-                if(message==="timeout") {
-                        console.log("got timeout");
-                } else {
-                        //alert(message);
-                }	
+                if(message==="timeout") { console.log("got timeout"); } 
+				else { /*alert(message);*/ }	
             }
 	});
 }
 
 // Add custom JS here
-      $('a[rel=popover]').popover({
+$('a[rel=popover]').popover({
 	html: true,
 	trigger: 'hover',
 	placement: 'bottom',
 	content: function(){return '<img src="'+$(this).data('img') + '" />';}
+<<<<<<< HEAD
       });
       $('a[rel=popover-top]').popover({
 	html: true,
@@ -296,3 +253,6 @@ function getRegion(dataSel,dataUrl) {
 	placement: 'top',
 	content: function(){return '<img src="'+$(this).data('img') + '" />';}
       });
+=======
+});
+>>>>>>> e611be00ff0e2b97b0bcf2fbc75873be88b0fa8b
