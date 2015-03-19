@@ -245,4 +245,14 @@ $('a[rel=popover]').popover({
 	trigger: 'hover',
 	placement: 'bottom',
 	content: function(){return '<img src="'+$(this).data('img') + '" />';}
+<<<<<<< HEAD
+      });
+      $('a[rel=popover-top]').popover({
+	html: true,
+	trigger: 'hover',
+	placement: 'top',
+	content: function(){return '<img src="'+$(this).data('img') + '" />';}
+      });
+=======
 });
+>>>>>>> e611be00ff0e2b97b0bcf2fbc75873be88b0fa8b
