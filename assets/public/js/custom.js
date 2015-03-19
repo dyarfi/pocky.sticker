@@ -142,7 +142,7 @@
         //var post = $(this).serializeArray();
         //console.log(post.name);
         var url = base_URL + 'home/register/';	
-		$.colorbox({html:'<div class="text-center"><br/><img width="40" height="40" src="'+base_URL+'assets/public/img/spinner.gif"/><br/><br/><h4>Sedang Mengirim</h4></div>',overlayClose:false,escKey:false,closeButton:false,width:200,height:200,preloading:false,scrolling:false,transition:'fade',photo:true}
+		$.colorbox({html:'<div class="text-center"><br/><img width="40" height="40" src="'+base_URL+'assets/public/img/spinner.gif"/><br/><br/><h4>Sedang Mengirim</h4></div>',width:200,height:200,preloading:false,scrolling:false,transition:'fade',overlayClose:false,escKey:false,closeButton:false}
 		);
 
         $.ajax({
