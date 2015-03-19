@@ -34,7 +34,7 @@ class Participants Extends CI_Model {
 				. '`address` VARCHAR(512) NULL, '
 				. '`email` VARCHAR(255) NULL, '
 				. '`phone_number` VARCHAR(255) NULL, '
-				. '`oshi_favorite` VARCHAR(16) NULL, '
+				. '`oshi_favorite` VARCHAR(32) NULL, '
 				. '`twitter` VARCHAR(255) NULL, '
 				. '`fb_id` VARCHAR(255) NULL, '
 				. '`fb_pic_url` VARCHAR(512) NULL, '

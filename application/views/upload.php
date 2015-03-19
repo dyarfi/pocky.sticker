@@ -53,7 +53,7 @@ window.onload = function() {
 					<div class="container">
 						<p>
 						<!-- The global progress bar -->
-						<div id="progress" class="progress" style="display:block;">
+						<div id="progress" class="progress" style="display:none;">
 							<div class="progress-bar progress-bar-danger"></div>
 						</div>
 						</p>
@@ -97,7 +97,7 @@ window.onload = function() {
 					  <div class="container">
 						  <p>
 							  <!-- The global progress bar -->
-							  <div id="progress" class="progress" style="display:block">
+							  <div id="progress" class="progress" style="display:none">
 								  <div class="progress-bar progress-bar-danger"></div>
 							  </div>
 						  </p>

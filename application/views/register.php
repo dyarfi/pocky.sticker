@@ -62,7 +62,7 @@ window.onload = function() {
 			  <div class="col-sm-4">
                     <input type="hidden" value="<?php echo $fields['province'];?>">
                     <select name="province" class="form-control" id="province" onChange="getRegion($(this),'province');" required>
-                        <option value="0">-- PROPINSI --</option>
+                        <option value="">-- PROPINSI --</option>
                         <?php foreach ($provinces as $province){ ?>
                           <option value="<?php echo $province->id;?>" name="province"><?php echo $province->name;?></option>
                         <?php } ?>
@@ -71,8 +71,8 @@ window.onload = function() {
 			  </div>
 			  <div class="col-sm-4">
                     <input type="hidden" value="<?php echo $fields['urbandistrict'];?>">
-                    <select name="urbandistrict" class="form-control" id="urbandistrict" onChange="getRegion($(this),'urbandistrict');">
-                        <option value="0">-- KABUPATEN --</option>
+                    <select name="urbandistrict" class="form-control" id="urbandistrict" onChange="getRegion($(this),'urbandistrict');" required>
+                        <option value="">-- KABUPATEN --</option>
                     </select>
                     <small><?php echo $errors['urbandistrict'];?></small>
 			  </div>
@@ -80,15 +80,15 @@ window.onload = function() {
 			<div class="form-group">
 			  <div class="col-sm-4" for="textinput"></div>
 			  <div class="col-sm-4">
-                    <input type="hidden" value="<?php echo $fields['suburban'];?>">
+                    <input type="hidden" value="<?php echo $fields['suburban'];?>" required>
                     <select name="suburban" class="form-control" id="suburban" onChange="getRegion($(this),'suburban');" required>
-                        <option value="0">-- KECAMATAN --</option>
+                        <option value="">-- KECAMATAN --</option>
                     </select>
                     <small><?php echo $errors['suburban'];?></small>
 			  </div>
 
 			  <div class="col-sm-4">
-                  <input type="text" name="zipcode" placeholder="Kode Pos" class="form-control" value="<?php echo $fields['zipcode'];?>">
+                  <input type="text" name="zipcode" placeholder="Kode Pos" class="form-control" value="<?php echo $fields['zipcode'];?>" required>
                   <small><?php echo $errors['zipcode'];?></small>
 			  </div>
 			</div>

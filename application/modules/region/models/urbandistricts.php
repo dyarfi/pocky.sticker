@@ -10,11 +10,11 @@ class UrbanDistricts extends CI_Model {
 		parent::__construct();
 
 		$this->_model_vars	= array('id'			=> 0,
-                                                'province_id'		=> 0,
-                                                'name'			=> '',			
-                                                'status'		=> '',
-                                                'added'			=> 0,
-                                                'modified'		=> 0);
+									'province_id'		=> 0,
+									'name'			=> '',			
+									'status'		=> '',
+									'added'			=> 0,
+									'modified'		=> 0);
 
 		$this->db = $this->load->database('default', true);
 		

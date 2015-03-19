@@ -53,40 +53,20 @@
 <script src="<?php echo base_url();?>assets/public/js/jquery.min.js"></script>
 <script type="text/javascript" src="<?=base_url();?>assets/public/js/modernizr.js"></script>
 <script type="text/javascript" src="<?=base_url();?>assets/public/js/selectivizr.min.js"></script>
+<script src="<?php echo base_url();?>assets/public/js/jquery.easing.min.js"></script>
 <script src="<?php echo base_url();?>assets/public/js/bootstrap.min.js"></script>
 <!--<script src="<?php echo base_url();?>assets/public/js/jquery.fancybox.pack.js"></script>-->
 <script src="<?php echo base_url();?>assets/public/js/jquery.colorbox-min.js"></script>
 <script src="<?php echo base_url();?>assets/public/js/bootbox/bootbox.min.js"></script>
 <script src="<?php echo base_url();?>assets/public/js/ie10-viewport-bug-workaround.js"></script>
-<script src="<?php echo base_url();?>assets/public/js/jquery.easing.min.js"></script>
-	
-<?php /*
-<!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
-<script src="js/jquery.iframe-transport.js"></script>
-<!-- The basic File Upload plugin -->
-<script src="js/jquery.fileupload.js"></script>
-<!-- The File Upload processing plugin -->
-<script src="js/jquery.fileupload-process.js"></script>
-<!-- The File Upload image preview & resize plugin -->
-<script src="js/jquery.fileupload-image.js"></script>
-<!-- The File Upload audio preview plugin -->
-<script src="js/jquery.fileupload-audio.js"></script>
-<!-- The File Upload video preview plugin -->
-<script src="js/jquery.fileupload-video.js"></script>
-<!-- The File Upload validation plugin -->
-<script src="js/jquery.fileupload-validate.js"></script>
-<!-- The File Upload user interface plugin -->
-<script src="js/jquery.fileupload-ui.js"></script>
-*/
-?>
-	<script type="text/javascript" src="<?=base_url();?>assets/public/js/jquery.ui.widget.min.js"></script>
-	<script type="text/javascript" src="<?=base_url();?>assets/public/js/jquery.iframe-transport.js"></script>
-	<script type="text/javascript" src="<?=base_url();?>assets/public/js/jquery.fileupload.js"></script>
-	<script type="text/javascript" src="<?=base_url();?>assets/public/js/jquery.fileupload-process.js"></script>
-	<script type="text/javascript" src="<?=base_url();?>assets/public/js/jquery.fileupload-validate.js"></script>
-	<script type="text/javascript" src="<?=base_url();?>assets/public/js/jquery.fileupload-ui.js"></script>
-	
-	
+
+<script type="text/javascript" src="<?=base_url();?>assets/public/js/jquery.ui.widget.min.js"></script>
+<script type="text/javascript" src="<?=base_url();?>assets/public/js/jquery.iframe-transport.js"></script>
+<script type="text/javascript" src="<?=base_url();?>assets/public/js/jquery.fileupload.js"></script>
+<script type="text/javascript" src="<?=base_url();?>assets/public/js/jquery.fileupload-process.js"></script>
+<script type="text/javascript" src="<?=base_url();?>assets/public/js/jquery.fileupload-validate.js"></script>
+<script type="text/javascript" src="<?=base_url();?>assets/public/js/jquery.fileupload-ui.js"></script>
+		
 <script type="text/javascript" src="<?=base_url();?>assets/public/js/imagesloaded.pkgd.min.js"></script>
 <!-- Custom Theme JavaScript -->
 <script src="<?php echo base_url();?>assets/public/js/custom.js"></script>

@@ -44,6 +44,8 @@ class Home extends CI_Controller {
 			'Andela Yuwono'
 		);
 		
+		//print_r($this->session->userdata);
+		
     } 
 
     public function index() {    
@@ -86,11 +88,13 @@ class Home extends CI_Controller {
                 }
                 $this->config->set_item('user_id', $user->part_id);
                 if ($sc_id) {
-                    redirect(base_url() . 'participant/single/' . $sc_encoded . '?data=' . $this->user_model->encode($user->part_id));
+                    redirect(base_url() . 'gallery/single/' . $sc_encoded . '?data=' . $this->user_model->encode($user->part_id));
                 } else {
                     //redirect(base_url() . 'participant?data=' . $this->user_model->encode($user->part_id));
                     $this->session->set_userdata('user_id',$this->user_model->encode($user->part_id));
-                    redirect(base_url() . 'participant');
+                    //redirect(base_url() . 'participant');
+					//redirect(base_url() . 'gallery');
+					 $this->show_home();
                 }
             } else {
                 // Not registered
@@ -130,13 +134,15 @@ class Home extends CI_Controller {
 		$user_fb_data 	= $this->user_model->get_temp($fb_id);
 
         $user_data 		= $this->session->userdata('user_id');
-
+		
         $fb_user		= $this->user_model->check_fb_user($fb_id);
-
+		
+		$result			= array();
+	
         if ($user_data) {
             $user_id = $this->user_model->decode($user_data);
             if ($user_id && $fb_user) {
-                redirect(fb_url('gallery'));
+                redirect(site_url('gallery'));
                 die();
             }
         }
@@ -191,27 +197,23 @@ class Home extends CI_Controller {
 					$errors[$error] = form_error($error);
 				}
 
-		    }
-		    else
-		    {
+				// Set previous post merge to default
+				$fields = array_merge($fields, $this->input->post());
+				
+				if ($this->input->is_ajax_request()) {
+
+					// Send fields and errors data
+					$result['fields'] = $fields;
+					$result['errors'] = $errors;
+
+				}
+
+		    } else {
 
                 $part = array();
-				/*
-				 *  'name'          => '',
-					'gender'        => '',
-					'age'           => '',
-					'address'       => '',
-					'province'      => '',
-					'urbandistrict' => '',
-					'suburban'      => '',
-					'zipcode'       => '',
-					'phone'         => '',
-					'oshi_favorite' => '',
-					'id_number'     => ''
-				 */
 				
-                $part['fb_id']			= $this->input->get_post('fb_id', true);
-                $part['fb_pic_url']		= $this->input->get_post('picture_url', true);
+                $part['fb_id']			= $user_fb_data->fb_id;
+                $part['fb_pic_url']		= $user_fb_data->fb_pic;
 				$part['email']			= $fb_me->email;
 				$part['id_number']		= $this->input->get_post('id_number', true);
 				$part['name']			= $this->input->get_post('name', true);
@@ -231,48 +233,35 @@ class Home extends CI_Controller {
 
                 $this->config->set_item('user_id', $user_id);
 
-                $user_id  = $this->session->set_userdata('user_id', $this->user_model->encode($user_id));
+				$this->session->set_userdata('user_id', $this->user_model->encode($user_id));
 
-				if (!$this->input->is_ajax_request()) { 
-					// Redirect if not ajax
-					redirect(base_url('upload'));
-				} else {
+				if ($this->input->is_ajax_request()) {
 					// Send json message
 					$result['result']	= 'OK';
 					$result['label']	= base_url('upload');
+				} else {					
+					// Redirect if not ajax
+					redirect(base_url('upload'));
 				}
-
 		    }
 
 	    }
-
-		// Set previous post merge to default
-		$fields = array_merge($fields, array($this->input->post()));
-
-		// Set site title page with module menu
-		$data['page_title'] = 'Daftar';
-
-		// Set main template
-		$data['main']		= 'register';
-
+		
 		// Set error data to view
-		$data['errors']		= $errors;
+		$data['errors'] = $errors;
 
 		// Post Fields
-		$data['fields']		= $fields;
-
+		$data['fields']	= $fields;
+		
 		// Logic Register via Ajax Request
 		if ($this->input->is_ajax_request()) {
-
-			// Send fields and errors data
-			$result['fields'] = $fields;
-			$result['errors'] = $errors;
-
+			
 			// Return data esult
 			$data['json'] = $result;
 			
 			// Set json main template
-			$this->load->view('json', $this->load->vars($result));
+			//$this->load->view('json', $this->load->vars($data));
+			echo json_encode($result);
 			exit;
 		}
 
