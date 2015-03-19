@@ -9,9 +9,9 @@ window.onload = function() {
 		  <div class="mekanisme">
 			<div class="title-page"><img src="<?php echo base_url();?>assets/public/img/title-terimakasih.png" alt="title terimakasih" class=""></div>
 			<div class="up-16-img">
-			  <img src="<?php echo base_url();?>assets/public/img/def-up-sticker.png" alt="def-up-sticker" class="">
+			  <img class="img-thumbnail" src="<?php echo base_url('uploads/gallery/'.$image->file_name);?>" alt="def-up-sticker" class="">
 			  <p>
-				Foto koleksi <?php echo type();?> stiker spesial JKT48 Pocky kamu sudah terunggah.
+				Foto koleksi <?php echo $type;?> stiker spesial JKT48 Pocky kamu sudah terunggah.
 			  </p>
 			  <p>
 				Cek halaman GALERI PEMENANG untuk mengetahui apakah kamu beruntung<br>
