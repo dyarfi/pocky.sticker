@@ -13,12 +13,12 @@ window.onload = function() {
     <p>
       Alami serunya menempelkan stiker koleksimu ke dalam album stiker spesial<br> dengan menghiasnya sesuai dekorasi yang kamu suka!
     </p>
-    <a class="btn btn-info-hadiah" rel="popover" data-img="<?php echo base_url();?>assets/public/img/album.png"><img src="<?php echo base_url();?>assets/public/img/info-hadiah-16.jpg" alt="info hadiah 16" class=""></a>
+    <a class="btn btn-info-hadiah" rel="popover" data-img="<?php echo base_url();?>assets/public/img/albums.png"><img src="<?php echo base_url();?>assets/public/img/info-hadiah-16.jpg" alt="info hadiah 16" class=""></a>
     <p>
       Menangkan 600 Album Stiker Spesial setiap 2 bulannya!
     </p>
     <h3 class="font-pocky">2 sticker special</h3>
-    <img src="<?php echo base_url();?>assets/public/img/info-hadiah-2.jpg" alt="info hadiah 2" class="">
+    <a class="btn btn-info-hadiah" rel="popover-top" data-img="<?php echo base_url();?>assets/public/img/stikers.png"><img src="<?php echo base_url();?>assets/public/img/info-hadiah-2.jpg" alt="info hadiah 2" class=""></a>
     <p>
       Hanya ada 10 foto kanvas bertanda tangan Oshimen JKT48 kamu<br> tiap bulannya!
     </p>

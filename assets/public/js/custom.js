@@ -290,3 +290,9 @@ function getRegion(dataSel,dataUrl) {
 	placement: 'bottom',
 	content: function(){return '<img src="'+$(this).data('img') + '" />';}
       });
+      $('a[rel=popover-top]').popover({
+	html: true,
+	trigger: 'hover',
+	placement: 'top',
+	content: function(){return '<img src="'+$(this).data('img') + '" />';}
+      });
