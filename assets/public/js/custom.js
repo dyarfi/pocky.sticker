@@ -181,9 +181,7 @@
         //var post = $(this).serializeArray();
         //console.log(post.name);
         var url = base_URL + 'home/register/';	
-		$.fancybox.open('<div class="text-center"><br/><img width="40" height="40" src="'+base_URL+'assets/public/img/spinner.gif"/><br/><br/><h4>Sedang Mengirim</h4></div>', 
-		{helpers : { overlay : {closeClick: false}},
-			closeBtn:false,autoSize:false,fitToView:false,maxWidth:150,maxHeight:150}
+		$.colorbox({html:'<div class="text-center"><br/><img width="40" height="40" src="'+base_URL+'assets/public/img/spinner.gif"/><br/><br/><h4>Sedang Mengirim</h4></div>',overlayClose:false,escKey:false,closeButton:false,width:200,height:200,preloading:false,scrolling:false,transition:fade,photo:true}
 		);
 
         $.ajax({
@@ -209,7 +207,7 @@
 				
             },
             complete: function(message) { 
-				$.fancybox.close();
+				$.colorbox.close();
             },
             error: function(x,message,t) { 
                 if(message==="timeout") {
