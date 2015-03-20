@@ -4,6 +4,7 @@ window.onload = function() {
 	FB.Canvas.setSize({ width: 810, height: 796 });
 }
 </script>
+
 <div class="center-block">
 	<div class="container content">
 		  <div class="mekanisme">
@@ -19,7 +20,7 @@ window.onload = function() {
 			  </p>
 			</div>
 			<div class="klik font-pocky"><a href=>Share ke teman</a></div>
-
+<div class="pull-left"><a href="#" onclick="fb_share('<?php echo base_url('uploads/gallery/'.$image->file_name);?>', '<?php echo base_url('uploads/gallery/'.$image->file_name);?>')" class="shareit facebook" rel="facebook"></a></div>
 		  </div>
 	</div> <!-- /container -->
 </div>
