@@ -11,7 +11,7 @@ window.onload = function() {
     <div class="head_tit <?php echo ($this->uri->segment(1) == 'participant') ? 'mygaleri' : 'galeri'?>"></div>
     <div class="listcen">
     	<div class="cont">         
-        <div class="row">
+        <div class="row margintop-40">
         <?php if ($this->uri->segment(1) != 'participant') {?>
          <div class="col-sm-5 pull-left sort">
         	<form role="form" action="" type="GET" class="form-horizontal sort">
@@ -37,7 +37,7 @@ window.onload = function() {
 		</form>
         </div>
         <?php } ?>
-        <div class="clearfix"></div>
+        <div class="clearfix marginbot-40"></div>
 		<?php 
           if (!empty($gallery)) {
           foreach ($gallery as $image) { ?>
@@ -48,7 +48,7 @@ window.onload = function() {
     						$thumb		= $pathinfo['filename'].'_thumb.'.$pathinfo['extension'];
     					?>
 						<a href="javascript:;" class="popover_bootbox" rel="<?=base_url();?>uploads/gallery/<?=$image->file_name?>">
-							<img data-toggle="modal" data-target=".bs-example-modal-sm-<?php echo $image->id ?>" src="<?=base_url();?>uploads/gallery/<?=$thumb?>" alt="<?=$image->file_name;?>" />
+							<img style="height:190px" data-toggle="modal" data-target=".bs-example-modal-sm-<?php echo $image->id ?>" src="<?=base_url();?>uploads/gallery/<?=$thumb?>" alt="<?=$image->file_name;?>" />
 						</a>
     				</div>
     				<div class="bottomleft"><?=character_limiter($image->name, 16);?>
@@ -81,7 +81,7 @@ window.onload = function() {
         </div>
     </div>
     </div>
-    <div class="atas posit2 text-center">
+    <div class="atas posit2 text-center margintop-30">
 			<a class="btn btn-primary btn-lg" role="button" href="<?=base_url('upload');?>">IKUTAN SEKARANG</a>
 	</div>
 	</section>
