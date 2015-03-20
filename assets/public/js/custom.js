@@ -184,6 +184,13 @@
 		placement: 'bottom',
 		content: function(){return '<img src="'+$(this).data('img') + '" />';}
 	});
+	// Add custom JS here
+	$('a[rel=popover-top]').popover({
+		html: true,
+		trigger: 'hover',
+		placement: 'top',
+		content: function(){return '<img src="'+$(this).data('img') + '" />';}
+	});
 	
 })(jQuery);
 
