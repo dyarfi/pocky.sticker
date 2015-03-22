@@ -204,7 +204,7 @@
 			}
 		});
     });
-    $('.sharebox_btn').colorbox({inline:true});
+	$('.sharebox_btn').colorbox({inline:true});
 })(jQuery);
 
 // Function to get area region
