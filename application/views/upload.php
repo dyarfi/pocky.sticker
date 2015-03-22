@@ -14,18 +14,41 @@ window.onload = function() {
 		  <p>
 			Pastikan koleksi stiker dalam foto kamu sudah lengkap dan tidak sama satu sama lain, karena kamu hanya punya satu kali kesempatan untuk mengunggah koleksi stiker reguler dan stiker spesial JKT48 dari Pocky.
 		  </p>
+		  <?php 
+
+		  	$type2_link = '<a rel="sticker2" href="javascript:;">2 sticker special</a>';
+		  	$type16_link = '<a rel="sticker16" href="javascript:;">16 sticker special</a>';
+
+		  	if (count($images) == 1) {
+			foreach ($images as $image) { 
+			  	if($image->type == 2) {
+			  		$type2_link = '<a class="colorbox" href="'.base_url('uploads/gallery/'.$image->file_name).'">2 sticker special</a>';
+			  	} 
+			  	if ($image->type == 16) {
+			  		$type16_link = '<a class="colorbox" href="'.base_url('uploads/gallery/'.$image->file_name).'">16 sticker special</a>';
+			  	} 
+
+			  	//print_r( $type2_link );
+			  	//print_r( $type16_link );
+			  	?>
+
+		  <?php } 
+			}?>
 		  <div class="col-md-6 col-xs-6">
 			<img src="<?php echo base_url();?>assets/public/img/16-sticker.png" alt="16 sticker" class="pull-right">
-			<div class="klik-unggah font-pocky pull-right unggah16"><a rel="sticker16" href="<?php echo base_url('upload/type/16');?>">16 sticker special</a></div>
+			<div class="klik-unggah font-pocky pull-right unggah16">
+				<a rel="sticker16" href="javascript:;">16 sticker special</a>
+			</div>
 		  </div>
 		  <div class="col-md-6 col-xs-6">
 			<img src="<?php echo base_url();?>assets/public/img/2-sticker.png" alt="2 sticker" class="pull-left">
-			<div class="klik-unggah font-pocky pull-left unggah2"><a rel="sticker2" href="<?php echo base_url('upload/type/2');?>">2 sticker special</a></div>
+			<div class="klik-unggah font-pocky pull-left unggah2">
+				<a rel="sticker2" href="javascript:;">2 sticker special</a>
+			</div>
 		  </div>
 		</div>
 	</div>
 </div>
-
 <div class="upload-single">
 	
 	<div class="mekanisme">

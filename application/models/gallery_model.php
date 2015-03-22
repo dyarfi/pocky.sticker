@@ -16,6 +16,23 @@ class Gallery_model extends CI_Model {
         $this->db->set_dbprefix('tbl_');
     }
 	
+    public function get_all_gallery ($part_id, $limit = 0, $start = 0) {
+        $data = array();
+
+        $this->db->where('part_id',$part_id);
+        $this->db->where('status',1);        
+        $this->db->order_by('id','desc');
+
+        $Q = $this->db->get('participant_images');
+        
+        if ($Q->num_rows() > 0){
+            $data = $Q->result_object();
+        }
+
+        $Q->free_result();
+        return $data;   
+    }
+
 	public function get_user_gallery ($part_id, $limit = 0, $start = 0) {
         $data = array();
 

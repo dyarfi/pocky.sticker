@@ -14,6 +14,22 @@ class upload extends CI_Controller {
 	
 	public function index() {
 		
+		$facebook		= new Facebook();
+
+        $fb_id			= @$facebook->getUser();
+
+        $user_data 		= $this->session->userdata('user_id');
+		
+		$user_id = $this->user_model->decode($user_data);
+        
+        if (!$fb_id && !$user_data && !$user_id) {
+            redirect(site_url('gallery'));
+            die();
+        }
+
+        // Set participant data image
+        $data['images'] = $this->gallery_model->get_all_gallery($user_id);		
+
 		// Set main template
 		$data['main'] = 'upload';
 				
