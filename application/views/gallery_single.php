@@ -19,6 +19,7 @@ window.onload = function() {
 				memenangkan hadiah eksklusif dari Pocky dan JKT48.
 			  </p>
 			</div>
+<<<<<<< HEAD
 			<div class="klik font-pocky"><a href="#inline_content" class="sharebox_btn" rel="sharebox">Share ke teman</a></div>
 			<div class="sharebox" style="display:none">
 				<div id="inline_content">
@@ -36,6 +37,11 @@ window.onload = function() {
 				</div>
 			</div>
 		</div>
+=======
+			<div class="klik font-pocky"><a href=>Share ke teman</a></div>
+<div class="pull-left"><a href="#" onclick="fb_share('<?php echo base_url('uploads/gallery/'.$image->file_name);?>', '<?php echo base_url('uploads/gallery/'.$image->file_name);?>')" class="shareit facebook" rel="facebook"></a></div>
+		  </div>
+>>>>>>> 856b8f298bfd7df5c15a96cd7ae474f8058cd588
 	</div> <!-- /container -->
 </div>
 

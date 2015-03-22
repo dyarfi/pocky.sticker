@@ -191,6 +191,7 @@
 		placement: 'top',
 		content: function(){return '<img src="'+$(this).data('img') + '" />';}
 	});
+<<<<<<< HEAD
 	$('select[name="sort"]').change(function() {
     	var varb = $(this).val();
     	$.ajax({
@@ -205,6 +206,9 @@
 		});
     });
 	$('.sharebox_btn').colorbox({inline:true});
+=======
+	
+>>>>>>> 856b8f298bfd7df5c15a96cd7ae474f8058cd588
 })(jQuery);
 
 // Function to get area region

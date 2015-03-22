@@ -6,6 +6,7 @@ window.onload = function() {
 </script>
 	<section id="content" class="galeri">
       <div class="title-page"><img src="<?php echo base_url();?>assets/public/img/title-pemenang.png" alt="title pemenang" class=""></div>
+<<<<<<< HEAD
 		<div class="cover">
 			<div class="head_tit"></div>
 			<div class="listcen">
@@ -70,16 +71,90 @@ window.onload = function() {
 				  <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 				  <?php } ?>					  				
 				</div>
+=======
+    <div class="cover">
+      
+    <div class="head_tit <?php echo ($this->uri->segment(1) == 'participant') ? 'mygaleri' : 'galeri'?>"></div>
+    <div class="listcen">
+    	<div class="cont">         
+        <div class="row margintop-40">
+        <?php if ($this->uri->segment(1) != 'participant') {?>
+         <div class="col-sm-5 pull-left sort">
+        	<form role="form" action="" type="GET" class="form-horizontal sort">
+              <div class="input-group">
+                <select class="form-control input-sm" id="sel1" name="sort" style="width:100%" data-url="<?=uri_string();?>">
+                  <option value=""><b>Sort by</b></option>                  
+                  <option value="atoz" <?=$this->input->get('sort') == 'atoz' ? 'selected' : '';?>>A to Z</option>
+                  <option value="ztoa" <?=$this->input->get('sort') == 'ztoa' ? 'selected' : '';?>>Z to A</option>
+                  <option value="scores" <?=$this->input->get('sort') == 'scores' ? 'selected' : '';?>>Vote</option>
+                </select>                  
+              </div>
+          </form> 
+        </div>
+        <div class="col-sm-7 pull-right">
+		<form class="form-inline" action="" method="GET">
+            <div class="form-group">
+              <label class="sr-only" for="exampleInputAmount">Participant</label>
+              <div class="input-group">
+                <input type="text" class="form-control cari" name="search" value="<?=$this->input->get('search');?>" id="exampleInputAmount" placeholder="Participant">
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Cari</button>
+		</form>
+        </div>
+        <?php } ?>
+        <div class="clearfix marginbot-40"></div>
+		<?php 
+          if (!empty($gallery)) {
+          foreach ($gallery as $image) { ?>
+    			<div class="col-xs-4 col-md-4">                  
+    				<div class="thumbnail">					
+    					<?php
+    						$pathinfo	= pathinfo($image->file_name);
+    						$thumb		= $pathinfo['filename'].'_thumb.'.$pathinfo['extension'];
+    					?>
+						<a href="javascript:;" class="popover_bootbox" rel="<?=base_url();?>uploads/gallery/<?=$image->file_name?>">
+							<img style="height:190px" data-toggle="modal" data-target=".bs-example-modal-sm-<?php echo $image->id ?>" src="<?=base_url();?>uploads/gallery/<?=$thumb?>" alt="<?=$image->file_name;?>" />
+						</a>
+    				</div>
+    				<div class="bottomleft"><?=character_limiter($image->name, 16);?>
+              <?php /*    
+              if ($user_id == $image->part_id || $this->gallery_model->check_ifscored($user_id, $image->id) == 1) { ?>
+              <i class="glyphicon glyphicon-heart pull-right"></i>
+				<span class="hit" rel="<?=base64_encode($image->id)?>"><?=$image->count;?></span>
+    				  <?php } else { ?>
+              <a href="javascript:;" class="btn-hit" rel="<?=base64_encode($image->id)?>" data-url="<?=base_url('scores');?>" data-ref="<?=current_url();?>" data-toggle="tooltip" data-placement="bottom">
+                <i class="glyphicon glyphicon-heart pull-right"></i>
+                <span class="hit" rel="<?=base64_encode($image->id)?>"><?=$image->count;?></span>
+              </a>
+              <?php } */ ?>
+    				</div>
+    			</div>
+    			<?php }
+          } else { ?>
+          <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+	  <h3 class="text-center font-pocky">Belum ada galeri</h3>
+          <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+          <?php } ?>					  				
+        </div>
+>>>>>>> 856b8f298bfd7df5c15a96cd7ae474f8058cd588
 
 				<div class="posit2">						
 					<?php echo $links; ?>						
 					<div class="clear"></div>
 				</div>
 
+<<<<<<< HEAD
 						<div class="clear"></div>
 				</div>
 			</div>
 		</div>
+=======
+				<div class="clear"></div>
+        </div>
+    </div>
+    </div>
+>>>>>>> 856b8f298bfd7df5c15a96cd7ae474f8058cd588
     <div class="atas posit2 text-center margintop-30">
 			<a class="btn btn-primary btn-lg" role="button" href="<?=base_url('upload');?>">IKUTAN SEKARANG</a>
 	</div>
