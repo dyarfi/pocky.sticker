@@ -10,5 +10,5 @@ window.onload = function() {
 	</div>
 	<div class="prize"><img src="<?php echo base_url();?>assets/public/img/prize.png" class="ctr-img" alt="prize pocky"></div>
 	<div class="ikutan"><img src="<?php echo base_url();?>assets/public/img/ikutan.png" class="ctr-img" alt="ikutan pocky"></div>
-	<div class="klik font-pocky"><a href="<?php echo base_url('home/register');?>">IKUTIN SEKARANG</a></div>
+	<div class="klik font-pocky"><a href="<?php echo base_url('home/register');?>">IKUTAN SEKARANG</a></div>
 </div>

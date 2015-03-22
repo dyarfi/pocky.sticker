@@ -4,6 +4,7 @@ window.onload = function() {
 	FB.Canvas.setSize({ width: 810, height: 796 });
 }
 </script>
+
 <div class="center-block">
 	<div class="container content">
 		  <div class="mekanisme">
@@ -18,9 +19,23 @@ window.onload = function() {
 				memenangkan hadiah eksklusif dari Pocky dan JKT48.
 			  </p>
 			</div>
-			<div class="klik font-pocky"><a href=>Share ke teman</a></div>
-
-		  </div>
+			<div class="klik font-pocky"><a href="#inline_content" class="sharebox_btn" rel="sharebox">Share ke teman</a></div>
+			<div class="sharebox" style="display:none">
+				<div id="inline_content">
+					<div class="clearfix">
+						<img class="img-thumbnail" src="<?php echo base_url('uploads/gallery/'.$image->file_name);?>" alt="def-up-sticker" class="">
+					</div>
+					<div class="marginbot-20"></div>
+					<div class="pull-left">
+						<a href="#" onclick="fb_share('<?php echo base_url('uploads/gallery/'.$image->file_name);?>', '<?php echo base_url('uploads/gallery/'.$image->file_name);?>')" class="shareit facebook" rel="facebook"></a>
+					</div>
+					<div class="pull-right">
+						<a href="#" onclick="tweet('<?php //echo $url ?>','')" class="shareit twitter" rel="twitter"></a>
+					</div>
+					<!--div class="klik font-pocky clearfix text-center"><span>Share ke teman</span></div-->
+				</div>
+			</div>
+		</div>
 	</div> <!-- /container -->
 </div>
 
