@@ -90,8 +90,8 @@ window.onload = function() {
 				</div>
 			</div>
 		</div>
-    <div class="atas posit2 text-center margintop-30">
-			<a class="btn btn-primary btn-lg" role="button" href="<?=base_url('upload');?>">IKUTAN SEKARANG</a>
+    <div class="klik font-pocky">
+			<a role="button" href="<?=base_url('upload');?>">IKUTAN SEKARANG</a>
 	</div>
 	</section>
 
