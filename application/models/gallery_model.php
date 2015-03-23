@@ -20,7 +20,7 @@ class Gallery_model extends CI_Model {
         $data = array();
 
         $this->db->where('part_id',$part_id);
-        $this->db->where('status',1);        
+        //$this->db->where('status',1);        
         $this->db->order_by('id','desc');
 
         $Q = $this->db->get('participant_images');
@@ -52,7 +52,7 @@ class Gallery_model extends CI_Model {
 		return $data;	
 	}
 	
-	public function get_all_images ($limit = 0, $start = 0, $order=array(), $search='') {
+	public function get_all_images ($limit = 0, $start = 0, $order=array(), $search='', $column=array()) {
 		$data = array();
         
         if ($search != '') {       
@@ -65,6 +65,12 @@ class Gallery_model extends CI_Model {
         if (is_array($order)) {
             foreach ($order as $key => $value) {                
                 $this->db->order_by($key,$value);
+            }
+        }
+		
+		if (is_array($column)) {
+            foreach ($column as $col => $val) {                
+                $this->db->where($col, $val);
             }
         }
 
@@ -80,9 +86,14 @@ class Gallery_model extends CI_Model {
 		return $data;	
 	}
 
-    public function get_count_images ($search='') {
+    public function get_count_images ($search='',$column=array()) {
         if (!empty($search)) {
             $this->db->like('name', $search);            
+        }
+		if (is_array($column)) {
+            foreach ($column as $col => $val) {                
+                $this->db->where($col, $val);
+            }
         }
         $this->db->where('status', 1);
         $this->db->from('participant_images');

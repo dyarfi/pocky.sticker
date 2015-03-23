@@ -21,6 +21,7 @@ class gallery extends CI_Controller {
 
 		$order = array('id' => 'DESC');
         $sort = $this->input->get('sort', true);
+		$type = $this->input->get('type', true);
         
         if ($sort) {
             if ($sort == 'atoz') {
@@ -30,6 +31,14 @@ class gallery extends CI_Controller {
             } else if ($sort == 'scores') {
                 $order = array('count' =>'DESC');
             }
+        }
+		
+		if ($type) {
+            if ($type == '16') {
+                $type = array('type' =>'16');
+            } else if ($sort == '2') {
+                $type = array('type' =>'2');
+            } 
         }
 
         $sort = $this->input->get('sort');
@@ -42,7 +51,7 @@ class gallery extends CI_Controller {
         $this->load->library('pagination');
 		
 		$config['base_url'] = base_url('gallery/index/?').http_build_query($params);	
-		$config['total_rows'] = $this->gallery_model->get_count_images($search);
+		$config['total_rows'] = $this->gallery_model->get_count_images($search,$type);
 		$config["per_page"] = 9;
 		$config['page_query_string'] = TRUE;
 
@@ -75,7 +84,7 @@ class gallery extends CI_Controller {
         $data['links'] 		= $links; 
 
         // Set gallery listing
-		$data['gallery'] 	= $this->gallery_model->get_all_images($config["per_page"], $page, $order, $search);
+		$data['gallery'] 	= $this->gallery_model->get_all_images($config["per_page"], $page, $order, $search, $type);
 
 		// Set main template
 		$data['main']		= 'gallery';

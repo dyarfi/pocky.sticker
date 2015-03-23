@@ -49,7 +49,7 @@
 		$('.sticker-upload-landing').show({duration:'260',easing:'easeInOutBack'});
 		$('.mekanisme').find('.sticker-upload').hide({duration:'260',easing:'easeInOutBack'});
 	});
-	$('.unggah16 a, .unggah2 a').click(function(){
+	$('.unggah16 a.click, .unggah2 a.click').click(function(){
 		var href = $(this).attr('href');
 		var arel = $(this).attr('rel');
 		$('.sticker-upload-landing').hide({duration:'260',easing:'easeInOutBack'});

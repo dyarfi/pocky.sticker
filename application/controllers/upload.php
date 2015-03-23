@@ -22,13 +22,22 @@ class upload extends CI_Controller {
 		
 		$user_id = $this->user_model->decode($user_data);
         
+		// Get participant facebook session and user session
         if (!$fb_id && !$user_data && !$user_id) {
             redirect(site_url('gallery'));
             die();
         }
 
+		// Get participant images
+		$temp		=	array();
+		$images_tmp = $this->gallery_model->get_all_gallery($user_id);		
+		foreach ($images_tmp as $img) {
+			$temp[$img->type] = $img;	
+		}
+		$images		= $temp;		
+		
         // Set participant data image
-        $data['images'] = $this->gallery_model->get_all_gallery($user_id);		
+        $data['images'] = $images;		
 
 		// Set main template
 		$data['main'] = 'upload';
@@ -89,7 +98,7 @@ class upload extends CI_Controller {
 				$image['type']		= $this->input->post('image_type');
 				$image['part_id']	= $part_id;
 				$image['name']		= $participant->name;				
-				$image['status']	= 1;
+				$image['status']	= '0';
 				$image['added']		= time();
 
 				$image_id 			= $this->gallery_model->insert_image($image);

@@ -27,7 +27,7 @@ window.onload = function() {
 					</div>
 					<div class="marginbot-20"></div>
 					<div class="pull-left">
-						<a href="#" onclick="fb_share('<?php echo base_url('uploads/gallery/'.$image->file_name);?>', '<?php echo base_url('uploads/gallery/'.$image->file_name);?>')" class="shareit facebook" rel="facebook"></a>
+						<a href="#" onclick="fb_share('<?php echo base_url(uri_string());?>', '<?php echo $image->file_name;?>')" class="shareit facebook" rel="facebook"></a>
 					</div>
 					<div class="pull-right">
 						<a href="#" onclick="tweet('<?php //echo $url ?>','')" class="shareit twitter" rel="twitter"></a>
@@ -42,9 +42,9 @@ window.onload = function() {
 
 <script type="text/javascript">
     function fb_share(url, image) {
-        var product_name = 'Score the selfie';
-        var description = 'Foto selfie-ku sudah ikut berpartisipasi dalam Score The Selfie. Ayo berikan vote kamu sebanyak-banyaknya';
-        var share_image = 'http://panasonicidapps.com/sts/uploads/gallery/' + image;
+        var product_name = 'Pocky Stiker Inspirasi';
+        var description = 'Koleksi stiker inspirasi Pocky JKT48 ku sudah lengkap! Unggah foto koleksi stiker inspirasi Pocky JKT48 kamu di sini, dan menangkan hadiah eksklusif JKT48 hanya dari Pocky.';
+        var share_image = 'http://mypockyid.com/pockysticker/uploads/gallery/' + image;
         var share_link = url;
         FB.ui({
             method: 'feed',
@@ -60,7 +60,7 @@ window.onload = function() {
             }
         });
     }
-<?php $title = 'Pilih fotoku dalam #ScoreTheSelfie dan berikan vote kamu sebanyak-banyaknya. '; ?>
+<?php $title = 'Unggah koleksi lengkap stiker inspirasi Pocky JKT48 kamu sekarang, dan menangkan hadiah eksklusif dari JKT48!'; ?>
     function tweet(url) {
         var urltemp = encodeURIComponent(url);
         window.open('https://twitter.com/share?url=' + urltemp + '&text=<?php echo urlencode($title) ?>', 'Share to Twitter', 'height=320, width=640, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, directories=no, status=no');

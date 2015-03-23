@@ -4,6 +4,11 @@ window.onload = function() {
 	FB.Canvas.setSize({ width: 810, height: 796 });
 }
 </script>
+<!--
+<?php 
+
+?>
+-->
 <div class="center-block">
 	<div class="sticker-upload-landing">
 		<div class="title-page"><img src="<?php echo base_url();?>assets/public/img/title-unggah.png" alt="title daftar" class="title"></div>
@@ -14,37 +19,37 @@ window.onload = function() {
 		  <p>
 			Pastikan koleksi stiker dalam foto kamu sudah lengkap dan tidak sama satu sama lain, karena kamu hanya punya satu kali kesempatan untuk mengunggah koleksi stiker reguler dan stiker spesial JKT48 dari Pocky.
 		  </p>
-		  <?php 
-
-		  	$type2_link = '<a rel="sticker2" href="javascript:;">2 sticker special</a>';
-		  	$type16_link = '<a rel="sticker16" href="javascript:;">16 sticker special</a>';
-
-		  	if (count($images) == 1) {
-			foreach ($images as $image) { 
-			  	if($image->type == 2) {
-			  		$type2_link = '<a class="colorbox" href="'.base_url('uploads/gallery/'.$image->file_name).'">2 sticker special</a>';
-			  	} 
-			  	if ($image->type == 16) {
-			  		$type16_link = '<a class="colorbox" href="'.base_url('uploads/gallery/'.$image->file_name).'">16 sticker special</a>';
-			  	} 
-
-			  	//print_r( $type2_link );
-			  	//print_r( $type16_link );
-			  	?>
-
-		  <?php } 
-			}?>
+			<?php 
+				// Set both link for 16 and 2 stickers
+				$type2_link = '<div class="klik-unggah font-pocky pull-left unggah2">'
+								.'<a class="click" rel="sticker2" href="javascript:;">2 sticker special</a></div>';
+								
+				$type16_link = '<div class="klik-unggah font-pocky pull-right unggah16">'
+								.'<a class="click" rel="sticker16" href="javascript:;">16 sticker special</a></div>';
+				
+				// Check if user already submit images
+				if (!empty($images['2'])) {
+					$type2_link = '<div class="klik-unggah font-pocky pull-left unggah2"><a class="colobox" href="'.base_url('uploads/gallery/'.$images['2']->file_name).'">2 sticker special</a></div>';
+				}
+				if (!empty($images['16'])) {
+					$type16_link = '<div class="klik-unggah font-pocky pull-right unggah16"><a class="colobox" href="'.base_url('uploads/gallery/'.$images['16']->file_name).'">16 sticker special</a></div>';
+				}
+				//echo '<!-- 2 - '.$type2_link.' -->';
+				//echo '<!-- 16 - '.$type16_link.' -->';
+			?>
 		  <div class="col-md-6 col-xs-6">
 			<img src="<?php echo base_url();?>assets/public/img/16-sticker.png" alt="16 sticker" class="pull-right">
-			<div class="klik-unggah font-pocky pull-right unggah16">
+			<!--div class="klik-unggah font-pocky pull-right unggah16">
 				<a rel="sticker16" href="javascript:;">16 sticker special</a>
-			</div>
+			</div-->
+			<?php echo $type16_link;?>
 		  </div>
 		  <div class="col-md-6 col-xs-6">
 			<img src="<?php echo base_url();?>assets/public/img/2-sticker.png" alt="2 sticker" class="pull-left">
-			<div class="klik-unggah font-pocky pull-left unggah2">
+			<!--div class="klik-unggah font-pocky pull-left unggah2">
 				<a rel="sticker2" href="javascript:;">2 sticker special</a>
-			</div>
+			</div-->
+			<?php echo $type2_link;?>
 		  </div>
 		</div>
 	</div>
