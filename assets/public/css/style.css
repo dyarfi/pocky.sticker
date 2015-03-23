@@ -199,3 +199,18 @@ footer {
 footer p {
 	color: #f8f8f8;
 }
+
+.facebook, .twitter {
+	height: 22px;
+	display: block;
+}
+.facebook {
+	/*margin-left: 30px;*/
+	width: 133px;
+	background:url(../img/ButtonFB.png) no-repeat center center;
+}
+.twitter {
+	/*margin-right: 30px;*/
+	width: 115px;
+	background:url(../img/ButtonTwitter.png) no-repeat center center;
+}

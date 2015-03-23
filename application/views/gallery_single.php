@@ -10,7 +10,7 @@ window.onload = function() {
 		  <div class="mekanisme">
 			<div class="title-page"><img src="<?php echo base_url();?>assets/public/img/title-terimakasih.png" alt="title terimakasih" class=""></div>
 			<div class="up-16-img">
-			  <img class="img-thumbnail" src="<?php echo base_url('uploads/gallery/'.$image->file_name);?>" alt="def-up-sticker" class="">
+			  <img class="img-thumbnail" style="max-width:600px" src="<?php echo base_url('uploads/gallery/'.$image->file_name);?>" alt="def-up-sticker" class="">
 			  <p>
 				Foto koleksi <?php echo $type;?> stiker spesial JKT48 Pocky kamu sudah terunggah.
 			  </p>
@@ -19,9 +19,23 @@ window.onload = function() {
 				memenangkan hadiah eksklusif dari Pocky dan JKT48.
 			  </p>
 			</div>
-			<div class="klik font-pocky"><a href=>Share ke teman</a></div>
-<div class="pull-left"><a href="#" onclick="fb_share('<?php echo base_url('uploads/gallery/'.$image->file_name);?>', '<?php echo base_url('uploads/gallery/'.$image->file_name);?>')" class="shareit facebook" rel="facebook"></a></div>
-		  </div>
+			<div class="klik font-pocky"><a href="#inline_content" class="sharebox_btn" rel="sharebox">Share ke teman</a></div>
+			<div class="sharebox" style="display:none">
+				<div id="inline_content">
+					<div class="clearfix">
+						<img class="img-thumbnail" style="max-width:600px" src="<?php echo base_url('uploads/gallery/'.$image->file_name);?>" alt="def-up-sticker" class="">
+					</div>
+					<div class="marginbot-20"></div>
+					<div class="pull-left">
+						<a href="#" onclick="fb_share('<?php echo base_url('uploads/gallery/'.$image->file_name);?>', '<?php echo base_url('uploads/gallery/'.$image->file_name);?>')" class="shareit facebook" rel="facebook"></a>
+					</div>
+					<div class="pull-right">
+						<a href="#" onclick="tweet('<?php //echo $url ?>','')" class="shareit twitter" rel="twitter"></a>
+					</div>
+					<!--div class="klik font-pocky clearfix text-center"><span>Share ke teman</span></div-->
+				</div>
+			</div>
+		</div>
 	</div> <!-- /container -->
 </div>
 

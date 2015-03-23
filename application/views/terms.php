@@ -25,7 +25,7 @@ kanvas Oshimen JKT48 untuk 20 partisipan yang berhasil mengumpulkan 2 stiker spe
             <li>Pocky berhak untuk menghapus foto yang dianggap tidak etis, mengandung pornografi, rasisme, kejahatan, atau muatan provokatif apapun yang bisa memicu konflik sectarian terhadap pihak manapun.</li>
           </ul>
         </div>
-        <div class="klik font-pocky"><a href=>home</a></div>
+        <div class="klik font-pocky"><a href="<?php echo base_url();?>">home</a></div>
         
       </div>
     </div> <!-- /container -->

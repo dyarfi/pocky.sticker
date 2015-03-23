@@ -14,18 +14,41 @@ window.onload = function() {
 		  <p>
 			Pastikan koleksi stiker dalam foto kamu sudah lengkap dan tidak sama satu sama lain, karena kamu hanya punya satu kali kesempatan untuk mengunggah koleksi stiker reguler dan stiker spesial JKT48 dari Pocky.
 		  </p>
+		  <?php 
+
+		  	$type2_link = '<a rel="sticker2" href="javascript:;">2 sticker special</a>';
+		  	$type16_link = '<a rel="sticker16" href="javascript:;">16 sticker special</a>';
+
+		  	if (count($images) == 1) {
+			foreach ($images as $image) { 
+			  	if($image->type == 2) {
+			  		$type2_link = '<a class="colorbox" href="'.base_url('uploads/gallery/'.$image->file_name).'">2 sticker special</a>';
+			  	} 
+			  	if ($image->type == 16) {
+			  		$type16_link = '<a class="colorbox" href="'.base_url('uploads/gallery/'.$image->file_name).'">16 sticker special</a>';
+			  	} 
+
+			  	//print_r( $type2_link );
+			  	//print_r( $type16_link );
+			  	?>
+
+		  <?php } 
+			}?>
 		  <div class="col-md-6 col-xs-6">
 			<img src="<?php echo base_url();?>assets/public/img/16-sticker.png" alt="16 sticker" class="pull-right">
-			<div class="klik-unggah font-pocky pull-right unggah16"><a rel="sticker16" href="<?php echo base_url('upload/type/16');?>">16 sticker special</a></div>
+			<div class="klik-unggah font-pocky pull-right unggah16">
+				<a rel="sticker16" href="javascript:;">16 sticker special</a>
+			</div>
 		  </div>
 		  <div class="col-md-6 col-xs-6">
 			<img src="<?php echo base_url();?>assets/public/img/2-sticker.png" alt="2 sticker" class="pull-left">
-			<div class="klik-unggah font-pocky pull-left unggah2"><a rel="sticker2" href="<?php echo base_url('upload/type/2');?>">2 sticker special</a></div>
+			<div class="klik-unggah font-pocky pull-left unggah2">
+				<a rel="sticker2" href="javascript:;">2 sticker special</a>
+			</div>
 		  </div>
 		</div>
 	</div>
 </div>
-
 <div class="upload-single">
 	
 	<div class="mekanisme">
@@ -119,54 +142,4 @@ window.onload = function() {
 			</div>
 		</div>	
 	</div>
-	
 </div>
-
-
-<?php /* echo form_open_multipart(base_url('upload/selfie?data='.$this->input->get('data', TRUE)), array('id'=>'fileUploadForm'));?>
-<div class="listcen">
-	<div class="cont">
-		<div id="sizeBox">
-			
-		</div>
-		<p class="text-center posit2">
-			
-			<div class="img_holder_xhr text-center">				
-				<div class="img-thumbnail">
-					<a class="colorbox" href="<?=base_url();?>assets/public/img/unggah.jpg">
-						<img src="<?=base_url();?>assets/public/img/unggah.jpg" alt="" />
-					</a>	
-				</div>
-			</div>
-			
-		</p>
-		<div class="text-center">
-			<!-- The global progress bar -->
-			<div id="progress" class="progress" style="display:block">
-				<div class="progress-bar progress-bar-danger"></div>
-			</div>
-			
-			<div class="clear topBotDiv10"></div>
-
-			<div class="center-block">
-				<div class="fileUpload btn btn-primary btn-md center-block">
-					<span>Browse</span>
-					<input class="upload" type="file" id="fileupload" name="fileupload" data-url="<?=base_url('upload/image');?>">
-				</div>
-			</div>
-			<input type="hidden" name="image_temp" value=""> 
-		</div>
-		<div>
-		<h3 class="text-center popupload">Tunjukkan Ekspresi kamu dari serunya pertandingan<br />
-		Persija VS Gamba Osaka di stadion Gelora Bung Karno - Jakarta.<br />
-		Setiap peserta boleh mengirimkan lebih dari 1 (satu) foto.</h3>
-		</div>	
-	</div>
-</div>
-</div>
-<div class="atas">
-	<div class="text-center button-submit" style="display:none">
-		<button class="btn btn-primary btn-lg" role="button">KIRIM</button>
-	</div>
-</div>
-<?php echo form_close(); */?>

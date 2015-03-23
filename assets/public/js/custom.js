@@ -191,7 +191,20 @@
 		placement: 'top',
 		content: function(){return '<img src="'+$(this).data('img') + '" />';}
 	});
-	
+	$('select[name="sort"]').change(function() {
+    	var varb = $(this).val();
+    	$.ajax({
+		  	data: $(this).serializeArray(),
+		}).done(function(msg) {
+			var redirect = $(location).attr('href');
+			var val = jQuery.parseJSON(msg);
+			// Redirect after request language
+			if (varb != '') {
+				location.href = val.url;
+			}
+		});
+    });
+	$('.sharebox_btn').colorbox({inline:true});
 })(jQuery);
 
 // Function to get area region
