@@ -73,6 +73,11 @@ class upload extends CI_Controller {
 	
 	public function sticker() {
 
+		// Check if the request via AJAX
+		if (empty($_POST)) {
+			exit('No direct script access allowed');		
+		}	
+		
 		$get_data 	 = $this->session->userdata('user_id');
 		
         if (!$get_data) {
