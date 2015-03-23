@@ -24,10 +24,10 @@ window.onload = function() {
 				$text = '';				
 				if ($type == 2) {
 					$find = 16;
-					$text = '<div class="klik font-pocky link-option link-sm unggah16"><a class="click" rel="sticker16" href="javascript:;">Unggah Foto<br>16 stiker regular</a></div>';
+					$text = '<div class="klik font-pocky link-option link-sm unggah16"><a class="click" rel="sticker16" href="javascript:;">Unggah Foto 16 stiker regular</a></div>';
 				} else if ($type == 16) {
 					$find = 2;
-					$text = '<div class="klik font-pocky link-option link-sm unggah2"><a class="click" rel="sticker2" href="javascript:;">Unggah Foto<br>2 stiker spesial</a></div>';
+					$text = '<div class="klik font-pocky link-option link-sm unggah2"><a class="click" rel="sticker2" href="javascript:;">Unggah Foto 2 stiker spesial</a></div>';
 				}
 				$upload = $this->gallery_model->get_upload_type($user_id, $find);
 				/*

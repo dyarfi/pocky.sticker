@@ -311,8 +311,8 @@ button{background: transparent; border: none;}
 .unggah16{margin-right: 30px;}
 .unggah2{margin-left: 55px;}
 .id-uploadsticker p {text-align: center; margin-left:30px;margin-right:30px; }
-.link-sm{padding: 1px inherit 0;}
-.link-sm a{font-size: 12px;}
+.link-sm{padding: 1px inherit 0; padding: 10px 0}
+.link-sm a{font-size: 14px;}
 .link-option{float: left; margin: 0 50px}
 p{margin: 20px auto;}
 .syarat{
