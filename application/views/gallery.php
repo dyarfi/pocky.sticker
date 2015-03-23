@@ -26,7 +26,7 @@ window.onload = function() {
 						<a href="<?php echo base_url('gallery?type=16');?>">PEMENANG STIKER REGULER</a>
 					</div>
 					<div class="klik font-pocky pull-right col-md-6">
-						<a href="<?php echo base_url('gallery?type=2');?>">PEMENANG STIKER REGULER</a>
+						<a href="<?php echo base_url('gallery?type=2');?>">PEMENANG STIKER SPESIAL</a>
 					</div>	
 				</div>
 				<div class="col-sm-7 pull-right">
