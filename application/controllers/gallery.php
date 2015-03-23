@@ -8,12 +8,10 @@ class gallery extends CI_Controller {
 		$this->load->model('user_model');
         $this->load->model('gallery_model');
 		
-		$facebook = new Facebook();        
-		$this->fb_id = $facebook->getUser();
 	}
 	
 	public function index($image_id='') {				
-			
+				
 		if ($this->input->is_ajax_request()) {        	
             echo json_encode(array('url'=>'?sort='.$this->input->get('sort')));
             exit;
@@ -41,7 +39,9 @@ class gallery extends CI_Controller {
             } 
         }
 
-        $sort = $this->input->get('sort');
+		// Completed image activated from admin
+		$status = 2;
+        $sort 	= $this->input->get('sort');
         $search = $this->input->get('search');
 
         $url_search 	 = $search ? array('search'=>$search) : array();
@@ -51,7 +51,7 @@ class gallery extends CI_Controller {
         $this->load->library('pagination');
 		
 		$config['base_url'] = base_url('gallery/index/?').http_build_query($params);	
-		$config['total_rows'] = $this->gallery_model->get_count_images($search,$type);
+		$config['total_rows'] = $this->gallery_model->get_count_images($search,$type,$status);
 		$config["per_page"] = 9;
 		$config['page_query_string'] = TRUE;
 
@@ -84,7 +84,7 @@ class gallery extends CI_Controller {
         $data['links'] 		= $links; 
 
         // Set gallery listing
-		$data['gallery'] 	= $this->gallery_model->get_all_images($config["per_page"], $page, $order, $search, $type);
+		$data['gallery'] 	= $this->gallery_model->get_all_images($config["per_page"], $page, $order, $search, $type, $status);
 
 		// Set main template
 		$data['main']		= 'gallery';
@@ -97,7 +97,22 @@ class gallery extends CI_Controller {
 		
 	}
 	
-	public function single ($type='',$image_id=''){
+	public function single ($type='',$image_id='',$revisit=''){
+		
+		// Get participant data
+		$get_data = $this->session->userdata('user_id');
+		$user_id  = $this->user_model->decode($get_data);
+		
+		// Completed data
+		$data['user_id']	= $user_id;
+		
+		// Completed data
+		$data['completed']	= false;
+		
+		// Completed upload
+		if ($revisit == true) {
+			$data['completed'] = true;
+		}
 		
 		// Type image
 		$data['type']		= $type;

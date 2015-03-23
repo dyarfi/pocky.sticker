@@ -16,11 +16,27 @@ class Gallery_model extends CI_Model {
         $this->db->set_dbprefix('tbl_');
     }
 	
+	public function get_upload_type($part_id='',$type='') {
+		$data = array();
+
+        $this->db->where('part_id',$part_id);
+        $this->db->where('type',$type);  
+
+        $Q = $this->db->get('participant_images');
+        
+        if ($Q->num_rows() > 0){
+            $data = $Q->result_object();
+        }
+
+        $Q->free_result();
+        return $data;
+	}
+	
     public function get_all_gallery ($part_id, $limit = 0, $start = 0) {
         $data = array();
 
         $this->db->where('part_id',$part_id);
-        //$this->db->where('status',1);        
+        $this->db->where('status',1);        
         $this->db->order_by('id','desc');
 
         $Q = $this->db->get('participant_images');
@@ -52,15 +68,16 @@ class Gallery_model extends CI_Model {
 		return $data;	
 	}
 	
-	public function get_all_images ($limit = 0, $start = 0, $order=array(), $search='', $column=array()) {
+	public function get_all_images ($limit = 0, $start = 0, $order=array(), $search='', $column=array(), $status='') {
 		$data = array();
         
         if ($search != '') {       
             $this->db->like('name', $search); 
         } 
-        
-        $this->db->where('status',1);
-        $this->db->where('file_name !=','');
+        if ($status != '') {
+			$this->db->where('status',$status);
+        }
+		$this->db->where('file_name !=','');
         
         if (is_array($order)) {
             foreach ($order as $key => $value) {                
@@ -86,7 +103,7 @@ class Gallery_model extends CI_Model {
 		return $data;	
 	}
 
-    public function get_count_images ($search='',$column=array()) {
+    public function get_count_images ($search='',$column=array(),$status='') {
         if (!empty($search)) {
             $this->db->like('name', $search);            
         }
@@ -95,7 +112,9 @@ class Gallery_model extends CI_Model {
                 $this->db->where($col, $val);
             }
         }
-        $this->db->where('status', 1);
+		if ($status != '') {
+			$this->db->where('status',$status);
+        }
         $this->db->from('participant_images');
         return $this->db->count_all_results();
     }

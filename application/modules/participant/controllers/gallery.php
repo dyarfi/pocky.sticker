@@ -43,7 +43,7 @@ class Gallery extends Admin_Controller {
 			// This callback escapes the default auto field output of the field name at the add/edit form. 
 			// $crud->callback_field('status',array($this,'_callback_dropdown'));
 			// This callback escapes the default auto column output of the field name at the add form
-			$crud->field_type('status','dropdown',array('1' => 'Active', '0' => 'Inactive')); 
+			$crud->field_type('status','dropdown',array('0' => 'Inactive','1' => 'Active','2' => 'Completed')); 
 			$crud->field_type('type','dropdown',array('16' => 'Stiker 16', '2' => 'Stiker 2'));
 			$crud->edit_fields('status');
 			$crud->unset_texteditor('file_name','text');			

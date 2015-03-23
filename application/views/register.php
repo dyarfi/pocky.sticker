@@ -24,6 +24,14 @@ window.onload = function() {
                 <small><?php echo $errors['name'];?></small>
               </div>
 			</div>
+			
+			<div class="form-group">
+			  <label class="col-sm-4 control-label" for="textinput"><div class="border-top-bot">Email&ast;</div></label>
+			  <div class="col-sm-8">
+				<input type="text" class="form-control" placeholder="Email" value="<?php echo set_value('email', @$user_fb->email) ?>" name="email" required>
+                <small><?php echo $errors['email'];?></small>
+              </div>
+			</div>
 
 			<!-- Text input-->
 			<div class="form-group">

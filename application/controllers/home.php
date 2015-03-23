@@ -150,7 +150,8 @@ class Home extends CI_Controller {
         // Default data setup
         $fields	= array(
                         'name'          => '',
-                        'gender'        => '',
+                        'email'        	=> '',
+						'gender'        => '',
                         'age'           => '',
                         'address'       => '',
                         'province'      => '',
@@ -164,6 +165,7 @@ class Home extends CI_Controller {
         $errors	= $fields;
 
         $this->form_validation->set_rules('name', 'Nama', 'trim|required|min_length[5]|max_length[28]|xss_clean');
+		$this->form_validation->set_rules('email', 'Email','trim|valid_email|required|max_length[55]|xss_clean');
         $this->form_validation->set_rules('gender', 'Jenis Kelamin','trim|required');		
         $this->form_validation->set_rules('age', 'Umur','trim|required|is_numeric');
         $this->form_validation->set_rules('phone', 'No. Telp','trim|is_numeric|xss_clean|max_length[25]');
@@ -214,7 +216,7 @@ class Home extends CI_Controller {
 				
                 $part['fb_id']			= $user_fb_data->fb_id;
                 $part['fb_pic_url']		= $user_fb_data->fb_pic;
-				$part['email']			= $fb_me->email;
+				$part['email']			= $this->input->get_post('email', true);
 				$part['id_number']		= $this->input->get_post('id_number', true);
 				$part['name']			= $this->input->get_post('name', true);
                 $part['gender']			= $this->input->get_post('gender', true);

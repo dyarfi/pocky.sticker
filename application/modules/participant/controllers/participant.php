@@ -46,7 +46,7 @@ class Participant extends Admin_Controller {
 			// This callback escapes the default auto field output of the field name at the add form
 			//$crud->callback_add_field('added',array($this,'_callback_time_added'));
 			// This callback escapes the default auto field output of the field name at the edit form
-			//$crud->callback_edit_field('modified',array($this,'_callback_time_modified'));
+			$crud->callback_edit_field('modified',array($this,'_callback_time_modified'));
 			// This callback escapes the default auto field output of the field name at the add/edit form. 
 			// $crud->callback_field('status',array($this,'_callback_dropdown'));
 			// This callback escapes the default auto column output of the field name at the add form
@@ -67,17 +67,17 @@ class Participant extends Admin_Controller {
     }
     
     public function _callback_time ($value, $row) {
-	return empty($value) ? '-' : date('D, d-M-Y',$value);
+		return empty($value) ? '-' : date('D, d-M-Y',$value);
     }
     
     public function _callback_time_added ($value, $row) {
-	$time = time();
-	return '<input type="hidden" maxlength="50" value="'.$time.'" name="added">';
+		$time = time();
+		return '<input type="hidden" maxlength="50" value="'.$time.'" name="added">';
     }
     
     public function _callback_time_modified ($value, $row) {
-	$time = time();
-	return '<input type="hidden" maxlength="50" value="'.$time.'" name="modified">';
+		$time = time();
+		return '<input type="hidden" maxlength="50" value="'.$time.'" name="modified">';
     }
     
     public function _callback_total_image($value, $row) {

@@ -40,10 +40,9 @@ window.onload = function() {
 					<button type="submit" class="btn btn-primary">Cari</button>
 				</form-->
 				</div>
-				<div class="text-center col-lg-12 margintop-40">
-					<h3>Selamat kepada para pemenang.</h3>
-					Pocky akan menghubungi kamu 
-					untuk konfirmasi identitas dan pengiriman hadiah.
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margintop-40">
+					<p class="text-center"><h4 class="text-center">Selamat kepada para pemenang.</h4>
+					Pocky akan menghubungi kamu untuk konfirmasi identitas dan pengiriman hadiah.</p>
 				</div>
 				<?php } ?>
 				<div class="clearfix marginbot-40"></div>
@@ -90,8 +89,8 @@ window.onload = function() {
 				</div>
 			</div>
 		</div>
-    <div class="atas posit2 text-center margintop-30">
-			<a class="btn btn-primary btn-lg" role="button" href="<?=base_url('upload');?>">IKUTAN SEKARANG</a>
+    <div class="atas posit2 text-center margintop-30 klik font-pocky">
+			<a role="button" href="<?=base_url('upload');?>">IKUTAN SEKARANG</a>
 	</div>
 	</section>
 
