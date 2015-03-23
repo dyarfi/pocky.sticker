@@ -6,7 +6,7 @@ window.onload = function() {
 </script>
 <div class="content-img">
 	<div class="logo">
-          <img src="img/logo.png" alt="logo" class="logo">
+          <img src="<?php echo base_url();?>assets/public/img/logo.png" alt="logo" class="logo">
         </div>
 	<div class="tagline font-pocky">
 	  <img src="<?php echo base_url();?>assets/public/img/tagline.png" alt="tagline" class="tagline">

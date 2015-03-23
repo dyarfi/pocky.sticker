@@ -36,7 +36,7 @@ class Gallery_model extends CI_Model {
         $data = array();
 
         $this->db->where('part_id',$part_id);
-        $this->db->where('status',1);        
+        //$this->db->where('status',1);        
         $this->db->order_by('id','desc');
 
         $Q = $this->db->get('participant_images');
