@@ -89,13 +89,9 @@ window.onload = function() {
 				</div>
 			</div>
 		</div>
-<<<<<<< HEAD
-    <div class="atas posit2 text-center margintop-30 klik font-pocky">
-=======
-    <div class="klik font-pocky">
->>>>>>> abf17978b4fc6095a875912ff9a56b4f4952538f
+		<div class="klik font-pocky">
 			<a role="button" href="<?=base_url('upload');?>">IKUTAN SEKARANG</a>
-	</div>
+		</div>
 	</section>
 
 <script type="text/javascript">
