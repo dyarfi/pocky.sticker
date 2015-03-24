@@ -41,8 +41,8 @@ window.onload = function() {
 				</form-->
 				</div>
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margintop-40">
-					<p class="text-center"><h3 class="text-center">Selamat kepada para pemenang.</h3>
-					<div class="text-center">Pocky akan menghubungi kamu untuk konfirmasi identitas dan pengiriman hadiah.</div></p>
+					<h3 class="text-center font-pocky">Selamat kepada para pemenang.</h3>
+					<div class="text-center font-pocky">Pocky akan menghubungi kamu untuk konfirmasi identitas dan pengiriman hadiah.</div>
 				</div>
 				<?php } ?>
 				<div class="clearfix marginbot-40"></div>
