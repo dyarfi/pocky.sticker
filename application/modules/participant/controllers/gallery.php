@@ -100,7 +100,7 @@ class Gallery extends Admin_Controller {
     }
 	
 	public function _callback_filename_url($value, $row) {
-		return base_url('uploads/gallery/'.$row->file_name);
+		return ($row->file_name) ? base_url('uploads/users/'.$row->file_name) : '-';
 	}
 	
     public function _callback_total_image($value, $row) {

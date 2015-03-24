@@ -34,8 +34,9 @@ class Participant extends Admin_Controller {
             $crud->display_as('province','Propinsi');
             $crud->display_as('urbandistrict','Kabupaten');
             $crud->display_as('suburban','Kecamatan');
+			$crud->display_as('file_name','ID Image File');
             // Set column
-            $crud->columns('id_number','name','gender','age','email','phone_number','address','province','urbandistrict','suburban','zipcode','oshi_favorite','fb_pic_url','join_date');			
+            $crud->columns('id_number','name','gender','age','email','phone_number','address','province','urbandistrict','suburban','zipcode','oshi_favorite','fb_pic_url','file_name','join_date');			
 			// The fields that user will see on add and edit form
 			//$crud->fields('subject','name','menu_id','synopsis','text','publish_date','unpublish_date','status','added','modified');
             // Set column display 
@@ -50,13 +51,23 @@ class Participant extends Admin_Controller {
 			// This callback escapes the default auto field output of the field name at the add/edit form. 
 			// $crud->callback_field('status',array($this,'_callback_dropdown'));
 			// This callback escapes the default auto column output of the field name at the add form
+			$crud->callback_column('file_name',array($this,'_callback_filename'));
 			$crud->callback_column('added',array($this,'_callback_time'));
 			$crud->callback_column('modified',array($this,'_callback_time'));  
 			$crud->callback_column('fb_pic_url',array($this,'callback_pic'));
+			$crud->unset_columns('completed');
 			// Sets the required fields of add and edit fields
-			//$crud->required_fields('subject','name','text','status'); 
+			// $crud->required_fields('subject','name','text','status'); 
             // Set upload field
-            // $crud->set_field_upload('file_name','uploads/pages');
+            // $crud->set_field_upload('file_name','uploads/users');
+			$state = $crud->getState();
+			
+			if ($state == 'export')
+			{
+				//Do your awesome coding here.
+				$crud->callback_column('file_name',array($this,'_callback_filename_url'));				
+			} 
+			
 			$crud->unset_add();
 			$crud->unset_edit();
 			$crud->unset_delete();
@@ -84,7 +95,16 @@ class Participant extends Admin_Controller {
         $total = $this->user_model->total_image_submitted($row->participant_id);
         return $total;
     }
+	
+	public function _callback_filename($value, $row) {
+		$row->file_name = strip_tags($row->file_name);
+        return $row->file_name ? '<div class="text-center"><a href="'.base_url('uploads/users/'.$row->file_name).'" class="image-thumbnail"><img height="110px" src="'.base_url('uploads/users/'.$row->file_name).'"/></a></div>' : '-';
+    }
     
+	public function _callback_filename_url($value, $row) {
+		return ($row->file_name) ? base_url('uploads/users/'.$row->file_name) : '-';
+	}
+	
     public function callback_pic($value = '', $primary_key = null){
 	//print_r($primary_key->fb_id);
 	//exit;
