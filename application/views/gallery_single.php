@@ -43,13 +43,13 @@ window.onload = function() {
 				
 				if ($completed === true) { ?>
 					<p>
-						Kamu sudah pernah mengunggah foto koleksi stiker spesial JKT48 Pocky. 
+						Kamu sudah pernah mengunggah foto koleksi stiker JKT48 Pocky. 
 					<br/>
 						Sayangnya, kamu hanya bisa mengunggah satu kali saja.
 					</p>
 				<?php } else { ?>
 					<p>
-						Foto koleksi <?php echo $type;?> stiker spesial JKT48 Pocky kamu sudah terunggah.
+						Foto koleksi <?php echo $type;?> stiker JKT48 Pocky kamu sudah terunggah.
 					</p>
 					<p>
 						Cek halaman GALERI PEMENANG untuk mengetahui apakah kamu beruntung<br>
