@@ -365,3 +365,5 @@ p{margin: 20px auto;}
 }
 .popover{max-width: none;}
 .popover-content{padding: 0px;}
+.thumbnail{margin-bottom: 0px;}
+.col-md-4{margin-bottom: 20px; text-align: center;}
