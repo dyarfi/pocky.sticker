@@ -4,6 +4,7 @@ window.onload = function() {
 	FB.Canvas.setSize({ width: 810, height: 796 });
 }
 </script>
+<div class="clearfix margintop-50"></div>
 <div class="mekanisme"> 
 	<div class="center-block">
 		<div class="sticker-upload-landing">
@@ -35,7 +36,7 @@ window.onload = function() {
 			</div>
 			<input type="hidden" name="image_temp" value="">
 			<div class="id-uploadsticker">
-				<div class="text-center">
+				<div class="text-center button-submit" style="display: none">
 					<button type="submit" class="klik font-pocky">Unggah</button></div>
 				</div>
 			</div>
@@ -43,3 +44,4 @@ window.onload = function() {
 		</div>
 	</div>
 </div>
+<div class="clearfix marginbot-50 margintop-50"></div>

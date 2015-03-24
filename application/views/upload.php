@@ -137,3 +137,4 @@ window.onload = function() {
 		</div>
 	</div>	
 </div>
+<div class="clearfix marginbot-50"></div>

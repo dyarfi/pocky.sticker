@@ -93,7 +93,7 @@ window.onload = function() {
 				<?php echo form_open_multipart(base_url('upload/sticker?data='.$this->session->userdata('user_id')), array('id'=>'fileUploadForm2'));?>
 					<input type="hidden" name="image_type" value="2">
 					<div class="up-16-img">
-						<img src="<?php echo base_url();?>assets/public/img/2-sticker.png" alt="2-sticker" class="">
+						<img src="<?php echo base_url();?>assets/public/img/2-stickers.png" alt="2-sticker" class="">
 						<p>
 						  Unggah koleksi 2 stiker spesial JKT48 Pocky kamu di sini.<br>
 						  Pastikan koleksi stiker kamu sudah lengkap, dan berbeda satu sama lainnya.
@@ -139,7 +139,7 @@ window.onload = function() {
 				<?php echo form_open_multipart(base_url('upload/sticker?data='.$this->session->userdata('user_id')), array('id'=>'fileUploadForm16'));?>
 					<input type="hidden" name="image_type" value="16">
 					<div class="up-16-img">
-					  <img src="<?php echo base_url();?>assets/public/img/16-sticker.png" alt="16-sticker" class="">
+					  <img src="<?php echo base_url();?>assets/public/img/16-stickers.png" alt="16-sticker" class="">
 					  <p>
 						Unggah koleksi 16 stiker reguler JKT48 Pocky kamu di sini.<br>
 						Pastikan koleksi stiker kamu sudah lengkap, dan berbeda satu sama lainnya.
