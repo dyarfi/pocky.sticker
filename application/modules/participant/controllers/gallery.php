@@ -49,6 +49,14 @@ class Gallery extends Admin_Controller {
 			$crud->unset_texteditor('file_name','text');			
 			$crud->callback_column('added',array($this,'_callback_time'));
 			$crud->callback_column('file_name',array($this,'_callback_filename'));
+			$state = $crud->getState();
+			
+			if($state == 'export')
+			{
+				//Do your awesome coding here.
+				$crud->callback_column('file_name',array($this,'_callback_filename_url'));				
+			}
+			
 			//$crud->set_field_upload('file_name','uploads/gallery');
 			//$crud->callback_column('modified',array($this,'_callback_time'));  
 			// Sets the required fields of add and edit fields
@@ -82,6 +90,10 @@ class Gallery extends Admin_Controller {
 		$row->file_name = strip_tags($row->file_name);
         return '<div class="text-center"><a href="'.base_url('uploads/gallery/'.$row->file_name).'" class="image-thumbnail"><img height="110px" src="'.base_url('uploads/gallery/'.$row->file_name).'"/></a></div>';
     }
+	
+	public function _callback_filename_url($value, $row) {
+		return base_url('uploads/gallery/'.$row->file_name);
+	}
 	
     public function _callback_total_image($value, $row) {
         //$total = $this->user_model->total_image_submitted($row->participant_id);

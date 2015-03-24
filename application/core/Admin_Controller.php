@@ -11,7 +11,7 @@ class Admin_Controller extends CI_Controller {
 	public $user = '';
 	public $previous_url = '';
 	
-	public $setting ='';
+	public $setting = '';
 		
 	public function __construct() {
 		parent::__construct();	
@@ -23,22 +23,30 @@ class Admin_Controller extends CI_Controller {
 		$this->configs			= $this->load->config('admin/admin',true);			
 		
 		// Load Setting Model
-		//$this->load->model('admin/Settings');		
+		$this->load->model('admin/Settings');		
 		
 		// Set user data lists from login session		
-		$this->user			= Acl::user();
+		$this->user				= Acl::user();
 
 		// Load user module and function lists
-		$this->module_list		= json_decode($this->session->userdata('module_list'),TRUE);
+		$this->module_list			= json_decode($this->session->userdata('module_list'),TRUE);
 		$this->module_function_list	= json_decode($this->session->userdata('module_function_list'),TRUE);		
 		
 		$this->module			= @$this->uri->segments[1];
 		$this->controller		= @$this->uri->segments[2];
 		$this->action			= @$this->uri->segments[3];
 		$this->param			= @$this->uri->segments[4];																		
-		$this->module_request		= $this->controller . '/' .$this->action;	
-		
+		$this->module_request	= $this->controller . '/' .$this->action;
 		$this->module_menu		= self::check_module_menu($this->module_request);
+		
+		// Set site logo, see setting in admin
+		$this->setting['site_logo']		= @$this->Settings->getByParameter('site_logo');
+		
+		// Set site name logo, see setting in admin
+		$this->setting['site_name']		= @$this->Settings->getByParameter('site_name');
+		
+		// Set title defaul, see setting in admin
+		$this->setting['title_default']	= @$this->Settings->getByParameter('title_default');
 		
 		// Check if user data is true empty and redirect to authenticate
 		if (!$this->user 
@@ -127,7 +135,6 @@ class Admin_Controller extends CI_Controller {
 				 */
 				$this->session->set_flashdata('message', 'You do not have permission to '.$action.'!');
 				redirect(ADMIN . $this->controller. '/index');
-				//redirect(ADMIN . 'dashboard/index');
 
 			} 
 
@@ -152,12 +159,13 @@ class Admin_Controller extends CI_Controller {
 		// Check if module list is available
 		if (!empty($this->module_function_list)) {
 		    foreach ($this->module_function_list as $modules => $module) {
-			if (!empty($module[$module_menu])) {
-			    $menu_name = $module[$module_menu];
-			}			
+				if (!empty($module[$module_menu])) {
+					$menu_name = $module[$module_menu];
+				}			
 		    }
 		}
-                return $menu_name;
+		
+		return $menu_name;
 		
 	}
 	
