@@ -11,7 +11,7 @@ window.onload = function() {
         <div class="syarat">
           <ul class="items-syarat">
             <li>Stiker Inspirasi Pocky adalah kegiatan promosi yang berlangsung di media Facebook dengan menggunakan Facebook Apps.</li>
-            <li>Kegiatan Stiker Inspirasi berlangsung selama bulan Maret sampai Agustus 2015.</li>
+            <li>Kegiatan Stiker Inspirasi berlangsung selama 25 Maret 2015 sampai 25 september 2015 dan ditutup pada pukul 23:59.</li>
             <li>Kegiatan promosi ini terbuka untuk semua warga negara Indonesia dengan usia minimal 17 tahun.</li>
             <li>Untuk mengikuti kegiatan ini, partisipan harus mengunggah foto koleksi 16 stiker reguler JKT48 atau 2 stiker spesial JKT48 yang terdapat dalam kemasan Pocky.</li>
             <li>Koleksi stiker baik yang berjumlah 16 ataupun 2, harus diperlihatkan sekaligus dalam 1 foto, yang diunggah ke dalam Facebook Apps ini.</li>
