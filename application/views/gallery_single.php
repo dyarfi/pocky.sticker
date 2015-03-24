@@ -93,7 +93,7 @@ window.onload = function() {
 					<div class="up-16-img">
 						<img src="<?php echo base_url();?>assets/public/img/2-sticker.png" alt="2-sticker" class="">
 						<p>
-						  Unggah koleksi 2 stiker reguler JKT48 Pocky kamu di sini.<br>
+						  Unggah koleksi 2 stiker spesial JKT48 Pocky kamu di sini.<br>
 						  Pastikan koleksi stiker kamu sudah lengkap, dan berbeda satu sama lainnya.
 						</p>
 						<div class="img_holder_xhr text-center">
