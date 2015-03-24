@@ -18,27 +18,27 @@ window.onload = function() {
 				<?php 
 					// Set both link for 16 and 2 stickers
 					$type2_link = '<div class="klik-unggah font-pocky pull-left unggah2">'
-									.'<a class="click" rel="sticker2" href="javascript:;">2 sticker special</a></div>';
+									.'<a class="click" rel="sticker2" href="javascript:;">2 sticker spesial</a></div>';
 									
 					$type16_link = '<div class="klik-unggah font-pocky pull-right unggah16">'
-									.'<a class="click" rel="sticker16" href="javascript:;">16 sticker special</a></div>';
+									.'<a class="click" rel="sticker16" href="javascript:;">16 sticker reguler</a></div>';
 					
 					// Check if user already submit images
 					if (!empty($images['2'])) {
 						$type2_link = '<div class="klik-unggah font-pocky pull-left unggah2">'
-						.'<a class="colobox" href="'.base_url('gallery/single/'.$images['2']->type.'/'.$images['2']->id).'/true">2 sticker special</a></div>';
+						.'<a class="colobox" href="'.base_url('gallery/single/'.$images['2']->type.'/'.$images['2']->id).'/true">2 sticker spesial</a></div>';
 					}
 					if (!empty($images['16'])) {
 						$type16_link = '<div class="klik-unggah font-pocky pull-right unggah16">'
-						.'<a class="colobox" href="'.base_url('gallery/single/'.$images['16']->type.'/'.$images['16']->id).'/true">16 sticker special</a></div>';
+						.'<a class="colobox" href="'.base_url('gallery/single/'.$images['16']->type.'/'.$images['16']->id).'/true">16 sticker reguler</a></div>';
 					}
 				?>
 			  <div class="col-md-6 col-xs-6">
-				<img src="<?php echo base_url();?>assets/public/img/16-sticker.png" alt="16 sticker" class="pull-right">
+				<img src="<?php echo base_url();?>assets/public/img/16-stickers.png" alt="16 sticker" class="pull-right">
 				<?php echo $type16_link;?>
 			  </div>
 			  <div class="col-md-6 col-xs-6">
-				<img src="<?php echo base_url();?>assets/public/img/2-sticker.png" alt="2 sticker" class="pull-left">
+				<img src="<?php echo base_url();?>assets/public/img/2-stickers.png" alt="2 sticker" class="pull-left">
 				<?php echo $type2_link;?>
 			  </div>
 		</div>
@@ -58,7 +58,7 @@ window.onload = function() {
 			<div class="up-16-img">
 				<img src="<?php echo base_url();?>assets/public/img/2-sticker.png" alt="2-sticker" class="">
 				<p>
-				  Unggah koleksi 2 stiker reguler JKT48 Pocky kamu di sini.<br>
+				  Unggah koleksi 2 stiker spesial JKT48 Pocky kamu di sini.<br>
 				  Pastikan koleksi stiker kamu sudah lengkap, dan berbeda satu sama lainnya.
 				</p>
 				<div class="img_holder_xhr text-center">
