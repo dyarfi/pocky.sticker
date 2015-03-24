@@ -64,7 +64,7 @@
 		innerWidth:'640px',
 		preloading:false
 	});
-	$('#fileupload,#fileupload16').fileupload({
+	$('#fileupload,#fileupload2,#fileupload16').fileupload({
 		url: $(this).attr('data-url'),
 		dataType: 'json',
 		//acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,

@@ -74,8 +74,13 @@ class User_model extends CI_Model {
     }
 
     public function insert_image($image) {
-        $this->db->insert('image', $image);
+        $this->db->insert('participants', $image);
         return $this->db->insert_id();
+    }
+	
+	public function update_image_cid($items) {
+        $this->db->where('part_id', $items['part_id']);
+		return $this->db->update('participants', $items);       
     }
    
     function get_participant($user_id) {

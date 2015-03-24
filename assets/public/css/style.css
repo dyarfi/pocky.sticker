@@ -53,10 +53,10 @@ a, button, .btn {
 	width: 100%;
 	font-size: 1.2em;
 }
-.sticker-upload button, .font-pocky button {
+.mekanisme button, .sticker-upload button, .font-pocky button {
 	color: #ffffff;
 }
-.sticker-upload button:hover, .font-pocky button:hover {
+.mekanisme button:hover, .sticker-upload button:hover, .font-pocky button:hover {
 	color: #000000;
 }
 .sticker-upload a.text-success {

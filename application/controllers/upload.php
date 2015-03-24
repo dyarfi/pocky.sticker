@@ -29,6 +29,12 @@ class upload extends CI_Controller {
             redirect(site_url('home/register'));
             die();
         }
+		
+		$participant = $this->user_model->get_participant($user_id);
+		
+		if ($participant->file_name =='') {
+			redirect(site_url('home/upload_cid'));
+		}
 
 		// Get participant images
 		$temp		=	array();
@@ -90,7 +96,7 @@ class upload extends CI_Controller {
 			$config = array(
 				array('field' => 'image_name', 
 	                  'label' => 'File', 
-	                  'rules' => 'trim|required|xss_clean|max_length[25]'));
+	                  'rules' => 'trim|required|xss_clean|max_length[35]'));
 			
 			// Set rules to form validation
 			$this->form_validation->set_rules($config);
@@ -135,7 +141,7 @@ class upload extends CI_Controller {
 			$config = array(
 				array('field' => 'image_name', 
                       'label' => 'File', 
-                      'rules' => 'trim|required|xss_clean|max_length[25]'));
+                      'rules' => 'trim|required|xss_clean|max_length[35]'));
 
 			// Set rules to form validation
 			$this->form_validation->set_rules($config);
