@@ -16,18 +16,20 @@ class Dashboard extends Admin_Controller {
 	    
 	    // Load Gallery model
 	    $this->load->model('participant/Gallery');
-
+		
+		//print_r($this->module_menu);
+		
 	}
 	public function index() {
             
-            //print_r($this->Users->getLoginStats());
-            //exit;
-            
-            // Check if the request via AJAX
-            if ($this->input->is_ajax_request()) {
-                $this->stat_login();
-                return false;
-            }
+		//print_r($this->Users->getLoginStats());
+		//exit;
+		
+		// Check if the request via AJAX
+		if ($this->input->is_ajax_request()) {
+			$this->stat_login();
+			return false;
+		}
             
 	    // Total users count
 	    $data['tusers']	    = $this->Users->getCount(1);
@@ -42,7 +44,7 @@ class Dashboard extends Admin_Controller {
 	    $data['class_name'] = $this->_class_name;
 	    
 	    // Set module with URL request 
-            $data['module_title'] = $this->module;
+		$data['module_title'] = $this->module;
 
 	    // Set page title
 	    $data['title']	= "Dashboard Home";
@@ -50,8 +52,8 @@ class Dashboard extends Admin_Controller {
 	    // Set main template
 	    $data['main']	= 'admin/dashboard';
 	    
-            // Set admin title page with module menu
-            $data['page_title'] = $this->module_menu;
+		// Set admin title page with module menu
+		$data['page_title'] = $this->module_menu;
 
 	    //$this->load->view('template/dashboard');
 	    $this->load->view('template/admin/admin_template', $this->load->vars($data));

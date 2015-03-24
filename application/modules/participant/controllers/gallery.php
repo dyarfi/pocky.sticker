@@ -27,7 +27,8 @@ class Gallery extends Admin_Controller {
             // Set table relation
             $crud->set_relation('part_id','tbl_participants','name');
             // Set column
-			$crud->columns('type', 'part_id','file_name','status','added');
+			$crud->columns('type', 'part_id','file_name','status','added','modified');
+			
             //$crud->columns('subject','name','menu_id','synopsis','text','status','added','modified');			
 			// The fields that user will see on add and edit form
 			//$crud->fields('subject','name','menu_id','synopsis','text','publish_date','unpublish_date','status','added','modified');
@@ -43,28 +44,35 @@ class Gallery extends Admin_Controller {
 			// This callback escapes the default auto field output of the field name at the add/edit form. 
 			// $crud->callback_field('status',array($this,'_callback_dropdown'));
 			// This callback escapes the default auto column output of the field name at the add form
+			
 			$crud->field_type('status','dropdown',array('0' => 'Inactive','1' => 'Active','2' => 'Completed')); 
 			$crud->field_type('type','dropdown',array('16' => 'Stiker 16', '2' => 'Stiker 2'));
-			$crud->edit_fields('status');
-			$crud->unset_texteditor('file_name','text');			
+			$crud->field_type('file_name','text');
+			$crud->edit_fields('status','modified');			
 			$crud->callback_column('added',array($this,'_callback_time'));
+			$crud->callback_column('modified',array($this,'_callback_time'));
 			$crud->callback_column('file_name',array($this,'_callback_filename'));
 			$state = $crud->getState();
 			
-			if($state == 'export')
+			if ($state == 'export')
 			{
 				//Do your awesome coding here.
 				$crud->callback_column('file_name',array($this,'_callback_filename_url'));				
+			} 
+			else if ($state == 'edit')
+			{
+				//Do your awesome coding here.
+				$crud->callback_field('modified',array($this,'_callback_time_modified'));				
 			}
 			
-			//$crud->set_field_upload('file_name','uploads/gallery');
-			//$crud->callback_column('modified',array($this,'_callback_time'));  
+			// $crud->set_field_upload('file_name','uploads/gallery');
+			// $crud->callback_column('modified',array($this,'_callback_time'));  
 			// Sets the required fields of add and edit fields
 			// $crud->required_fields('subject','name','text','status'); 
             // Set upload field
             // $crud->set_field_upload('file_name','uploads/pages');
-            $crud->unset_add();
-			//$crud->unset_edit();
+			// $crud->unset_edit();
+			$crud->unset_add();
 			$crud->unset_delete();
 			$this->load($crud, 'gallery');
         } catch (Exception $e) {
@@ -81,11 +89,11 @@ class Gallery extends Admin_Controller {
 		return '<input type="hidden" maxlength="50" value="'.$time.'" name="added">';
     }
     
-    public function _callback_time_modified ($value, $row) {
+    public function _callback_time_modified ($value, $row) {		
 		$time = time();
-		return '<input type="hidden" maxlength="50" value="'.$time.'" name="modified">';
+		return '<input type="hidden" maxlength="50" value="'.$time.'" name="modified">'.date('D, d-M-Y',$time);
     }
-    
+	
 	public function _callback_filename($value, $row) {
 		$row->file_name = strip_tags($row->file_name);
         return '<div class="text-center"><a href="'.base_url('uploads/gallery/'.$row->file_name).'" class="image-thumbnail"><img height="110px" src="'.base_url('uploads/gallery/'.$row->file_name).'"/></a></div>';
@@ -99,6 +107,23 @@ class Gallery extends Admin_Controller {
         //$total = $this->user_model->total_image_submitted($row->participant_id);
         //return $total;
     }
+	
+	public function _send_email() {
+			
+
+		$this->load->library('email');
+
+		$subject = 'Selamat anda';
+		$message = 'Hey <b>'.$user->username.'</b>, this is your new password: <b>'.$password.'</b>';
+		
+		$this->email->from('noreply');
+		$this->email->to($user->email);
+		$this->email->subject('Your new password');
+		$this->email->message('Hey <b>'.$user->username.'</b>, this is your new password: <b>'.$password.'</b>');
+
+		//$this->email->send();
+		
+	}
     
     private function load($crud, $nav) {
         $output = $crud->render();

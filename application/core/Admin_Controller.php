@@ -150,10 +150,11 @@ class Admin_Controller extends CI_Controller {
 	* @return	string
 	*/
 	public function check_module_menu ($module_menu = '') {
-		
+	
 		if (empty($module_menu)) {
 			return;
 		}
+		
 		$menu_name = '';
 		
 		// Check if module list is available

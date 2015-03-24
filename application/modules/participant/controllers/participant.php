@@ -35,7 +35,7 @@ class Participant extends Admin_Controller {
             $crud->display_as('urbandistrict','Kabupaten');
             $crud->display_as('suburban','Kecamatan');
             // Set column
-            //$crud->columns('subject','name','menu_id','synopsis','text','status','added','modified');			
+            $crud->columns('id_number','name','gender','age','email','phone_number','address','province','urbandistrict','suburban','zipcode','oshi_favorite','fb_pic_url','join_date');			
 			// The fields that user will see on add and edit form
 			//$crud->fields('subject','name','menu_id','synopsis','text','publish_date','unpublish_date','status','added','modified');
             // Set column display 

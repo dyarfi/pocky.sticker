@@ -10,10 +10,10 @@ window.onload = function() {
 		<div class="title-page"><img src="<?php echo base_url('assets/public/img/title-unggah.png');?>" alt="title daftar" class="title"></div>
 		<div class="id-uploadsticker">
 			  <p>
-				Pilih jumlah stiker yang kamu miliki sebelum mengunggah. 
-			  </p>
-			  <p>
-				Pastikan koleksi stiker dalam foto kamu sudah lengkap dan tidak sama satu sama lain, karena kamu hanya punya satu kali kesempatan untuk mengunggah koleksi stiker reguler dan stiker spesial JKT48 dari Pocky.
+				Pilih jumlah stiker yang kamu miliki sebelum mengunggah.<br>
+				Pastikan koleksi stiker dalam foto kamu sudah lengkap dan tidak sama satu sama lain,<br>
+				karena kamu hanya punya satu kali kesempatan untuk mengunggah koleksi stiker reguler<br>
+				dan stiker spesial JKT48 dari Pocky.
 			  </p>
 				<?php 
 					// Set both link for 16 and 2 stickers

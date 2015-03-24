@@ -49,7 +49,7 @@ window.onload = function() {
 				<?php 
 				  if (!empty($gallery)) {
 				  foreach ($gallery as $image) { ?>
-						<div class="col-xs-4 col-md-4">                  
+						<div class="col-xs-4 col-md-4 font-pocky">                  
 							<div class="thumbnail">					
 								<?php
 									$pathinfo	= pathinfo($image->file_name);
