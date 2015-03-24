@@ -277,9 +277,10 @@ img.ctr-img{display: block; margin: auto;}
 }
 .form-horizontal .control-label{
   text-align: left;
-  color: #3e4597;
+  color: #000;
   background: #fecd02;
   padding: 6px;
+  font-family: "pocky";
 }
 legend{
   display:block;
@@ -365,3 +366,6 @@ p{margin: 20px auto;}
 }
 .popover{max-width: none;}
 .popover-content{padding: 0px;}
+.thumbnail{margin-bottom: 0px;}
+.col-md-4{margin-bottom: 20px; text-align: center;}
+.p-sm{font-size: 12px; letter-spacing: 1px;}
