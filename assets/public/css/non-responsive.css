@@ -277,9 +277,10 @@ img.ctr-img{display: block; margin: auto;}
 }
 .form-horizontal .control-label{
   text-align: left;
-  color: #3e4597;
+  color: #000;
   background: #fecd02;
   padding: 6px;
+  font-family: "pocky";
 }
 legend{
   display:block;

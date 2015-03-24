@@ -71,6 +71,9 @@ a, button, .btn {
 .content-holder p {
 	margin: 25px auto;
 	/*padding: 60px;*/
+    font-family: "pocky";
+    font-size: 12px;
+    letter-spacing: 1px;
 }
 .klik-unggah a {
 	text-decoration: none;
