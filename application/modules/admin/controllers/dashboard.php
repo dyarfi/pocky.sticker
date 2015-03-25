@@ -42,8 +42,11 @@ class Dashboard extends Admin_Controller {
 	    
 	    // Total gallery count
 	    $data['timages']	    = $this->Gallery->getCount();
+		
+		// Total active gallery count
+	    $data['ta_images']	    = $this->Gallery->getCount(1);
 	    
-	    // Set class name to view
+		// Set class name to view
 	    $data['class_name'] = $this->_class_name;
 	    
 	    // Set module with URL request 
