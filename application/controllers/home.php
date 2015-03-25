@@ -164,12 +164,12 @@ class Home extends CI_Controller {
 
         $errors	= $fields;
 
-        $this->form_validation->set_rules('name', 'Nama', 'trim|required|min_length[5]|max_length[28]|xss_clean');
+        $this->form_validation->set_rules('name', 'Nama', 'trim|required|min_length[5]|max_length[32]|xss_clean');
 		$this->form_validation->set_rules('email', 'Email','trim|valid_email|required|max_length[55]|xss_clean');
         $this->form_validation->set_rules('gender', 'Jenis Kelamin','trim|required');		
         $this->form_validation->set_rules('age', 'Umur','trim|required|is_numeric');
         $this->form_validation->set_rules('phone', 'No. Telp','trim|is_numeric|xss_clean|max_length[25]');
-        $this->form_validation->set_rules('address', 'Alamat','trim|required|xss_clean|max_length[25]');                
+        $this->form_validation->set_rules('address', 'Alamat','trim|required|xss_clean|max_length[250]');                
         $this->form_validation->set_rules('province', 'Propinsi','trim|required');	
         $this->form_validation->set_rules('urbandistrict', 'Kabupaten','trim|required');	
         $this->form_validation->set_rules('suburban', 'Kecamatan','trim|required');	
