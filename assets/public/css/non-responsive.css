@@ -275,12 +275,17 @@ img.ctr-img{display: block; margin: auto;}
   padding: 30px 10px 30px 10px;
   border: solid 12px #fecd02;
 }
-.form-horizontal .control-label{
+.form-horizontal .control-label {
   text-align: left;
   color: #000;
   background: #fecd02;
   padding: 6px;
-  font-family: "pocky";
+  /*font-family: "pocky";*/
+}
+.col-sm-8.label-form p {
+	font-family: "Gotham_Book","Arial","Tahoma","Verdana";
+	font-size:12px;
+	color:#000000
 }
 legend{
   display:block;
@@ -368,4 +373,4 @@ p{margin: 20px auto;}
 .popover-content{padding: 0px;}
 .thumbnail{margin-bottom: 0px;}
 .col-md-4{margin-bottom: 20px; text-align: center;}
-.p-sm{font-size: 12px; letter-spacing: 1px;}
+.p-sm{font-size: 15px; letter-spacing: 1px;}

@@ -25,14 +25,17 @@ class Dashboard extends Admin_Controller {
 		//print_r($this->Users->getLoginStats());
 		//exit;
 		
+		//print_r($this->Participants->getJoinStats());
+		//exit;
+		
 		// Check if the request via AJAX
 		if ($this->input->is_ajax_request()) {
-			$this->stat_login();
+			$this->stat_dashboard();
 			return false;
 		}
             
 	    // Total users count
-	    $data['tusers']	    = $this->Users->getCount(1);
+	    $data['tusers']			= $this->Users->getCount(1);
 	    
 	    // Total participant count
 	    $data['tparticipant']   = $this->Participants->getCount();
@@ -60,7 +63,7 @@ class Dashboard extends Admin_Controller {
 		
 	}
         
-        public function stat_login() {
+	public function stat_dashboard() {
             
             // Check if the request via AJAX
             if (!$this->input->is_ajax_request()) {
@@ -68,30 +71,42 @@ class Dashboard extends Admin_Controller {
             }
             
             /*
-	    var visitors = [
-                ['01/2013', 500],
-                ['02/2013', 1500],
-                ['03/2013', 2600],
-                ['04/2013', 1200],
-                ['05/2013', 560],
-                ['06/2013', 2000],
-                ['07/2013', 2350],
-                ['08/2013', 1500],
-                ['09/2013', 4700],
-                ['10/2013', 1300],
-            ];
-	     * 
-	     */
-	    
-	    
-	    $stats = $this->Users->getLoginStats();
-            if(!empty($stats)) {
+			var visitors = [
+					['01/2013', 500],
+					['02/2013', 1500],
+					['03/2013', 2600],
+					['04/2013', 1200],
+					['05/2013', 560],
+					['06/2013', 2000],
+					['07/2013', 2350],
+					['08/2013', 1500],
+					['09/2013', 4700],
+					['10/2013', 1300],
+				];
+			 * 
+			 */
+			
+			// User login stats
+			$login_stats = $this->Users->getLoginStats();
+            if(!empty($login_stats)) {
                     
-                $temp = array();
-                foreach ($stats as $val) {
-                    $temp[] = array($val->last_login,$val->total_login);
+                $temp_login = array();
+                foreach ($login_stats as $login) {
+                    $temp_login[] = array($login->last_login,$login->total_login);
                 }
-                $result['result'] = $temp;
+                $result['result']['stats_login'] = $temp_login;
+
+            }
+			
+			// Participant Join stats
+			$join_stats = $this->Participants->getJoinStats();
+            if(!empty($join_stats)) {
+                    
+                $temp_join = array();
+                foreach ($join_stats as $join) {
+                    $temp_join[] = array($join->join_date,$join->total_join);
+                }
+                $result['result']['stats_join'] = $temp_join;
 
             }
 
@@ -101,5 +116,5 @@ class Dashboard extends Admin_Controller {
             // Load data into view		
             $this->load->view('json', $this->load->vars($data));
 	    
-        }
+	}
 }

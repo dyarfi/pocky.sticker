@@ -7,7 +7,7 @@ window.onload = function() {
 <div class="title-page"><img src="<?php echo base_url();?>assets/public/img/title-mendaftar.png" alt="title mendaftar" class=""></div>
 
 <div class="content-img">
-	<div class="tag-daftar font-pocky p-sm">Masukkan data pribadi kamu sebelum mengunggah foto koleksi stiker JKT48 yang sudah kamu miliki.</div>
+	<div class="tag-daftar p-sm">Masukkan data pribadi kamu sebelum mengunggah foto koleksi stiker JKT48 yang sudah kamu miliki.</div>
 	<div class="row">
 	  <div class="registration">
 		<?php echo form_open_multipart(base_url('home/register'),array('id'=>'register','class'=>'form-horizontal'));?>
@@ -135,7 +135,7 @@ window.onload = function() {
 			<!-- Text input-->
 			<div class="form-group">
 			  <div class="col-sm-4" for="textinput"></div>
-			  <div class="col-sm-8">
+			  <div class="col-sm-8 label-form">
 				<p>&ast;&rpar; Semua kolom harus diisi</p>
 				<p>&ast;&rpar; Semua data yang dimasukkan adalah benar</p>
 				<p>&ast;&rpar; Saya menyetujui syarat & ketentuan yang berlaku</p>

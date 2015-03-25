@@ -251,7 +251,7 @@ class User extends Admin_Controller {
 				    'status' => $this->input->post('status'),
 				    // Profile Accounts
 				    'gender'	=> $this->input->post('gender'),				
-				    'first_name'	=> $this->input->post('first_name'),
+				    'first_name'=> $this->input->post('first_name'),
 				    'last_name'	=> $this->input->post('last_name'),				
 				    'birthday'	=> $this->input->post('birthday'),
 				    'phone'		=> $this->input->post('phone'),	

@@ -133,4 +133,20 @@ class Participants Extends CI_Model {
 		// Delete page form database
 		return $this->db->delete($this->table);		
     }	
+	
+	// Get all Participants Join stats by join_date
+	public function getJoinStats() {
+	    
+		/* SELECT count(`part_id`) `total_join`, date(`join_date`) `join_date` FROM `tbl_participants` WHERE date(`join_date`) >= '2014-10-25' AND date(`join_date`) <= '2015-03-25' GROUP BY date(`join_date`) ORDER BY `join_date` ASC */
+		
+	    $sql = 'SELECT count(`part_id`) `total_join`, date(`join_date`) `join_date` '
+                    .'FROM `'. $this->table .'`'
+                    .'WHERE date(`join_date`) >= \''.date('Y-m-d',strtotime("-5 month", time())).'\' '
+                    .'AND date(`join_date`) <= \''.date('Y/m/d').'\' '
+                    .'GROUP BY date(`join_date`) ORDER BY `join_date` ASC';
+	    
+	    $query = $this->db->query($sql);
+            
+	    return $query->result_object();
+	}
 }
