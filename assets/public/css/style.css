@@ -29,8 +29,6 @@ p {
     margin: 0 0 20px;
     font-size: 16px;
     line-height: 1.6em;
-    font-family: 'pocky';
-    font-size: 12px; letter-spacing: 1px;
 }
 
 p.lead {
@@ -71,9 +69,6 @@ a, button, .btn {
 .content-holder p {
 	margin: 25px auto;
 	/*padding: 60px;*/
-    font-family: "pocky";
-    font-size: 12px;
-    letter-spacing: 1px;
 }
 .klik-unggah a {
 	text-decoration: none;
