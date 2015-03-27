@@ -58,15 +58,15 @@ class Admin_Controller extends CI_Controller {
 		}
 		
 		// Check for previous url from referrer
-		if (strstr($this->agent->referrer(), ADMIN) !== '' 
+		if (strstr($this->session->userdata('prev_url'), ADMIN) !== '' 
 				&& $this->session->userdata('prev_url') != $this->session->userdata('curr_url')) {
 			// Set Previous URL to current URL
-			$this->session->set_userdata('prev_url', strstr($this->agent->referrer(), ADMIN));
+			$this->session->set_userdata('prev_url', $this->session->userdata('curr_url'));
 		} else {
 			// Set current URL from current url
 			$this->session->set_userdata('curr_url', $this->uri->uri_string());
 		}	
-
+		
 		// Set previous URL from previous url session		
 		$this->previous_url	= $this->session->userdata('prev_url');
 		
