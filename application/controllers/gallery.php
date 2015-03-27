@@ -33,9 +33,9 @@ class gallery extends CI_Controller {
 		
 		if ($type) {
             if ($type == '16') {
-                $type = array('type' =>'16');
-            } else if ($sort == '2') {
-                $type = array('type' =>'2');
+                $typec = array('type' =>'16');
+            } else if ($type == '2') {
+                $typec = array('type' =>'2');
             } 
         }
 
@@ -51,7 +51,7 @@ class gallery extends CI_Controller {
         $this->load->library('pagination');
 		
 		$config['base_url'] = base_url('gallery/index/?').http_build_query($params);	
-		$config['total_rows'] = $this->gallery_model->get_count_images($search,$type,$status);
+		$config['total_rows'] = $this->gallery_model->get_count_images($search,$typec,$status);
 		$config["per_page"] = 9;
 		$config['page_query_string'] = TRUE;
 
@@ -84,7 +84,7 @@ class gallery extends CI_Controller {
         $data['links'] 		= $links; 
 
         // Set gallery listing
-		$data['gallery'] 	= $this->gallery_model->get_all_images($config["per_page"], $page, $order, $search, $type, $status);
+		$data['gallery'] 	= $this->gallery_model->get_all_images($config["per_page"], $page, $order, $search, $typec, $status);
 
 		// Set main template
 		$data['main']		= 'gallery';

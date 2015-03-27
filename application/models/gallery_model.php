@@ -86,7 +86,7 @@ class Gallery_model extends CI_Model {
         }
 		
 		if (is_array($column)) {
-            foreach ($column as $col => $val) {                
+            foreach ($column as $col => $val) {      			
                 $this->db->where($col, $val);
             }
         }
