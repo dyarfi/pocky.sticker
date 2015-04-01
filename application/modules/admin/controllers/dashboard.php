@@ -3,21 +3,31 @@
 class Dashboard extends Admin_Controller {
 
 	public function __construct() {
-		parent::__construct();
-		
-		//Load user
-		$this->load->model('Users');
-		
-		//Load user permission
-		$this->load->model('UserGroupPermissions');
-		
-		//Put session check in constructor
-		$data['user'] = $this->session->userdata('user_session');
-
-	}
-	
-	public function index() {
+	    parent::__construct();
 	    
+	    // Set class name
+	    $this->_class_name = $this->controller;
+	    
+	    // Load user model
+	    $this->load->model('Users');
+
+	    // Load participant model
+	    $this->load->model('participant/Participants');
+	    
+	    // Load Gallery model
+	    $this->load->model('participant/Gallery');
+		
+		//print_r($this->module_menu);
+		
+	}
+	public function index() {
+            
+		//print_r($this->Users->getLoginStats());
+		//exit;
+		
+		//print_r($this->Participants->getJoinStats());
+		//exit;
+		
 		// Check if the request via AJAX
 		if ($this->input->is_ajax_request()) {
 			$this->stat_dashboard();
@@ -26,7 +36,16 @@ class Dashboard extends Admin_Controller {
             
 	    // Total users count
 	    $data['tusers']			= $this->Users->getCount(1);
+	    
+	    // Total participant count
+	    $data['tparticipant']   = $this->Participants->getCount();
+	    
+	    // Total gallery count
+	    $data['timages']	    = $this->Gallery->getCount();
 		
+		// Total active gallery count
+	    $data['ta_images']	    = $this->Gallery->getCount(1);
+	    
 		// Set class name to view
 	    $data['class_name'] = $this->_class_name;
 	    
@@ -82,6 +101,18 @@ class Dashboard extends Admin_Controller {
 
             }
 			
+			// Participant Join stats
+			$join_stats = $this->Participants->getJoinStats();
+            if(!empty($join_stats)) {
+                    
+                $temp_join = array();
+                foreach ($join_stats as $join) {
+                    $temp_join[] = array($join->join_date,$join->total_join);
+                }
+                $result['result']['stats_join'] = $temp_join;
+
+            }
+
             // Return data esult
             $data['json'] = $result;
 
