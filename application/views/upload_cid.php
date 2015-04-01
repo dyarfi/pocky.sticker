@@ -37,7 +37,7 @@ window.onload = function() {
 			<input type="hidden" name="image_temp" value="">
 			<div class="id-uploadsticker">
 				<div class="text-center button-submit" style="display: none">
-					<button type="submit" class="klik font-pocky">Unggah</button></div>
+					<button type="submit" class="klik font-pocky">Unggah</button>
 				</div>
 			</div>
 			<?php echo form_close(); ?>
