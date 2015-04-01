@@ -56,14 +56,27 @@
 				    Add New <i class="fa fa-plus"></i>
 				    </a>
 				</div>
-				<div class="btn-group pull-right">
-					<button data-toggle="dropdown" class="btn dropdown-toggle">Tools <i class="fa fa-angle-down"></i></button>
-					<ul class="dropdown-menu pull-right">
-						<!--li><a href="#">Print</a></li-->
-						<!--li><a href="#">Save as PDF</a></li-->
-						<li><a href="<?php echo base_url(ADMIN.$class_name.'/export/xls');?>">Export to Excel</a></li>
-					</ul>
-				</div>
+				<!--div class="btn-group pull-right">
+				    <button data-toggle="dropdown" class="btn dropdown-toggle">Tools <i class="fa fa-angle-down"></i>
+				    </button>
+				    <ul class="dropdown-menu pull-right">
+					<li>
+					    <a href="#">
+						     Print
+					    </a>
+					</li>
+					<li>
+					    <a href="#">
+						     Save as PDF
+					    </a>
+					</li>
+					<li>
+					    <a href="#">
+						     Export to Excel
+					    </a>
+					</li>
+				    </ul>
+				</div-->
 			    </div>
 			    <div role="grid" class="dataTables_wrapper" id="sample_1_wrapper">						
 				<!--div class="table-scrollable"-->
@@ -162,21 +175,14 @@
 	    <div class="row">
 		<div class="col-md-12">
 		    <h3>Maintenance Mode</h3>
-		    <?php
-			// Create hash
-			$hash = base64_encode($this->session->userdata('session_id'));
-			echo form_open(base_url(ADMIN.$class_name.'/maintenance'),array('class'=>'form-horizontal','id'=>'maintenance_form','hash'=>$hash));
-			echo form_hidden('hash',$hash);
-			?>
+		    <?php echo form_open($action, array('class'=>'form-horizontal','id'=>'maintenance_form'), $hidden);?>
 			<div class="form-group">
 			    <div class="radio-list">
 				<div class="radio-inline">
-					<label class="col-md-12" for="maintenance_mode">Yes <span>&nbsp;
-						<?php echo form_radio('maintenance_mode', 1, $maintenance->value ? true : false, 'class="maintenance_mode"');?></span></label>
+					<label class="col-md-12" for="maintenance_mode">Yes <span>&nbsp;<?php echo form_radio('maintenance_mode', 1, ($configuration) ? true : false, 'class="maintenance_mode"');?></span></label>
 				</div>
 				<div class="radio-inline">
-				    <label class="col-md-12" for="maintenance_mode">No <span>&nbsp;
-						<?php echo form_radio('maintenance_mode', 0, !$maintenance->value ? true : false, 'class="maintenance_mode"');?></span></label>
+				    <label class="col-md-12" for="maintenance_mode">No <span>&nbsp;<?php echo form_radio('maintenance_mode', 0, (!$configuration) ? true : false, 'class="maintenance_mode"');?></span></label>
 				</div>
 			    </div>
 			</div>

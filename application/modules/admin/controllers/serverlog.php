@@ -44,7 +44,7 @@ class ServerLog extends Admin_Controller {
 	    
 	}
         
-	public function edit($id=0) {
+        public function edit($id=0) {
 				
 		// Check if param is given or not and check from database
 		if (empty($id) || !$this->ServerLogs->getServerLog($id)) {
@@ -142,7 +142,7 @@ class ServerLog extends Admin_Controller {
 		
 	}
         
-	public function add() {
+        public function add() {
 		
 		//Default data setup
 		$fields	= array(
@@ -221,7 +221,7 @@ class ServerLog extends Admin_Controller {
 				
 	}
         
-	public function view($id=null){
+        public function view($id=null){
 
             // Check if data is found and redirect if false
             if (empty($id) && (int) count($id) == 0) {
@@ -239,8 +239,8 @@ class ServerLog extends Admin_Controller {
             // ServerLog account data
             $data['log']			= $this->ServerLogs->getServerLog($id);		
 
-			// Set class name to view
-			$data['class_name'] = $this->_class_name;
+	     // Set class name to view
+	    $data['class_name'] = $this->_class_name;
 	    
             // Main template
             $data['main']	= 'logs/log_view';
@@ -268,16 +268,6 @@ class ServerLog extends Admin_Controller {
 
     }
     
-	// Action for export to xls item status
-	public function export($xls=null){
-		
-		$this->load->helper('csv');
-		
-		$filename = "export-" . date("Y-m-d_H:i:s");
-		
-		return to_excel((array) $this->ServerLogs->getAllServerLog(), $filename);
-	}
-	
     public function trash(){
 
             // Delete user data

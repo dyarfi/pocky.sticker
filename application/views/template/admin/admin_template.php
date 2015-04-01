@@ -1,15 +1,5 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
 <!DOCTYPE html>
-<!-- 
-Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.1.1
-Version: 2.0.2
-Author: KeenThemes
-Website: http://www.keenthemes.com/
-Contact: support@keenthemes.com
-Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
-License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
--->
-<?php ?>
 <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
 <!--[if !IE]><!-->
@@ -79,45 +69,27 @@ License: You must have a valid license purchased only from themeforest(the above
     <!-- BEGIN TOP NAVIGATION BAR -->
     <div class="header-inner">
 	<!-- BEGIN LOGO -->
-	<a class="navbar-brand" href="<?=base_url();?>" target="_blank">
-		<img src="<?=base_url()?>assets/admin/img/logo_small.png" alt="logo" class="img-responsive col-md-7 col-lg-7"/>
-	</a>
+	<a class="navbar-brand" href="<?=base_url();?>" target="_blank"><img src="<?=base_url()?>assets/admin/img/logo_small.png" alt="logo" class="img-responsive col-md-7 col-lg-7"/></a>
 	<!-- END LOGO -->
 	<!-- BEGIN RESPONSIVE MENU TOGGLER -->
-	<a href="javascript:;" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-		<img src="<?=base_url()?>assets/admin/img/menu-toggler.png" alt=""/>
-	</a>
+	<a href="javascript:;" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><img src="<?=base_url()?>assets/admin/img/menu-toggler.png" alt=""/></a>
 	<!-- END RESPONSIVE MENU TOGGLER -->		
 	<!-- BEGIN TOP NAVIGATION MENU -->
 	<ul class="nav navbar-nav pull-right">
 	    <!-- BEGIN NOTIFICATION DROPDOWN -->
-
 	    <!-- END NOTIFICATION DROPDOWN -->
-
 	    <!-- BEGIN USER LOGIN DROPDOWN -->
 	    <li class="dropdown user">
 		<a href="<?=base_url();?>admin/user/view/<?=Acl::user()->id;?>" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-		    <!--img alt="" src="<?=base_url()?>assets/admin/img/avatar1_small.jpg"/>&nbsp;-->
-			<img height="28px" src="<?php echo base_url('assets/public/img/'.$this->setting['site_logo']->value);?>"/>&nbsp;
-		    <span class="username">
-			    <?=Acl::user()->name;?>
-		    </span>
+		    <img alt="" src="<?=base_url()?>assets/admin/img/avatar1_small.jpg"/>&nbsp;
+			<!--img height="28px" src="<?php //echo base_url('assets/public/img/'.$this->setting['site_logo']->value);?>"/>&nbsp;-->
+		    <span class="username"><?=Acl::user()->name;?></span>
 		    <i class="fa fa-angle-down"></i>
 		</a>
 		<ul class="dropdown-menu">				
-		    <li>
-			<a href="<?=base_url();?>admin/user/view/<?=Acl::user()->id;?>"><i class="fa fa-user"></i> Profile</a>
-		    </li>
-		    <li>
-			<a href="javascript:;">
-			    <i class="fa fa-lock"></i> Last Login <?php echo date('Y-m-d, H:i:s',Acl::user()->last_login);?>
-			</a>
-		    </li>
-		    <li>
-			<a href="<?=base_url()?>admin/authenticate/logout">
-			    <i class="fa fa-key"></i> Log Out
-			</a>
-		    </li>
+		    <li><a href="<?=base_url();?>admin/user/view/<?=Acl::user()->id;?>"><i class="fa fa-user"></i> Profile</a></li>
+		    <li><a href="javascript:;"><i class="fa fa-lock"></i> Last Login <?php echo date('Y-m-d, H:i:s',Acl::user()->last_login);?></a></li>
+		    <li><a href="<?=base_url()?>admin/authenticate/logout"><i class="fa fa-key"></i> Log Out</a></li>
 		</ul>
 	    </li>
 	    <!-- END USER LOGIN DROPDOWN -->
@@ -130,7 +102,6 @@ License: You must have a valid license purchased only from themeforest(the above
 <div class="clearfix"></div>
 <!-- BEGIN CONTAINER -->
 <div class="page-container">
-
     <!-- BEGIN SIDEBAR -->
     <div class="page-sidebar-wrapper">
 	<div class="page-sidebar navbar-collapse collapse">
@@ -172,11 +143,9 @@ License: You must have a valid license purchased only from themeforest(the above
 	</div>
     </div>
     <!-- END SIDEBAR -->
-	
     <!-- BEGIN CONTENT -->
 	    <?=$this->load->view($main);?>
     <!-- END CONTENT -->
-	
 </div>
 <!-- END CONTAINER -->
 <!-- BEGIN FOOTER -->
@@ -266,9 +235,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <script>
 jQuery(document).ready(function() {    
     App.init(); // initlayout and core plugins
-   
     TableManaged.init();
-   
     ComponentsPickers.init();      
    
     Index.init();
@@ -287,11 +254,10 @@ jQuery(document).ready(function() {
     FormUser.init();
     FormModule.init();
     FormSetting.init();
-   
 <?php if ($this->session->flashdata('message')) { ?>
 	bootbox.alert('<h3><?php echo $this->session->flashdata('message');?></h3>');
 <?php } ?>
-	
+<?php echo $script_bottom;?>
 });
 </script>
 <!-- END JAVASCRIPTS -->
