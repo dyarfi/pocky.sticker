@@ -20,7 +20,7 @@ window.onload = function() {
     <h3 class="font-pocky">2 sticker special</h3>
     <a class="btn btn-info-hadiah" rel="popover-top" data-img="<?php echo base_url();?>assets/public/img/stickers.png"><img src="<?php echo base_url();?>assets/public/img/info-hadiah-2.jpg" alt="info hadiah 2" class=""></a>
     <p>
-      Hanya ada 10 foto kanvas bertanda tangan Oshimen JKT48 kamu<br> tiap bulannya!
+      Hanya ada 20 foto kanvas bertanda tangan Oshimen JKT48 kamu<br> tiap bulannya!
     </p>
   </div>
   </div>
