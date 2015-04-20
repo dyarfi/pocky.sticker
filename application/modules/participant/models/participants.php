@@ -135,14 +135,20 @@ class Participants Extends CI_Model {
     }	
 	
 	// Get all Participants Join stats by join_date
-	public function getJoinStats() {
-	    
+	public function getJoinStats($range='') {
+
+		//print_r($range);
+		
 		/* SELECT count(`part_id`) `total_join`, date(`join_date`) `join_date` FROM `tbl_participants` WHERE date(`join_date`) >= '2014-10-25' AND date(`join_date`) <= '2015-03-25' GROUP BY date(`join_date`) ORDER BY `join_date` ASC */
+		
+		$range[0] = ($range[0]) ? $range[0] : date('Y-m-d',strtotime("-22 day", time()));
+		$range[1] = ($range[1]) ? $range[1] : date('Y/m/d');
+		
 		
 	    $sql = 'SELECT count(`part_id`) `total_join`, date(`join_date`) `join_date` '
                     .'FROM `'. $this->table .'`'
-                    .'WHERE date(`join_date`) >= \''.date('Y-m-d',strtotime("-5 month", time())).'\' '
-                    .'AND date(`join_date`) <= \''.date('Y/m/d').'\' '
+                    .'WHERE date(`join_date`) >= \''. $range[0] .'\' '
+                    .'AND date(`join_date`) <= \''. $range[1] .'\' '
                     .'GROUP BY date(`join_date`) ORDER BY `join_date` ASC';
 	    
 	    $query = $this->db->query($sql);

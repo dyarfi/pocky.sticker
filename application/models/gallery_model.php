@@ -90,7 +90,6 @@ class Gallery_model extends CI_Model {
                 $this->db->where($col, $val);
             }
         }
-
         $this->db->limit($limit, $start);        
 
 		$Q = $this->db->get('participant_images');
@@ -100,6 +99,8 @@ class Gallery_model extends CI_Model {
 		
         $Q->free_result();
         
+		//print_r($this->db->last_query());
+		
 		return $data;	
 	}
 

@@ -1,7 +1,7 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
 <script type="text/javascript">
 window.onload = function() {
-	FB.Canvas.setSize({ width: 810, height: 796 });
+	FB.Canvas.setSize({ width: 810, height: 1524 });
 }
 </script>
 <div class="clearfix margintop-50"></div>
@@ -37,7 +37,7 @@ window.onload = function() {
 			<input type="hidden" name="image_temp" value="">
 			<div class="id-uploadsticker">
 				<div class="text-center button-submit" style="display: none">
-					<button type="submit" class="klik font-pocky">Unggah</button></div>
+					<button type="submit" class="klik font-pocky">Unggah</button>
 				</div>
 			</div>
 			<?php echo form_close(); ?>

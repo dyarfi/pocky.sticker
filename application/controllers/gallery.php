@@ -38,15 +38,18 @@ class gallery extends CI_Controller {
                 $typec = array('type' =>'2');
             } 
         }
-
+		
 		// Completed image activated from admin
 		$status = 2;
         $sort 	= $this->input->get('sort');
         $search = $this->input->get('search');
+		$types 	= $this->input->get('type');
 
         $url_search 	 = $search ? array('search'=>$search) : array();
         $url_sortby		 = $sort ? array('sort'=>$sort) : array(); 
+		$url_typeby		 = $types ? array('type'=>$types) : array(); 
         $params			 = array_merge($url_search, $url_sortby);
+		$params			 = $url_typeby ? array_merge($params, $url_typeby) : $params;	
         
         $this->load->library('pagination');
 		

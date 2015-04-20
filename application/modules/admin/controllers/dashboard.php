@@ -89,6 +89,10 @@ class Dashboard extends Admin_Controller {
 			 * 
 			 */
 			
+			// Check range post
+			$range_post = $this->input->post('reportrange');
+			$range		= explode(" to ", $range_post);
+			
 			// User login stats
 			$login_stats = $this->Users->getLoginStats();
             if(!empty($login_stats)) {
@@ -102,7 +106,8 @@ class Dashboard extends Admin_Controller {
             }
 			
 			// Participant Join stats
-			$join_stats = $this->Participants->getJoinStats();
+			$join_stats = $this->Participants->getJoinStats($range);
+			
             if(!empty($join_stats)) {
                     
                 $temp_join = array();

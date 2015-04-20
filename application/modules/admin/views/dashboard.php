@@ -119,6 +119,21 @@
 					</div>
 					</div>
 					<div class="portlet-body">
+					<form class="form-horizontal" name="form-report-range" method="POST">
+					<fieldset>
+						<div class="control-group">
+							<div class="controls">
+								<div class="input-prepend input-group">
+									<span class="add-on input-group-addon">
+									<i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+									</span>
+									<input id="reportrange" class="form-control" type="text" value="" name="reportrange" style="width: 200px">
+									<button type="submit" class="btn btn-default">Get</button>
+								</div>
+							</div>
+						</div>
+					</fieldset>
+					</form>
 					<div id="join_statistics_loading">
 						<img src="<?php echo base_url();?>assets/admin/img/loading.gif" alt="loading"/>
 					</div>

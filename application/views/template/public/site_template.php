@@ -29,14 +29,55 @@
 <div id="fb-root"></div>
 <script src="https://connect.facebook.net/en_US/all.js"></script>
 <script>
-	FB.init({
+FB.init({
 	appId : '1539327999688781',
 	status : false, // check login status
 	cookie : true, // enable cookies to allow the server to access the session
 	xfbml : true // parse XFBML
-	});
+});
+// Place following code after FB.init call.
+function onLogin(response) {
+  if (response.status == 'connected') {
+    FB.api('/me?fields=first_name', function(data) {
+      var welcomeBlock = document.getElementById('fb-welcome');
+      welcomeBlock.innerHTML = 'Hello, ' + data.first_name + '!';
+    });
+  }
+}
+FB.getLoginStatus(function(response) {
+  // Check login status on load, and if the user is
+  // already logged in, go directly to the welcome message.
+  if (response.status == 'connected') {
+    onLogin(response);
+  } else {
+    // Otherwise, show Login dialog first.
+    FB.login(function(response) {
+      onLogin(response);
+    }, {scope: 'user_friends, email'});
+  }
+});
+FB.AppEvents.activateApp();
+FB.AppEvents.logEvent('upload');
 </script>	
+<!-- Facebook Conversion Code for Leads - Dentsu FB 1 -->
+<script>(function() {
+  var _fbq = window._fbq || (window._fbq = []);
+  if (!_fbq.loaded) {
+    var fbds = document.createElement('script');
+    fbds.async = true;
+    fbds.src = '//connect.facebook.net/en_US/fbds.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(fbds, s);
+    _fbq.loaded = true;
+  }
+})();
+window._fbq = window._fbq || [];
+window._fbq.push(['track', '6023544599179', {'value':'0.00','currency':'USD'}]);
+</script>
+<noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6023544599179&amp;cd[value]=0.00&amp;cd[currency]=USD&amp;noscript=1" /></noscript>
+<h1 id="fb-welcome" class="hide"></h1>
 <?php $this->load->view('template/public/header'); ?>
+
 <div id="navigation">
 	<?php $this->load->view('template/public/navigation'); ?>
 </div>

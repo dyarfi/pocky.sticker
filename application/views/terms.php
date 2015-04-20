@@ -1,7 +1,7 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
 <script type="text/javascript">
 window.onload = function() {
-	FB.Canvas.setSize({ width: 810, height: 1147 });
+	FB.Canvas.setSize({ width: 810, height: 1524 });
 }
 </script>
 <section id="content" class="thanks">
