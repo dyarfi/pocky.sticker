@@ -144,6 +144,48 @@
 				</div>
 			</div>	
 		
+			
+			<div class="row-fluid">
+				<div class="col-md-6">
+					<div class="portlet box yellow">
+						<div class="portlet-title">
+							<div class="caption">
+								<i class="fa fa-gift"></i>Gender Statistics
+							</div>
+							<div class="tools">
+								<!--a class="config" data-toggle="modal" href="#portlet-config">
+								</a>
+								<a class="reload" href="javascript:;">
+								</a-->
+							</div>
+						</div>
+						<div class="portlet-body">
+							<h4>Participant Gender Rate.</h4>
+							<div class="chart" id="pie_chart" style="position: relative; padding: 0px;"></div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 hidden">
+					<div class="portlet box blue">
+						<div class="portlet-title">
+							<div class="caption">
+								<i class="fa fa-gift"></i>Location based Statistics
+							</div>
+							<div class="tools">
+								<a class="config" data-toggle="modal" href="#portlet-config">
+								</a>
+								<a class="reload" href="javascript:;">
+								</a>
+							</div>
+						</div>
+						<div class="portlet-body">
+							<h4>Added a semi-transparent background to the labels and a custom labelFormatter function.</h4>
+							<div class="chart" id="pie_chart_2" style="position: relative; padding: 0px;"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
 		    <div class="col-md-12 col-sm-12 hidden">
 			<div class="portlet box blue">
 			    <div class="portlet-title">

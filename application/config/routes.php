@@ -40,8 +40,8 @@
 
 $route['default_controller'] = "home";
 $route['download/(:num)'] = 'download';
-$route['404_override'] = '';
-
+$route['404_override'] 	= '';
+$route['toc']			= 'terms';
 
 /*
 | -------------------------------------------------------------------------

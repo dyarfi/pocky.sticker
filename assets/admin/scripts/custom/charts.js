@@ -602,15 +602,57 @@ var Charts = function () {
                 }
             }
 
-            // DEFAULT
-            $.plot($("#pie_chart"), data, {
-                    series: {
-                        pie: {
-                            show: true
-                        }
-                    }
-                });
-
+			if ($('#pie_chart').size() != 0) {
+				//alert('sdfg');
+				// Modified for ajax request for participants gender stats
+				$.ajax({
+						// have to use synchronous here, else the function 
+						// will return before the data is fetched
+						async: false,
+						url: 'index',
+						dataType:"json",
+						sortData:true,
+						success: function(data) {
+						  var genders = data.result.gender_stats;
+							var i = 0;
+							var gender = [];
+							$.each( genders, function( key, value ) {
+								
+								gender[i] = {
+									label: '&nbsp;' + key + '&nbsp;(' + value + ')',
+									data: value
+								};
+								i++;
+							});
+							
+							// DEFAULT
+							$.plot($("#pie_chart"), gender, {
+								series: {
+									pie: {
+										show: true,
+										radius: 1,
+										label: {
+											show: true,
+											radius: 1,
+											formatter: function (label, gender) {
+												return '<div style="font-size:8pt;text-align:center;padding:2px;color:white;">' + label + '<br/>' + Math.round(gender.percent) + '%</div>';
+											},
+											background: {
+												opacity: 0.8
+											}
+										}
+									}
+								},
+								grid: {
+									hoverable: true,
+									clickable: true
+								}
+							});                       
+						}
+					});
+			}
+			
+			/********** 
             // GRAPH 1
             $.plot($("#pie_chart_1"), data, {
                     series: {
@@ -840,6 +882,7 @@ var Charts = function () {
                 percent = parseFloat(obj.series.percent).toFixed(2);
                 alert('' + obj.series.label + ': ' + percent + '%');
             }
+			******************/
 
         }
         

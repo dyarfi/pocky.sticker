@@ -189,8 +189,9 @@
 
 <script type="text/javascript" src="<?=base_url()?>assets/admin/plugins/flot/jquery.flot.min.js"></script>
 <script type="text/javascript" src="<?=base_url()?>assets/admin/plugins/flot/jquery.flot.resize.min.js"></script>
+<script type="text/javascript" src="<?=base_url()?>assets/admin/plugins/flot/jquery.flot.pie.min.js"></script>
 <script type="text/javascript" src="<?=base_url()?>assets/admin/plugins/flot/jquery.flot.categories.min.js"></script>
-	    
+
 <script src="<?=base_url()?>assets/admin/plugins/jquery.blockui.min.js" type="text/javascript"></script>
 <script src="<?=base_url()?>assets/admin/plugins/jquery.cokie.min.js" type="text/javascript"></script>
 <script src="<?=base_url()?>assets/admin/plugins/bootbox/bootbox.min.js" type="text/javascript"></script>
@@ -244,6 +245,7 @@
 <script src="<?=base_url()?>assets/admin/scripts/custom/tasks.js" type="text/javascript"></script>
 <script src="<?=base_url()?>assets/admin/scripts/custom/table-managed.js"></script>
 <script src="<?=base_url()?>assets/admin/scripts/custom/components-pickers.js"></script>
+<script src="<?=base_url()?>assets/admin/scripts/custom/charts.js"></script>
 <!-- END PAGE LEVEL PLUGINS -->
 
 <!-- BEGIN USER AJAX JAVASCRIPTS -->
@@ -271,7 +273,7 @@ jQuery(document).ready(function() {
     //Index.initDashboardDaterange();
     //Index.initIntro();
     //Tasks.initDashboardWidget();   
-   
+    Charts.initPieCharts();
     // Custom in admin pages
     FormStatus.init();
     FormUser.init();

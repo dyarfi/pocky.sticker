@@ -332,7 +332,7 @@ var Index = function () {
 			});
 			
 			
-			 // Modified for ajax request for participants stats
+			// Modified for ajax request for participants stats
 			$.ajax({
                     // have to use synchronous here, else the function 
                     // will return before the data is fetched

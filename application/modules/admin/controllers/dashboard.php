@@ -117,6 +117,22 @@ class Dashboard extends Admin_Controller {
                 $result['result']['stats_join'] = $temp_join;
 
             }
+			
+			// Sender statistics Join stats
+			$gender_stats = $this->Participants->getGenderStats();
+			
+            if(!empty($gender_stats)) {
+                    
+				
+				$temp_gender = '';
+				foreach ( $gender_stats as $gender) {
+					$temp_gender['Pria'] = $gender->pria;
+					$temp_gender['Wanita'] = $gender->wanita;
+					//$temp_gender['Total'] = array($gender->total);
+				}
+				$result['result']['gender_stats'] = $temp_gender;
+
+            }
 
             // Return data esult
             $data['json'] = $result;

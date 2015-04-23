@@ -155,4 +155,18 @@ class Participants Extends CI_Model {
             
 	    return $query->result_object();
 	}
+	
+	// Get all Participants Gender stats
+	public function getGenderStats($range='') {
+
+	    $sql = 'SELECT '
+				. 'COUNT(CASE WHEN gender = \'Pria\' THEN part_id END) as pria, '
+				. 'COUNT(CASE WHEN gender = \'Wanita\' THEN part_id END) as wanita, '
+				. 'COUNT(*) as total '
+				. 'FROM '.$this->table.';';
+	    
+	    $query = $this->db->query($sql);
+        //print_r($query);
+		return $query->result_object();
+	}
 }
