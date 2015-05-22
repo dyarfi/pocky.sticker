@@ -20,6 +20,7 @@ class gallery extends CI_Controller {
 		$order = array('id' => 'DESC');
         $sort = $this->input->get('sort', true);
 		$type = $this->input->get('type', true);
+		$typec = array();
         
         if ($sort) {
             if ($sort == 'atoz') {

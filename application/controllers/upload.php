@@ -155,6 +155,7 @@ class upload extends CI_Controller {
 						
 						$file_hash	= md5(time() + rand(100, 999));
 						$file_data	= pathinfo($_FILES['fileupload']['name']);
+						$file_rename	= $file_hash.'.'.$file_data['extension'];
 											
 						$file_element_name = 'fileupload';
 						
@@ -162,6 +163,8 @@ class upload extends CI_Controller {
 						$config['allowed_types'] = 'gif|jpg|png|doc|txt';
 						$config['max_size'] = 1024 * 8;
 						$config['encrypt_name'] = FALSE;
+						$config['overwrite'] = FALSE;
+						$config['file_name'] = $file_rename;
 
 						$this->load->library('upload', $config);
 						
@@ -187,10 +190,8 @@ class upload extends CI_Controller {
 							 $msg = "Something went wrong when saving the file, please try again.";
 							}
 						}
-												
-						$file_name	= self::_upload_to($_FILES['fileupload'], $file_hash.'.'.$file_data['extension'], './uploads/gallery/', 0777);
-											
-						$config['source_image']	= $file_name;
+						
+						$config['source_image']	= $data['full_path'];
 						$config['create_thumb'] = TRUE;
 						$config['maintain_ratio'] = TRUE;
 						$config['width']	= 264;
@@ -199,24 +200,18 @@ class upload extends CI_Controller {
 						$this->load->library('image_lib', $config); 
 
 						$this->image_lib->resize();
-						
-						
-
-						$file_data	= pathinfo($file_name);
-						$file_mime	= $_FILES['fileupload']['type'];
-															
-						
-						$thumb = $file_data['filename'].'_thumb.'.$file_data['extension'];
+		
+						$thumb = $data['raw_name'].'_thumb'.$data['file_ext'];
 						$result['files'][] = array(
-												'name'	=>$file_data['basename'],
-												'size'	=>$_FILES['fileupload']['size'],
-												'type'	=>$_FILES['fileupload']['type'],
-												'url'	=> 'uploads/gallery/'. $file_data['basename'],
+												'name'	=>$data['file_name'],
+												'size'	=>$data['file_size'],
+												'type'	=>$data['image_type'],
+												'url'	=> 'uploads/gallery/'. $data['file_name'],
 												//'file_id'		=> $file_id,
 												'thumbnailUrl'	=>'uploads/gallery/'. $thumb,
 												//'deleteUrl'		=>URL::site(ADMIN).'/news/filedelete/'.$file_id,
 												'deleteType'	=>'DELETE'
-												);						
+												);									
 					}																
 				
 			} else {

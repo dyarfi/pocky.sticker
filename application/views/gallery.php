@@ -23,10 +23,10 @@ window.onload = function() {
 					  </div>
 					</form-->
 					<div class="klik font-pocky pull-left col-md-6">
-						<a href="<?php echo base_url('gallery?type=16');?>">PEMENANG STIKER REGULER</a>
+						<a href="<?php echo base_url('gallery?type=16');?>" <?php echo ($this->input->get('type') == 16) ? 'style="color:black;"' : '';?>>PEMENANG STIKER REGULER</a>
 					</div>
 					<div class="klik font-pocky pull-right col-md-6">
-						<a href="<?php echo base_url('gallery?type=2');?>">PEMENANG STIKER SPESIAL</a>
+						<a href="<?php echo base_url('gallery?type=2');?>" <?php echo ($this->input->get('type') == 2) ? 'style="color:black;"' : '';?>>PEMENANG STIKER SPESIAL</a>
 					</div>	
 				</div>
 				<div class="col-sm-7 pull-right">

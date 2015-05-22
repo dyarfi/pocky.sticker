@@ -122,7 +122,6 @@ class Dashboard extends Admin_Controller {
 			$gender_stats = $this->Participants->getGenderStats();
 			
             if(!empty($gender_stats)) {
-                    
 				
 				$temp_gender = '';
 				foreach ( $gender_stats as $gender) {
@@ -133,7 +132,20 @@ class Dashboard extends Admin_Controller {
 				$result['result']['gender_stats'] = $temp_gender;
 
             }
+			
+			// Sender statistics Oshis Favorite stats
+			$oshis_stats = $this->Participants->getOshiStats();
+			
+            if(!empty($oshis_stats)) {
+				  	 
+				$temp_oshis  = array();
+				foreach ($oshis_stats as $oshi) {
+					$temp_oshis[$oshi->oshi_favorite] = $oshi->sum;
+				}
+				$result['result']['oshis_stats'] = $temp_oshis;
 
+            }
+			
             // Return data esult
             $data['json'] = $result;
 
