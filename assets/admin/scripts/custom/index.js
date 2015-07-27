@@ -341,22 +341,7 @@ var Index = function () {
                     dataType:"json",
                     sortData:true,
                     success: function(data) {
-                      var participants = 
-                            data.result.stats_join
-                            /*
-                            ['01/2013', 500],
-                            ['02/2013', 1500],
-                            ['03/2013', 2600],
-                            ['04/2013', 1200],
-                            ['05/2013', 560],
-                            ['06/2013', 2000],
-                            ['07/2013', 2350],
-                            ['08/2013', 1500],
-                            ['09/2013', 4700],
-                            ['10/2013', 1300],
-                            */
-                        ;
-
+                      var participants = data.result.stats_join;
 
                         if ($('#join_statistics').size() != 0) {
 

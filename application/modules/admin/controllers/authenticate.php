@@ -174,7 +174,7 @@ class Authenticate extends CI_Controller {
             /** Redirect to dashboards **/
 			redirect(str_replace('{admin_id}', $this->session->userdata('user_session')->id, $this->configs['default_page']));            
 	    } 
-      
+
     }
 	
 }

@@ -603,7 +603,6 @@ var Charts = function () {
             }
 
 			if ($('#pie_chart').size() != 0) {
-				//alert('sdfg');
 				// Modified for ajax request for participants gender stats
 				$.ajax({
 						// have to use synchronous here, else the function 
@@ -652,6 +651,93 @@ var Charts = function () {
 					});
 			}
 			
+			if ($("#pie_chart_1").size() != 0) {
+				// Modified for ajax request for participants gender stats
+				$.ajax({
+					// have to use synchronous here, else the function 
+					// will return before the data is fetched
+					async: false,
+					url: 'index',
+					dataType:"json",
+					sortData:true,
+					success: function(data) {
+						var oshis = data.result.oshis_stats;
+						var i = 0;
+						var oshi = [];
+						$.each( oshis, function( key, value ) {
+							//console.log(value);
+							oshi[i] = {
+								label: '&nbsp;' + key + '&nbsp;(' + value + ')',
+								data: value
+							};
+							i++;
+						});
+
+						// DEFAULT
+						$.plot($("#pie_chart_1"), oshi, {
+							series: {
+								pie: {
+									show: true,
+									radius: 1,
+									label: {
+										show: true,
+										radius: 1,
+										formatter: function (label, oshi) {
+											return '<div style="font-size:8pt;text-align:center;padding:2px;color:white;" class="grid-hover">' + label + '<br/>' + Math.round(oshi.percent) + '%</div>';
+										},
+										background: {
+											opacity: 0.8
+										}
+									}
+								}
+							},
+							grid: {
+								hoverable: true,
+								clickable: true
+							}
+						});                       
+					}
+				});
+				
+				if ($('.grid-hover').size() > 0) {
+					
+					$('.grid-hover').hover(function() {
+						$(this).parent().prev('.pieLabelBackground')
+								.css({'z-index':99,'opacity':1,
+							'-webkit-box-shadow': '0px 0px 0px 1px rgba(255,255,255,1)',
+							'-moz-box-shadow': '0px 0px 0px 1px rgba(255,255,255,1)',
+							'box-shadow': '0px 0px 0px 1px rgba(255,255,255,1)'});
+						$(this).parent().css({'z-index':99});
+						$(this).stop().animate({'color':'black'});
+					},function() {
+						$(this).parent().prev('.pieLabelBackground')
+								.css({'z-index':1,'opacity':0.8,
+							'-webkit-box-shadow': 'none',
+							'-moz-box-shadow': 'none',
+							'box-shadow': 'none'});
+						$(this).parent().css({'z-index':1});
+						$(this).stop().animate({'color':'white'});
+					});
+
+					//$("#pie_chart_1").bind("plothover", pieHover);
+					//$("#pie_chart_1").bind("plotclick", pieClick);
+					
+				}
+				
+			}
+			
+			function pieHover(event, pos, obj) {
+				if (!obj) return;
+				//percent = parseFloat(obj.series.percent).toFixed(2);
+				//$(".grid-hover").html('<span style="font-weight: bold; color: ' + obj.series.color + '">' + obj.series.label + ' (' + percent + '%)</span>');
+			}
+
+			function pieClick(event, pos, obj) {
+				if (!obj) return;
+				//percent = parseFloat(obj.series.percent).toFixed(2);
+				//alert('' + obj.series.label + ': ' + percent + '%');
+			}
+
 			/********** 
             // GRAPH 1
             $.plot($("#pie_chart_1"), data, {
