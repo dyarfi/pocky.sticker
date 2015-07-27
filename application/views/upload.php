@@ -17,12 +17,19 @@ window.onload = function() {
 			  </p>
 				<?php 
 					// Set both link for 16 and 2 stickers
+					/*
 					$type2_link = '<div class="klik-unggah font-pocky pull-left unggah2">'
 									.'<a class="click" rel="sticker2" href="javascript:;">2 sticker spesial</a></div>';
-									
+					*/				
 					$type16_link = '<div class="klik-unggah font-pocky pull-right unggah16">'
 									.'<a class="click" rel="sticker16" href="javascript:;">16 sticker reguler</a></div>';
 					
+					$type2_link = '<div class="klik-unggah font-pocky pull-left unggah2">'
+									.'<a class="popup_close" rel="sticker2" href="javascript:;">2 sticker spesial</a></div>';
+					/*				
+					$type16_link = '<div class="klik-unggah font-pocky pull-right unggah16">'
+									.'<a class="popup_close" rel="sticker16" href="javascript:;">16 sticker reguler</a></div>';
+					*/				
 					// Check if user already submit images
 					if (!empty($images['2'])) {
 						$type2_link = '<div class="klik-unggah font-pocky pull-left unggah2">'

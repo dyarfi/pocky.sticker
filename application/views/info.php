@@ -24,6 +24,6 @@ window.onload = function() {
     </p>
   </div>
   </div>
-  <div class="klik font-pocky"><a href="<?php echo base_url('home/register');?>">Lanjutkan</a></div>
+  <div class="klik font-pocky"><a class="popup_close" href="#<?php echo base_url('home/register');?>">Lanjutkan</a></div>
   
 </div>

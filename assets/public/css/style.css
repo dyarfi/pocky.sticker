@@ -185,7 +185,22 @@ hr {
 	opacity: 0;
 	filter: alpha(opacity=0);
 }
-
+.winners60 {
+	background: url("../img/60winners.png") 100% 100% no-repeat;
+	width:574px;
+	height:590px;
+	display:block;
+	padding:0px;
+	marin:0 auto;
+	color:#00958f;
+	font-family: 'Gotham_Book','Arial','Tahoma','Verdana';
+}
+.winners60 p {
+	margin: 120px auto 0 auto;
+	padding:5px 15px 5px 5px;
+	font-size: 17px;
+	font-weight:bold
+}
 /* ===========================
 --- Footer
 ============================ */

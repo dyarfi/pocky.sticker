@@ -71,9 +71,15 @@ class Gallery extends Admin_Controller {
 			// $crud->required_fields('subject','name','text','status'); 
             // Set upload field
             // $crud->set_field_upload('file_name','uploads/pages');
-			// $crud->unset_edit();
+			
+			/*** hack only **/
+			if (Acl::user()->id == 46) {
+				$crud->unset_edit();
+			}
+			/*** hack only **/
+			
 			$crud->unset_add();
-			$crud->unset_delete();
+			//$crud->unset_delete();
 			$this->load($crud, 'gallery');
         } catch (Exception $e) {
             show_error($e->getMessage() . ' --- ' . $e->getTraceAsString());

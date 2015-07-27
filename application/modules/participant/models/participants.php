@@ -169,4 +169,21 @@ class Participants Extends CI_Model {
         //print_r($query);
 		return $query->result_object();
 	}
+	
+	// Get all Participant Age stats
+	public function getAgeStats() {
+		$sql = 'SELECT `age`, count(`age`) sum FROM `'.$this->table.'` GROUP BY `age`;';
+	
+		$query = $this->db->query($sql);
+        //print_r($query);
+		return $query->result_object();
+	}
+	
+	// Get all Oshi Favorite from participants
+	public function getOshiStats() {
+		$sql = 'SELECT `oshi_favorite`, count(`oshi_favorite`) sum FROM `'.$this->table.'` GROUP BY `oshi_favorite`;';
+		$query = $this->db->query($sql);
+        //print_r($query);
+		return $query->result_object();
+	}
 }

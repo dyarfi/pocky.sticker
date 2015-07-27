@@ -318,7 +318,7 @@ class Home extends CI_Controller {
 			$config = array(
 				array('field' => 'image_name', 
 	                  'label' => 'File', 
-	                  'rules' => 'trim|required|xss_clean|max_length[35]'));
+	                  'rules' => 'trim|required|xss_clean|max_length[64]'));
 			
 			// Set rules to form validation
 			$this->form_validation->set_rules($config);
@@ -372,13 +372,16 @@ class Home extends CI_Controller {
 						
 						$file_hash	= md5(time() + rand(100, 999));
 						$file_data	= pathinfo($_FILES['fileupload']['name']);
+						$file_rename	= $file_hash.'.'.$file_data['extension'];
 											
 						$file_element_name = 'fileupload';
 						
 						$config['upload_path'] = './uploads/users/';
-						$config['allowed_types'] = 'gif|jpg|png|doc|txt';
+						$config['allowed_types'] = 'gif|jpg|png';
 						$config['max_size'] = 1024 * 8;
 						$config['encrypt_name'] = FALSE;
+						$config['overwrite'] = FALSE;
+						$config['file_name'] = $file_rename;
 
 						$this->load->library('upload', $config);
 						
@@ -405,9 +408,7 @@ class Home extends CI_Controller {
 							}
 						}
 												
-						$file_name	= self::_upload_to($_FILES['fileupload'], $file_hash.'.'.$file_data['extension'], './uploads/users/', 0777);
-											
-						$config['source_image']	= $file_name;
+						$config['source_image']	= $data['full_path'];
 						$config['create_thumb'] = TRUE;
 						$config['maintain_ratio'] = TRUE;
 						$config['width']	= 264;
@@ -416,21 +417,18 @@ class Home extends CI_Controller {
 						$this->load->library('image_lib', $config); 
 
 						$this->image_lib->resize();
-						
-						$file_data	= pathinfo($file_name);
-						$file_mime	= $_FILES['fileupload']['type'];
-															
-						$thumb = $file_data['filename'].'_thumb.'.$file_data['extension'];
+		
+						$thumb = $data['raw_name'].'_thumb'.$data['file_ext'];
 						$result['files'][] = array(
-												'name'	=>$file_data['basename'],
-												'size'	=>$_FILES['fileupload']['size'],
-												'type'	=>$_FILES['fileupload']['type'],
-												'url'	=> 'uploads/users/'. $file_data['basename'],
+												'name'	=>$data['file_name'],
+												'size'	=>$data['file_size'],
+												'type'	=>$data['image_type'],
+												'url'	=> 'uploads/users/'. $data['file_name'],
 												//'file_id'		=> $file_id,
 												'thumbnailUrl'	=>'uploads/users/'. $thumb,
 												//'deleteUrl'		=>URL::site(ADMIN).'/news/filedelete/'.$file_id,
 												'deleteType'	=>'DELETE'
-												);						
+												);					
 					}																
 				
 			} else {

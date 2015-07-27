@@ -132,6 +132,13 @@
 		var html = '<div class="text-center"><img class="img-responsive img-center" src="'+image+'" alt="'+image+'" width="100%"/></div>';
 		bootbox.alert({message:html,closeButton:false});
 	});
+	
+	$('.popup_close').click(function(){
+		var html = '<div class="winners60">&nbsp;</div>';
+		bootbox.alert({"backdrop":"static",message:html,closeButton:true}).css('top','100px');
+		//return false;
+	});
+	
 	$(document).on('click', '.bootbox', function (event) {
 		bootbox.hideAll();
 	});

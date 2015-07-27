@@ -1,7 +1,7 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 // Class for Authenticate used for user login
-class Authenticate extends Admin_Controller {
+class Authenticate extends CI_Controller {
 
 	public function __construct() {
 	    parent::__construct();		
@@ -21,23 +21,25 @@ class Authenticate extends Admin_Controller {
 	    $this->load->model('Configurations');		
 	    $this->load->model('UserHistories');	
 	    $this->load->model('Captcha');
-		$this->load->model('Sessions');
+		$this->load->model('Sessions');	
+                
+        // Load Admin config
+		$this->configs = $this->load->config('admin/admin',true);
+                
 	}
-
-	public function index() {
-	
-	    // Check if user is logged in or not
-	    if ($this->session->userdata('user_session') == '') {
-			/** Redirect to authentication **/
-			redirect(ADMIN . 'authenticate/login');
-	    } else {
-			/** Redirect to dashboards **/
-			redirect(str_replace('{admin_id}', $this->user->id, $this->configs['default_page']));
-	    }
-	    
-	}
+    
+    public function index () { 
+        
+        // Check if already login
+        self::login(); 
+    
+    }
 	
 	public function login () {	
+        
+        // User login checking
+        self::log_check();
+        
 	    // POST checking
 	    if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
@@ -46,26 +48,27 @@ class Authenticate extends Admin_Controller {
 		    $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[5]|max_length[24]|xss_clean');
 		    $this->form_validation->set_rules('password', 'Password','trim|required|min_length[5]|max_length[24]|xss_clean');
 
-		    if ($this->form_validation->run() == FALSE)
-		    {
+		    if ($this->form_validation->run() == FALSE) {
 
 		    }
 		    else {
-
+			
 		    }
 
 		    //Make sure login object was true
 		    if($userObj['username'] == '' OR $userObj['password'] == '') {
 			//return false;
+
 		    }
 		    //Check if already logged in
 		    if($this->session->userdata('username') == $userObj['username']) {
 			//User is already logged in.				
 			//return false;
+
 		    }
 
 		    // Initialize install
-		    $this->Users->install();		   
+		    $this->Users->install();					   
 		    $this->UserGroups->install();
 			$this->ModuleLists->install();
 		    $this->ModelLists->install();
@@ -107,7 +110,6 @@ class Authenticate extends Admin_Controller {
 			    $user_session->id = $user->id;
 			    $user_session->username = $user->username;
 			    $user_session->email = $user->email;
-			    $user_session->password = substr_replace($user->password, "********", 0, strlen($user->password));
 			    $user_session->group_id = $user->group_id;
 			    $user_session->status = $user->status;				
 			    $user_session->last_login = $user->last_login;				
@@ -123,15 +125,9 @@ class Authenticate extends Admin_Controller {
 			    //Set session data
 			    $this->session->set_userdata($ci_session);
 			    
-			    // Check referrer if admin already visited a page 
-			    if (strstr($this->previous_url, ADMIN.'authenticate/login')=='') {
-					// Redirect to referrer
-					redirect(base_url($this->previous_url));
-			    } else {
-					// Redirect to dashboard
-					redirect(ADMIN.'dashboard/index');
-			    }
-
+			    // Redirect to dashboard
+				redirect(ADMIN.'dashboard/index');
+			    
 		    } else {
 
 			    $userObj = 'No user with that account';				
@@ -141,27 +137,44 @@ class Authenticate extends Admin_Controller {
 		    }
 	    }
 
-	     // Set main template
+	    // Load js for administrator login
+		$data['js_files'] = array(base_url('assets/admin/scripts/custom/login-soft.js'));
+		
+		// Load CSS for the template
+		$data['css_files'] = array(base_url('assets/admin/css/pages/login-soft.css'));
+		
+		// Load JS execution
+		$data['js_inline'] = "Login.init();";
+
+		// Set main template
 	    $data['main']	= 'admin/login';
 	    
 	    // Load admin template
 	    $this->load->view('template/admin/login_template', $this->load->vars($data));
+        
 	}
+	
 	public function logout() {
-		
-	    //Set user's last login 
+        
+		// Set user's last login 
 	    $this->Users->setLastLogin(@Acl::user()->id);		
 
-	    //Destroy user session		
-	    $this->session->unset_userdata('module_list');
-	    $this->session->unset_userdata('module_function_list');
-	    $this->session->unset_userdata('user_data');		
-	    $this->session->unset_userdata('user_session');
+	    // Destroy user session		
+	    ACL::session_destroy();
+        
+	    // Redirect admin to refresh
+	    redirect(ADMIN.'authenticate');
 
-	    $this->session->sess_destroy();
-
-	    //Redirect admin to refresh
-	    redirect(ADMIN);
+    }
+    
+    private function log_check ($session='') {
+        
+        // Check if user is logged in or not
+	    if ($this->session->userdata('user_session')->id != '') {
+            /** Redirect to dashboards **/
+			redirect(str_replace('{admin_id}', $this->session->userdata('user_session')->id, $this->configs['default_page']));            
+	    } 
+      
     }
 	
 }

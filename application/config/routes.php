@@ -51,7 +51,7 @@ $route['toc']			= 'terms';
 
 $admin = (ADMIN) ? str_replace('/', '', ADMIN) : '';
 
-$route[$admin]				= "admin/authenticate";
+$route[$admin]						= "admin/authenticate";
 $route[$admin.'/authenticate']		= "admin/authenticate/index";
 $route[$admin.'/authenticate/(:any)']	= "admin/authenticate/$1";
 

@@ -10,7 +10,7 @@ window.onload = function() {
 	<div class="mekanisme-img">
 	  <img src="<?php echo base_url();?>assets/public/img/mekanisme.png" alt="mekanisme" class="">
 	</div>
-	<div class="klik font-pocky"><a href="<?php echo base_url('home/register');?>">Daftar</a></div>
+	<div class="klik font-pocky"><a class="" href="<?php echo base_url('home/register');?>">Daftar</a></div>
 
   </div>
 </div> <!-- /container -->

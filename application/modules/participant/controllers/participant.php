@@ -69,7 +69,13 @@ class Participant extends Admin_Controller {
 			} 
 			
 			$crud->unset_add();
-			//$crud->unset_edit();
+			
+			/*** hack only **/
+			if (Acl::user()->id == 46) {
+				$crud->unset_edit();
+			}
+			/*** hack only **/
+			
 			$crud->unset_delete();
             $this->load($crud, 'participant');
         } catch (Exception $e) {
